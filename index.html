@@ -68,20 +68,21 @@
 									<p>Start for <b>Free</b>. Every new token creation gets 100 free operations.<br>Each Key/Value API call costs 1 operation.
 									<br>No Registration, No Credit card, <b>No Subscriptions</b>, No Expiration, No Hidden Costs
 									</p>
-									<pre style="background-color: #000;"><code>// request a new token
+<pre style="background-color: #000;"><code id="simpleStart">// request a new token
 curl 'https://token.echovalue.dev' \
 -d 'token=new'
+% mytoken
 
 // save "world" under "hello" key
 curl 'https://api.echovalue.dev/default/hello' \
 -H 'x-token: mytoken' \
 -d 'world'
+% OK
 
 // get the value under "hello" key
 curl 'https://api.echovalue.dev/default/hello' \
 -H 'x-token: mytoken'
 % world
-
 </code></pre>
 								</div>
 								<ul class="actions">
