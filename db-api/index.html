@@ -4,8 +4,8 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>echoValue - No Subscription Key-Value Store API</title>
-		<meta name="description" content="echoValue is a 'pay as you go' Key-Value Store API, ideal for small projects and serverless applications.">
+		<title>echoValue DB API - No Subscription Key-Value Store</title>
+		<meta name="description" content="echoValue DB API is a 'pay as you go' Key-Value Store API, ideal for small projects and serverless applications.">
 		<meta name="keywords" content="echoValue, Key-Value Store, API, NoSQL, Serverless, Cloud Storage, nosubscription">
 		<meta name="author" content="Emiliano Saurin">
 		<link rel="canonical" href="https://www.echovalue.dev/db-api/">
@@ -21,159 +21,184 @@
 		<meta property="twitter:title" content="echoValue DB API - No Subscription Key-Value Store API">
 		<meta property="twitter:description" content="echoValue DB API is a 'pay as you go' Key-Value Store API, ideal for small projects and serverless applications.">
 		<meta property="twitter:image" content="https://www.njoylab.com/images/echovalue-api.webp">
-		<link rel="stylesheet" href="../assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="../assets/css/custom.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	</head>
-	<body class="is-preload">
+	<body>
 
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#intro">Welcome</a></li>
-							<li><a href="#getstarted">Get Started</a></li>
-							<li><a href="#pricing">Pricing</a></li>
-							<li><a href="#contact">Contact</a></li>
-							<li><a href="https://docs.echovalue.dev">Documentation</a></li>
-							<li>
-								<img src="../images/echovalue_logo.webp" alt="echoValue" style="width: 100%; max-width: 200px; margin-bottom: 20px; margin-top: 20px;"/>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</section>
-
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<h1>echoValue API - No Subscription</h1>
-							<p>
-							<b>echoValue</b> is a Key-Value Store API that offers a lightweight and user-friendly solution for developers and freelancers, especially those focusing on smaller projects.<br>This API simplifies the storage and retrieval of key-value data, eliminating the need for complex server setups.<br><br>It's perfectly suited for serverless applications, quick prototyping, metrics handling, and a variety of other uses.		
-							</p>
-						</div>
-					</section>
-
-				<!-- getstarted -->
-					<section id="getstarted" class="wrapper style2 spotlights">
-						<section>
-							<div class="content">
-								<div class="inner">
-									<h2>Get Started</h2>
-									<p>Start for <b>Free</b>. Every new token creation gets 100 free operations.<br>Each Key/Value API call costs 1 operation.
-									<br>No Registration, No Credit card, <b>No Subscriptions</b>, No Expiration, No Hidden Costs
-									</p>
-<pre style="background-color: #000;"><code id="simpleStart">// request a new token
-curl 'https://token.echovalue.dev' \
--d 'token=new'
-% mytoken
-
-// save "world" under "hello" key
-curl 'https://api.echovalue.dev/default/hello' \
--H 'x-token: mytoken' \
--d 'world'
-% OK
-
-// get the value under "hello" key
-curl 'https://api.echovalue.dev/default/hello' \
--H 'x-token: mytoken'
-% world
-</code></pre>
-								</div>
-								<ul class="actions">
-									<li><a href="https://docs.echovalue.dev" class="button">API Documentation</a></li>
-								</ul>
-							</div>
-						</section>
-					</section>
-
-				<!-- pricing -->
-					<section id="pricing" class="wrapper style3 fade-up">
-						<div class="inner">
-							<h2>Pricing</h2>
-							<p>
-								<b>No subscriptions</b>, you pay only what you use
-							</p>
-							<div class="features">
-								<section>
-									<h2>Free</h2>
-									<p>
-										100 operations<br>
-										No credit card<br>
-										No Registration<br>
-									</p>
-								</section>
-								<section>
-									<h2>$4 / €3,70</h2>
-									<p>
-										1 milion operations<br>
-										No Subscription<br>
-										No Expiration<br>
-									</p>
-								</section>
-								<section>
-									<h2>$10 / €9,20</h2>
-									<p>
-										3 milion operations<br>
-										No Subscription<br>
-										No Expiration<br>
-									</p>
-								</section>
-							</div>
-							<ul class="actions">
-								<li><a href="https://docs.echovalue.dev/#recharging-wallet" class="button">Recharging Wallet</a></li>
-							</ul>
-							<p>
-								Are you looking for something different?<br>Contact us
-							</p>
-						</div>
-					</section>
-				<!-- Three -->
-					<section id="contact" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Contact</h2>
-							<p>For any questions, feedbacks or support needs regarding echoValue, please reach out to us by mail or X. We are committed to providing prompt and helpful responses to ensure your experience is smooth and successful.</p>
-							<div class="split style1">
-								<section>
-									<ul class="contact">
-										<li>
-											<h3>Email</h3>
-											<a href="mailto:support@echovalue.dev">support@echovalue.dev</a>
-										</li>
-										<li>
-											<h3>Social</h3>
-											<ul class="icons">
-												<li><a href="https://twitter.com/emln_" class="icon brands fa-twitter"><span class="label">X</span></a></li>
-											</ul>
-										</li>
-									</ul>
-								</section>
-							</div>
-						</div>
-					</section>
-
+		<!-- Navigation -->
+		<nav class="navbar">
+			<div class="container">
+				<a href="/" class="navbar-brand">
+					<img src="../images/echovalue_logo.webp" alt="echoValue">
+					echoValue DB API
+				</a>
+				<ul class="navbar-nav">
+					<li><a href="#getstarted">Get Started</a></li>
+					<li><a href="#pricing">Pricing</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="https://docs.echovalue.dev">Documentation</a></li>
+				</ul>
 			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<section class="hero compact">
+			<div class="container">
+				<h1>DB API - Key-Value Store</h1>
+				<p>
+					A lightweight Key-Value Store API that offers a user-friendly solution for developers and freelancers.<br>
+					No subscriptions. No complex server setups. Just simple, reliable data storage.
+				</p>
+			</div>
+		</section>
+
+		<!-- Get Started Section -->
+		<section id="getstarted" class="section">
+			<div class="container">
+				<div class="section-header">
+					<h2>Get Started</h2>
+					<p>Start for <strong>free</strong> with 100 operations. No registration, no credit card, no subscriptions.</p>
+				</div>
+
+				<div class="code-block">
+<code>// Request a new token
+curl 'https://token.echovalue.dev' -d 'token=new'
+<span style="color: #4ade80;">% mytoken</span>
+
+// Save "world" under "hello" key
+curl 'https://api.echovalue.dev/default/hello' \
+  -H 'x-token: mytoken' \
+  -d 'world'
+<span style="color: #4ade80;">% OK</span>
+
+// Get the value under "hello" key
+curl 'https://api.echovalue.dev/default/hello' \
+  -H 'x-token: mytoken'
+<span style="color: #4ade80;">% world</span></code>
+				</div>
+
+				<div style="text-align: center; margin-top: 2rem;">
+					<a href="https://docs.echovalue.dev" class="btn btn-primary">View Full Documentation</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Features Section -->
+		<section class="section bg-light">
+			<div class="container">
+				<div class="section-header">
+					<h2>Why Choose DB API?</h2>
+				</div>
+
+				<div class="projects-grid">
+					<div style="background: white; padding: 2rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+						<h3 style="color: #0f172a; margin-bottom: 1rem;">🚀 Quick to Start</h3>
+						<p>Get your first token in seconds. No sign-up forms, no email verification, no waiting.</p>
+					</div>
+					<div style="background: white; padding: 2rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+						<h3 style="color: #0f172a; margin-bottom: 1rem;">💰 Pay As You Go</h3>
+						<p>Only pay for what you use. Credits never expire. No monthly fees or hidden costs.</p>
+					</div>
+					<div style="background: white; padding: 2rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+						<h3 style="color: #0f172a; margin-bottom: 1rem;">⚡ Perfect for Serverless</h3>
+						<p>Ideal for serverless apps, prototypes, metrics handling, and configuration storage.</p>
+					</div>
+					<div style="background: white; padding: 2rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+						<h3 style="color: #0f172a; margin-bottom: 1rem;">🔒 Simple & Secure</h3>
+						<p>RESTful API with token-based authentication. Your data is encrypted and secure.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Pricing Section -->
+		<section id="pricing" class="section">
+			<div class="container">
+				<div class="section-header">
+					<h2>Simple Pricing</h2>
+					<p>No subscriptions. Pay only for what you use. Credits never expire.</p>
+				</div>
+
+				<div class="pricing-grid">
+					<div class="pricing-card">
+						<h3>Free</h3>
+						<div class="price">$0</div>
+						<ul>
+							<li>✓ 100 operations</li>
+							<li>✓ No credit card</li>
+							<li>✓ No registration</li>
+							<li>✓ Full API access</li>
+						</ul>
+						<a href="https://docs.echovalue.dev" class="btn btn-secondary" style="width: 100%;">Get Started</a>
+					</div>
+
+					<div class="pricing-card">
+						<h3>Standard</h3>
+						<div class="price">$4 <small style="font-size: 1rem; color: #64748b;">/ €3.70</small></div>
+						<ul>
+							<li>✓ 1 million operations</li>
+							<li>✓ No subscription</li>
+							<li>✓ No expiration</li>
+							<li>✓ Full API access</li>
+						</ul>
+						<a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary" style="width: 100%;">Recharge Wallet</a>
+					</div>
+
+					<div class="pricing-card">
+						<h3>Pro</h3>
+						<div class="price">$10 <small style="font-size: 1rem; color: #64748b;">/ €9.20</small></div>
+						<ul>
+							<li>✓ 3 million operations</li>
+							<li>✓ No subscription</li>
+							<li>✓ No expiration</li>
+							<li>✓ Best value</li>
+						</ul>
+						<a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary" style="width: 100%;">Recharge Wallet</a>
+					</div>
+				</div>
+
+				<p class="text-center mt-4" style="color: #64748b;">
+					Need something different? <a href="#contact" style="color: #2563eb;">Contact us</a>
+				</p>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="section bg-light">
+			<div class="container">
+				<div class="section-header">
+					<h2>Get Support</h2>
+					<p>For any questions, feedback, or support needs regarding DB API, please reach out to us.</p>
+				</div>
+
+				<div class="contact-info">
+					<div class="contact-item">
+						<h3>Email</h3>
+						<a href="mailto:support@echovalue.dev">support@echovalue.dev</a>
+					</div>
+					<div class="contact-item">
+						<h3>Social</h3>
+						<div class="social-links">
+							<a href="https://twitter.com/emln_" aria-label="Twitter">
+								<i class="fab fa-twitter"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; <a href="https://www.njoylab.com" target="_blank">nJoylab</a> * IT12822520966 * All rights reserved. * <a href="privacy.html">Privacy Policy</a> * <a href="toc.html">Terms and Conditions</a></li>
-					</ul>
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="../assets/js/jquery.min.js"></script>
-			<script src="../assets/js/jquery.scrollex.min.js"></script>
-			<script src="../assets/js/jquery.scrolly.min.js"></script>
-			<script src="../assets/js/browser.min.js"></script>
-			<script src="../assets/js/breakpoints.min.js"></script>
-			<script src="../assets/js/util.js"></script>
-			<script src="../assets/js/main.js"></script>
+		<footer class="footer">
+			<div class="container">
+				<p>
+					&copy; <a href="https://www.njoylab.com" target="_blank">nJoylab</a> · IT12822520966 · All rights reserved. ·
+					<a href="privacy.html">Privacy Policy</a> ·
+					<a href="toc.html">Terms and Conditions</a>
+				</p>
+			</div>
+		</footer>
 
 	</body>
 </html>

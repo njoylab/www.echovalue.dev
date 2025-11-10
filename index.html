@@ -21,135 +21,136 @@
 		<meta property="twitter:title" content="echoValue - Simple APIs for Developers">
 		<meta property="twitter:description" content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Monitoring, and more.">
 		<meta property="twitter:image" content="https://www.njoylab.com/images/echovalue-api.webp">
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="assets/css/custom.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	</head>
-	<body class="is-preload">
+	<body>
 
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#intro">Welcome</a></li>
-							<li><a href="#projects">Projects</a></li>
-							<li><a href="#contact">Contact</a></li>
-							<li>
-								<img src="images/echovalue_logo.webp" alt="echoValue" style="width: 100%; max-width: 200px; margin-bottom: 20px; margin-top: 20px;"/>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</section>
-
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<h1>echoValue</h1>
-							<p>
-							Simple, <b>pay-as-you-go APIs</b> for developers and freelancers.<br>
-							No subscriptions. No complexity. Just straightforward tools that work.<br><br>
-							Perfect for small projects, serverless applications, prototypes, and side projects.
-							</p>
-							<ul class="actions">
-								<li><a href="#projects" class="button scrolly">Explore Projects</a></li>
-							</ul>
-						</div>
-					</section>
-
-				<!-- Projects -->
-					<section id="projects" class="wrapper style2 spotlights">
-						<section>
-							<a href="db-api/" class="image"><img src="images/pic01.jpg" alt="DB API" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>DB API - Key-Value Store</h2>
-									<p>
-										A lightweight Key-Value Store API that eliminates complex server setups.
-										Perfect for serverless apps, quick prototyping, metrics handling, and configuration storage.
-									</p>
-									<ul style="list-style: none; padding: 0;">
-										<li>✓ Start free with 100 operations</li>
-										<li>✓ No registration required</li>
-										<li>✓ No subscriptions or expiration</li>
-										<li>✓ Simple REST API</li>
-									</ul>
-									<ul class="actions">
-										<li><a href="db-api/" class="button">Learn more</a></li>
-										<li><a href="https://docs.echovalue.dev" class="button">Documentation</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="monitor-api/" class="image"><img src="images/pic02.jpg" alt="Monitor API" data-position="top center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Monitor API - Webhook Notifications</h2>
-									<p>
-										Monitor web pages and remote files for changes. Get instant webhook notifications when content updates.
-										Perfect for tracking competitors, monitoring data feeds, or staying updated on important changes.
-									</p>
-									<ul style="list-style: none; padding: 0;">
-										<li>✓ Shared authentication with DB API</li>
-										<li>✓ Same credit system, different pricing</li>
-										<li>✓ Flexible monitoring intervals</li>
-										<li>✓ Custom webhook endpoints</li>
-									</ul>
-									<ul class="actions">
-										<li><a href="monitor-api/" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-					</section>
-
-				<!-- Contact -->
-					<section id="contact" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Contact</h2>
-							<p>For any questions, feedback, or support needs regarding echoValue products, please reach out to us by email or X. We are committed to providing prompt and helpful responses.</p>
-							<div class="split style1">
-								<section>
-									<ul class="contact">
-										<li>
-											<h3>Email</h3>
-											<a href="mailto:support@echovalue.dev">support@echovalue.dev</a>
-										</li>
-										<li>
-											<h3>Social</h3>
-											<ul class="icons">
-												<li><a href="https://twitter.com/emln_" class="icon brands fa-twitter"><span class="label">X</span></a></li>
-											</ul>
-										</li>
-									</ul>
-								</section>
-							</div>
-						</div>
-					</section>
-
+		<!-- Navigation -->
+		<nav class="navbar">
+			<div class="container">
+				<a href="/" class="navbar-brand">
+					<img src="images/echovalue_logo.webp" alt="echoValue">
+					echoValue
+				</a>
+				<ul class="navbar-nav">
+					<li><a href="#projects">Projects</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="https://docs.echovalue.dev">Documentation</a></li>
+				</ul>
 			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="container">
+				<h1>Simple APIs for Developers</h1>
+				<p>
+					Pay-as-you-go APIs designed for developers and freelancers.<br>
+					No subscriptions. No complexity. Just straightforward tools that work.
+				</p>
+				<p class="text-muted" style="font-size: 1.125rem; margin-bottom: 2rem;">
+					Perfect for small projects, serverless applications, prototypes, and side projects.
+				</p>
+				<a href="#projects" class="btn btn-outline">Explore Projects</a>
+			</div>
+		</section>
+
+		<!-- Projects Section -->
+		<section id="projects" class="section">
+			<div class="container">
+				<div class="section-header">
+					<h2>Our Projects</h2>
+					<p>Choose the right tool for your needs. All projects share the same authentication and credit system.</p>
+				</div>
+
+				<div class="projects-grid">
+					<!-- DB API Card -->
+					<article class="project-card">
+						<div class="project-card-image">
+							<img src="images/pic01.jpg" alt="DB API">
+						</div>
+						<div class="project-card-content">
+							<h3>DB API - Key-Value Store</h3>
+							<p>
+								A lightweight Key-Value Store API that eliminates complex server setups.
+								Perfect for serverless apps, quick prototyping, metrics handling, and configuration storage.
+							</p>
+							<ul class="project-features">
+								<li>Start free with 100 operations</li>
+								<li>No registration required</li>
+								<li>No subscriptions or expiration</li>
+								<li>Simple REST API</li>
+							</ul>
+							<div class="project-card-actions">
+								<a href="db-api/" class="btn btn-primary">Learn more</a>
+								<a href="https://docs.echovalue.dev" class="btn btn-secondary">Documentation</a>
+							</div>
+						</div>
+					</article>
+
+					<!-- Monitor API Card -->
+					<article class="project-card">
+						<div class="project-card-image">
+							<img src="images/pic02.jpg" alt="Monitor API">
+						</div>
+						<div class="project-card-content">
+							<h3>
+								Monitor API - Webhooks
+								<span class="badge">Coming Soon</span>
+							</h3>
+							<p>
+								Monitor web pages and remote files for changes. Get instant webhook notifications when content updates.
+								Perfect for tracking competitors, monitoring data feeds, or staying updated on important changes.
+							</p>
+							<ul class="project-features">
+								<li>Shared authentication with DB API</li>
+								<li>Same credit system, different pricing</li>
+								<li>Flexible monitoring intervals</li>
+								<li>Custom webhook endpoints</li>
+							</ul>
+							<div class="project-card-actions">
+								<a href="monitor-api/" class="btn btn-secondary">Learn more</a>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="section bg-light">
+			<div class="container">
+				<div class="section-header">
+					<h2>Get in Touch</h2>
+					<p>For any questions, feedback, or support needs regarding echoValue products, please reach out to us.</p>
+				</div>
+
+				<div class="contact-info">
+					<div class="contact-item">
+						<h3>Email</h3>
+						<a href="mailto:support@echovalue.dev">support@echovalue.dev</a>
+					</div>
+					<div class="contact-item">
+						<h3>Social</h3>
+						<div class="social-links">
+							<a href="https://twitter.com/emln_" aria-label="Twitter">
+								<i class="fab fa-twitter"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; <a href="https://www.njoylab.com" target="_blank">nJoylab</a> * IT12822520966 * All rights reserved.</li>
-					</ul>
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<footer class="footer">
+			<div class="container">
+				<p>
+					&copy; <a href="https://www.njoylab.com" target="_blank">nJoylab</a> · IT12822520966 · All rights reserved.
+				</p>
+			</div>
+		</footer>
 
 	</body>
 </html>
