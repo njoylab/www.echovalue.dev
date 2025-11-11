@@ -42,47 +42,81 @@
 			</div>
 		</nav>
 
-		<!-- Hero Section -->
-		<section class="hero compact">
-			<div class="container">
-				<h1>DB API - Key-Value Store</h1>
-				<p>
-					A lightweight Key-Value Store API that offers a user-friendly solution for developers and freelancers.<br>
-					No subscriptions. No complex server setups. Just simple, reliable data storage.
-				</p>
-			</div>
-		</section>
+                <!-- Hero Section -->
+                <section class="hero hero--product">
+                        <div class="container">
+                                <div class="hero-content">
+                                        <div class="hero-copy">
+                                                <span class="hero-badge">DB API</span>
+                                                <h1>Key-Value storage without provisioning headaches</h1>
+                                                <p>
+                                                        Launch persistent features in minutes with a production-ready, serverless-first datastore.
+                                                        Generate tokens on demand, pay only for the calls you make, and keep your stack lightweight.
+                                                </p>
+                                                <div class="hero-actions">
+                                                        <a href="https://docs.echovalue.dev/#db-api" class="btn btn-primary">Start for free</a>
+                                                        <a href="#pricing" class="btn btn-outline">View pricing</a>
+                                                </div>
+                                                <ul class="hero-product-highlights">
+                                                        <li>100 operations on the house</li>
+                                                        <li>Tokens issued instantly via HTTPS</li>
+                                                        <li>Edge-cached, encrypted key-value storage</li>
+                                                </ul>
+                                        </div>
+                                        <div class="hero-panel">
+                                                <div class="terminal">
+<pre><code class="language-bash"># request a new token
+curl https://token.echovalue.dev -d 'token=new'
+
+# store "world" under the "hello" key
+curl https://api.echovalue.dev/default/hello \
+  -H 'x-token: &lt;token&gt;' \
+  -d 'world'
+
+# fetch the value back
+curl https://api.echovalue.dev/default/hello \
+  -H 'x-token: &lt;token&gt;'</code></pre>
+                                                </div>
+                                                <div class="terminal-footer">
+                                                        Works with curl, fetch, and serverless functions—no SDKs required.
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
 
 		<!-- Get Started Section -->
 		<section id="getstarted" class="section">
 			<div class="container">
-				<div class="section-header">
-					<h2>Get Started</h2>
-					<p>Start for <strong>free</strong> with 100 operations. No registration, no credit card, no subscriptions.</p>
-				</div>
+                                <div class="section-header">
+                                        <h2>Get Started</h2>
+                                        <p>Mint a token, make a request, and persist data—no registrations, credit cards, or long-term contracts.</p>
+                                </div>
 
-				<div class="code-block">
-<code>// Request a new token
-curl 'https://token.echovalue.dev' -d 'token=new'
-<span style="color: #4ade80;">% mytoken</span>
+                                <div class="terminal-card">
+                                        <div class="terminal">
+<pre><code class="language-bash"># 1. create a token (100 free operations)
+curl https://token.echovalue.dev -d 'token=new'
 
-// Save "world" under "hello" key
-curl 'https://api.echovalue.dev/default/hello' \
+# 2. write a value
+curl https://api.echovalue.dev/default/hello \
   -H 'x-token: mytoken' \
   -d 'world'
-<span style="color: #4ade80;">% OK</span>
 
-// Get the value under "hello" key
-curl 'https://api.echovalue.dev/default/hello' \
-  -H 'x-token: mytoken'
-<span style="color: #4ade80;">% world</span></code>
-				</div>
+# 3. read it back
+curl https://api.echovalue.dev/default/hello \
+  -H 'x-token: mytoken'</code></pre>
+                                        </div>
+                                        <div class="terminal-footer">
+                                                Tokens are scoped per project and can be rotated at any time. Credits never expire.
+                                        </div>
+                                </div>
 
-				<div style="text-align: center; margin-top: 2rem;">
-					<a href="https://docs.echovalue.dev" class="btn btn-primary">View Full Documentation</a>
-				</div>
-			</div>
-		</section>
+                                <div class="text-center mt-4">
+                                        <a href="https://docs.echovalue.dev" class="btn btn-primary">View full documentation</a>
+                                </div>
+                        </div>
+                </section>
 
 		<!-- Features Section -->
 		<section class="section bg-light">
@@ -91,24 +125,24 @@ curl 'https://api.echovalue.dev/default/hello' \
 					<h2>Why Choose DB API?</h2>
 				</div>
 
-				<div class="projects-grid">
-					<div style="background: white; padding: 2rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
-						<h3 style="color: #0f172a; margin-bottom: 1rem;">🚀 Quick to Start</h3>
-						<p>Get your first token in seconds. No sign-up forms, no email verification, no waiting.</p>
-					</div>
-					<div style="background: white; padding: 2rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
-						<h3 style="color: #0f172a; margin-bottom: 1rem;">💰 Pay As You Go</h3>
-						<p>Only pay for what you use. Credits never expire. No monthly fees or hidden costs.</p>
-					</div>
-					<div style="background: white; padding: 2rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
-						<h3 style="color: #0f172a; margin-bottom: 1rem;">⚡ Perfect for Serverless</h3>
-						<p>Ideal for serverless apps, prototypes, metrics handling, and configuration storage.</p>
-					</div>
-					<div style="background: white; padding: 2rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
-						<h3 style="color: #0f172a; margin-bottom: 1rem;">🔒 Simple & Secure</h3>
-						<p>RESTful API with token-based authentication. Your data is encrypted and secure.</p>
-					</div>
-				</div>
+                                <div class="feature-grid">
+                                        <article class="feature-card">
+                                                <h3>🚀 Quick to start</h3>
+                                                <p>Issue a token in seconds. No account creation, no email confirmation, just authenticated requests.</p>
+                                        </article>
+                                        <article class="feature-card">
+                                                <h3>💰 Predictable spend</h3>
+                                                <p>Only pay for the operations you execute. Credits never expire and you can top up whenever you need.</p>
+                                        </article>
+                                        <article class="feature-card">
+                                                <h3>⚡ Serverless friendly</h3>
+                                                <p>Designed for low-latency serverless workloads, prototypes, metrics, and configuration storage.</p>
+                                        </article>
+                                        <article class="feature-card">
+                                                <h3>🔒 Secure by default</h3>
+                                                <p>Token-scoped access with encrypted storage and HTTPS everywhere keeps your data protected.</p>
+                                        </article>
+                                </div>
 			</div>
 		</section>
 
@@ -120,47 +154,47 @@ curl 'https://api.echovalue.dev/default/hello' \
 					<p>No subscriptions. Pay only for what you use. Credits never expire.</p>
 				</div>
 
-				<div class="pricing-grid">
-					<div class="pricing-card">
-						<h3>Free</h3>
-						<div class="price">$0</div>
-						<ul>
-							<li>✓ 100 operations</li>
-							<li>✓ No credit card</li>
-							<li>✓ No registration</li>
-							<li>✓ Full API access</li>
-						</ul>
-						<a href="https://docs.echovalue.dev" class="btn btn-secondary" style="width: 100%;">Get Started</a>
-					</div>
+                                <div class="pricing-grid">
+                                        <article class="pricing-card">
+                                                <h3>Free</h3>
+                                                <div class="price">$0</div>
+                                                <ul>
+                                                        <li>100 operations</li>
+                                                        <li>No credit card required</li>
+                                                        <li>No registration</li>
+                                                        <li>Full API access</li>
+                                                </ul>
+                                                <a href="https://docs.echovalue.dev" class="btn btn-secondary" style="width: 100%;">Get started</a>
+                                        </article>
 
-					<div class="pricing-card">
-						<h3>Standard</h3>
-						<div class="price">$4 <small style="font-size: 1rem; color: #64748b;">/ €3.70</small></div>
-						<ul>
-							<li>✓ 1 million operations</li>
-							<li>✓ No subscription</li>
-							<li>✓ No expiration</li>
-							<li>✓ Full API access</li>
-						</ul>
-						<a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary" style="width: 100%;">Recharge Wallet</a>
-					</div>
+                                        <article class="pricing-card">
+                                                <h3>Standard</h3>
+                                                <div class="price">$4 <small>/ €3.70</small></div>
+                                                <ul>
+                                                        <li>1 million operations</li>
+                                                        <li>No subscriptions</li>
+                                                        <li>No expiration</li>
+                                                        <li>Full API access</li>
+                                                </ul>
+                                                <a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary" style="width: 100%;">Recharge wallet</a>
+                                        </article>
 
-					<div class="pricing-card">
-						<h3>Pro</h3>
-						<div class="price">$10 <small style="font-size: 1rem; color: #64748b;">/ €9.20</small></div>
-						<ul>
-							<li>✓ 3 million operations</li>
-							<li>✓ No subscription</li>
-							<li>✓ No expiration</li>
-							<li>✓ Best value</li>
-						</ul>
-						<a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary" style="width: 100%;">Recharge Wallet</a>
-					</div>
-				</div>
+                                        <article class="pricing-card">
+                                                <h3>Pro</h3>
+                                                <div class="price">$10 <small>/ €9.20</small></div>
+                                                <ul>
+                                                        <li>3 million operations</li>
+                                                        <li>No subscriptions</li>
+                                                        <li>No expiration</li>
+                                                        <li>Best value for scale</li>
+                                                </ul>
+                                                <a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary" style="width: 100%;">Recharge wallet</a>
+                                        </article>
+                                </div>
 
-				<p class="text-center mt-4" style="color: #64748b;">
-					Need something different? <a href="#contact" style="color: #2563eb;">Contact us</a>
-				</p>
+                                <p class="text-center mt-4" style="color: var(--color-text-muted);">
+                                        Need something different? <a href="#contact" class="link-accent">Contact us</a>
+                                </p>
 			</div>
 		</section>
 
