@@ -181,6 +181,11 @@ body {
   -webkit-text-fill-color: var(--color-accent-green);
 }
 
+.hero h1 .badge {
+  color: var(--color-bg-primary);
+  -webkit-text-fill-color: var(--color-bg-primary);
+}
+
 .hero p {
   font-size: 1.25rem;
   max-width: 800px;

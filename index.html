@@ -1,265 +1,335 @@
 <!DOCTYPE HTML>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>echoValue - Simple APIs & Free Developer Tools</title>
-		<meta name="description" content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Monitoring, and free tools like JSONLint and GeoIP. No subscriptions, no complexity.">
-		<meta name="keywords" content="echoValue, API, NoSQL, Serverless, Cloud Storage, Monitoring, Webhooks, Developer Tools, JSONLint, GeoIP, JSON Validator, IP Geolocation">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>echoValue - Simple APIs & Free Developer Tools</title>
+	<meta name="description"
+		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Monitoring, and free tools like JSONLint, GeoIP, URL Summary, and Lookup. No subscriptions, no complexity.">
+	<meta name="keywords"
+		content="echoValue, API, NoSQL, Serverless, Cloud Storage, Monitoring, Webhooks, Developer Tools, JSONLint, GeoIP, URL Summary, URL Summarizer, Lookup, Domain Lookup, IP Lookup, JSON Validator, IP Geolocation">
 		<meta name="author" content="Emiliano Saurin">
 		<link rel="canonical" href="https://www.echovalue.dev/">
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://www.echovalue.dev/">
-		<meta property="og:title" content="echoValue - Simple APIs & Free Developer Tools">
-		<meta property="og:description" content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Monitoring, and free tools like JSONLint and GeoIP.">
-		<meta property="og:image" content="https://www.njoylab.com/images/echovalue-api.webp">
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image">
-		<meta property="twitter:url" content="https://www.echovalue.dev/">
-		<meta property="twitter:title" content="echoValue - Simple APIs & Free Developer Tools">
-		<meta property="twitter:description" content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Monitoring, and free tools like JSONLint and GeoIP.">
-		<meta property="twitter:image" content="https://www.njoylab.com/images/echovalue-api.webp">
-		<link rel="stylesheet" href="assets/css/dev-theme.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	</head>
-	<body>
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="icon" href="/favicon.ico">
+		<link rel="manifest" href="/site.webmanifest">
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.echovalue.dev/">
+	<meta property="og:title" content="echoValue - Simple APIs & Free Developer Tools">
+	<meta property="og:description"
+		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Monitoring, and free tools like JSONLint, GeoIP, URL Summary, and Lookup.">
+	<meta property="og:image" content="https://www.njoylab.com/images/echovalue-api.webp">
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://www.echovalue.dev/">
+	<meta property="twitter:title" content="echoValue - Simple APIs & Free Developer Tools">
+	<meta property="twitter:description"
+		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Monitoring, and free tools like JSONLint, GeoIP, URL Summary, and Lookup.">
+	<meta property="twitter:image" content="https://www.njoylab.com/images/echovalue-api.webp">
+	<link rel="stylesheet" href="assets/css/dev-theme.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+</head>
 
-		<!-- Navigation -->
-		<nav class="navbar">
-			<div class="container">
-				<a href="/" class="navbar-brand">
-					<img src="images/echovalue_logo.webp" alt="echoValue">
-					echoValue
-				</a>
-				<ul class="navbar-nav">
-					<li><a href="#projects">Projects</a></li>
-					<li><a href="#tools">Free Tools</a></li>
-					<li><a href="#opensource">Open Source</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li><a href="https://docs.echovalue.dev">Documentation</a></li>
-				</ul>
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar">
+		<div class="container">
+			<a href="/" class="navbar-brand">
+				echoValue
+			</a>
+			<ul class="navbar-nav">
+				<li><a href="#projects">Projects</a></li>
+				<li><a href="#tools">Free Tools</a></li>
+				<li><a href="#opensource">Open Source</a></li>
+				<li><a href="#contact">Contact</a></li>
+				<li><a href="https://docs.echovalue.dev">Documentation</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="container">
+			<h1><span class="mono">echo</span>Value</h1>
+			<p>
+				Pay-as-you-go APIs and free developer tools.<br>
+				No subscriptions. No complexity. Just <span class="text-mono">code</span> that works.
+			</p>
+			<p class="text-muted" style="font-size: 1.125rem; margin-bottom: 2rem;">
+				$ curl-friendly APIs · serverless-ready · side-project approved
+			</p>
+			<a href="#projects" class="btn btn-outline">explore --all</a>
+		</div>
+	</section>
+
+	<!-- Projects Section -->
+	<section id="projects" class="section no-border">
+		<div class="container">
+			<div class="section-header">
+				<h2>projects</h2>
+				<p>All projects share authentication and credit system. Pay once, use everywhere.</p>
 			</div>
-		</nav>
 
-		<!-- Hero Section -->
-		<section class="hero">
-			<div class="container">
-				<h1><span class="mono">echo</span>Value</h1>
-				<p>
-					Pay-as-you-go APIs and free developer tools.<br>
-					No subscriptions. No complexity. Just <span class="text-mono">code</span> that works.
-				</p>
-				<p class="text-muted" style="font-size: 1.125rem; margin-bottom: 2rem;">
-					$ curl-friendly APIs · serverless-ready · side-project approved
-				</p>
-				<a href="#projects" class="btn btn-outline">explore --all</a>
-			</div>
-		</section>
-
-		<!-- Projects Section -->
-		<section id="projects" class="section no-border">
-			<div class="container">
-				<div class="section-header">
-					<h2>projects</h2>
-					<p>All projects share authentication and credit system. Pay once, use everywhere.</p>
-				</div>
-
-				<div class="projects-grid">
-					<!-- DB API Card -->
-					<article class="project-card">
-						<div class="project-card-header">
-							<span class="project-card-icon">🗄️</span>
-							<h3>db-api</h3>
-						</div>
-						<div class="project-card-content">
-							<p>
-								Lightweight Key-Value Store API. No server setup required.
-								Perfect for serverless apps, prototyping, metrics, and config storage.
-							</p>
-							<ul class="project-features">
-								<li>100 free operations to start</li>
-								<li>Zero registration</li>
-								<li>Credits never expire</li>
-								<li>RESTful & curl-friendly</li>
-							</ul>
-							<div class="project-card-actions">
-								<a href="db-api/" class="btn btn-primary">docs →</a>
-								<a href="https://docs.echovalue.dev" class="btn btn-secondary">api ref</a>
-							</div>
-						</div>
-					</article>
-
-					<!-- Monitor API Card -->
-					<article class="project-card">
-						<div class="project-card-header">
-							<span class="project-card-icon">📡</span>
-							<h3>monitor-api <span class="badge">soon</span></h3>
-						</div>
-						<div class="project-card-content">
-							<p>
-								Watch web pages and files for changes. Get webhook notifications on updates.
-								Track competitors, data feeds, or any content changes automatically.
-							</p>
-							<ul class="project-features">
-								<li>Shared auth with db-api</li>
-								<li>Same credit system</li>
-								<li>Custom check intervals</li>
-								<li>Webhook callbacks</li>
-							</ul>
-							<div class="project-card-actions">
-								<a href="monitor-api/" class="btn btn-secondary">learn more</a>
-							</div>
-						</div>
-					</article>
-				</div>
-			</div>
-		</section>
-
-		<!-- Free Tools Section -->
-		<section id="tools" class="section">
-			<div class="container">
-				<div class="section-header">
-					<h2>free-tools</h2>
-					<p>Zero cost utilities. No ads. No tracking. Client-side when possible.</p>
-				</div>
-
-				<div class="projects-grid">
-					<!-- JSONLint Tool Card -->
-					<article class="project-card">
-						<div class="project-card-header">
-							<span class="project-card-icon" style="font-family: var(--font-mono);">{ }</span>
-							<h3>jsonlint</h3>
-						</div>
-						<div class="project-card-content">
-							<p>
-								Fast JSON validator and formatter. 100% client-side processing.
-								Nothing leaves your browser.
-							</p>
-							<ul class="project-features">
-								<li>Runs entirely in browser</li>
-								<li>Zero tracking</li>
-								<li>Syntax validation</li>
-								<li>Auto-formatting</li>
-							</ul>
-							<div class="project-card-actions">
-								<a href="https://jsonlint.echovalue.dev" class="btn btn-primary" target="_blank" rel="noopener">open tool ↗</a>
-							</div>
-						</div>
-					</article>
-
-					<!-- GeoIP Tool Card -->
-					<article class="project-card">
-						<div class="project-card-header">
-							<span class="project-card-icon">🌍</span>
-							<h3>geoip</h3>
-						</div>
-						<div class="project-card-content">
-							<p>
-								IP geolocation lookup. Find location, ISP, and timezone info
-								for any IP address. Fast and accurate.
-							</p>
-							<ul class="project-features">
-								<li>Real-time lookups</li>
-								<li>Country + city data</li>
-								<li>Timezone info</li>
-								<li>ISP detection</li>
-							</ul>
-							<div class="project-card-actions">
-								<a href="https://geoip.echovalue.dev" class="btn btn-primary" target="_blank" rel="noopener">open tool ↗</a>
-							</div>
-						</div>
-					</article>
-				</div>
-			</div>
-		</section>
-
-		<!-- Open Source Section -->
-		<section id="opensource" class="section">
-			<div class="container">
-				<div class="section-header">
-					<h2>open-source</h2>
-					<p>Community projects. MIT licensed. Free to use and contribute.</p>
-				</div>
-
-				<div class="projects-grid">
-					<!-- InstaTrack -->
-					<article class="project-card">
-						<div class="project-card-header">
-							<span class="project-card-icon">📊</span>
-							<h3>instatrack</h3>
-						</div>
-						<div class="project-card-content">
-							<p>
-								Instagram analytics and tracking tool. Monitor followers, engagement,
-								and growth patterns over time.
-							</p>
-							<div class="project-card-actions">
-								<a href="https://github.com/njoylab/instatrack" class="btn btn-primary" target="_blank" rel="noopener">
-									<i class="fab fa-github"></i> view on github
-								</a>
-							</div>
-						</div>
-					</article>
-
-					<!-- Room Book Simple -->
-					<article class="project-card">
-						<div class="project-card-header">
-							<span class="project-card-icon">📅</span>
-							<h3>room-book-simple</h3>
-						</div>
-						<div class="project-card-content">
-							<p>
-								Simple room booking system. Lightweight, easy to deploy,
-								perfect for small businesses and co-working spaces.
-							</p>
-							<div class="project-card-actions">
-								<a href="https://github.com/njoylab/room-book-simple" class="btn btn-primary" target="_blank" rel="noopener">
-									<i class="fab fa-github"></i> view on github
-								</a>
-							</div>
-						</div>
-					</article>
-				</div>
-			</div>
-		</section>
-
-		<!-- Contact Section -->
-		<section id="contact" class="section">
-			<div class="container">
-				<div class="section-header">
-					<h2>contact</h2>
-					<p>Questions? Feedback? Bugs? Reach out.</p>
-				</div>
-
-				<div class="contact-info">
-					<div class="contact-item">
-						<h3>email</h3>
-						<a href="mailto:support@echovalue.dev">support@echovalue.dev</a>
+			<div class="projects-grid">
+				<!-- DB API Card -->
+				<article class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon">🗄️</span>
+						<h3>db-api</h3>
 					</div>
-					<div class="contact-item">
-						<h3>social</h3>
-						<div class="social-links">
-							<a href="https://twitter.com/emln_" aria-label="Twitter">
-								<i class="fab fa-twitter"></i>
+					<div class="project-card-content">
+						<p>
+							Lightweight Key-Value Store API. No server setup required.
+							Perfect for serverless apps, prototyping, metrics, and config storage.
+						</p>
+						<ul class="project-features">
+							<li>100 free operations to start</li>
+							<li>Zero registration</li>
+							<li>Credits never expire</li>
+							<li>RESTful & curl-friendly</li>
+						</ul>
+						<div class="project-card-actions">
+							<a href="db-api/" class="btn btn-primary">docs →</a>
+							<a href="https://docs.echovalue.dev/#db-api-key-value-store" class=" btn btn-secondary">api
+								ref</a>
+						</div>
+					</div>
+				</article>
+
+				<!-- Monitor API Card -->
+				<article class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon">📡</span>
+						<h3>monitor-api <span class="badge">soon</span></h3>
+					</div>
+					<div class="project-card-content">
+						<p>
+							Watch web pages and files for changes. Get webhook notifications on updates.
+							Track competitors, data feeds, or any content changes automatically.
+						</p>
+						<ul class="project-features">
+							<li>Shared auth with db-api</li>
+							<li>Same credit system</li>
+							<li>Custom check intervals</li>
+							<li>Webhook callbacks</li>
+						</ul>
+						<div class="project-card-actions">
+							<a href="monitor-api/" class="btn btn-secondary">learn more</a>
+						</div>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<!-- Free Tools Section -->
+	<section id="tools" class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>free-tools</h2>
+				<p>Zero cost utilities. No ads. No tracking. Client-side when possible.</p>
+			</div>
+
+			<div class="projects-grid">
+
+				<!-- URL Summary Tool Card -->
+				<article class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon">🧾</span>
+						<h3>urlsummary</h3>
+					</div>
+					<div class="project-card-content">
+						<p>
+							A powerful web scraping tool that extracts structured data from any web page.
+						</p>
+						<ul class="project-features">
+							<li>JSON output</li>
+							<li>AI-powered summaries</li>
+							<li>API with 3rd party services</li>
+						</ul>
+						<div class="project-card-actions">
+							<a href="https://urlsummary.echovalue.dev" class="btn btn-primary" target="_blank">open tool
+								↗</a>
+						</div>
+					</div>
+				</article>
+
+				<!-- Lookup Tool Card -->
+				<article class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon">🔎</span>
+						<h3>lookup</h3>
+					</div>
+					<div class="project-card-content">
+						<p>
+							Lookup utility for domains and IPs. Quick answers, no clutter.
+						</p>
+						<ul class="project-features">
+							<li>JSON output</li>
+							<li>Domain and IP lookups</li>
+							<li>API with 3rd party services</li>
+						</ul>
+							<div class="project-card-actions">
+								<a href="https://lookup.echovalue.dev" class="btn btn-primary" target="_blank" rel="noopener noreferrer">open tool
+									↗</a>
+							</div>
+					</div>
+				</article>
+				<!-- JSONLint Tool Card -->
+				<article class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon" style="font-family: var(--font-mono);">{ }</span>
+						<h3>jsonlint</h3>
+					</div>
+					<div class="project-card-content">
+						<p>
+							Fast JSON validator and formatter. 100% client-side processing.
+							Nothing leaves your browser.
+						</p>
+						<ul class="project-features">
+							<li>Runs entirely in browser</li>
+							<li>Zero tracking</li>
+							<li>Syntax validation</li>
+							<li>Auto-formatting</li>
+						</ul>
+						<div class="project-card-actions">
+							<a href="https://jsonlint.echovalue.dev" class="btn btn-primary" target="_blank">open tool
+								↗</a>
+						</div>
+					</div>
+				</article>
+
+				<!-- GeoIP Tool Card -->
+				<article class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon">🌍</span>
+						<h3>geoip</h3>
+					</div>
+					<div class="project-card-content">
+						<p>
+							IP geolocation lookup. Find location, ISP, and timezone info
+							for your IP address. Fast and accurate.
+						</p>
+						<ul class="project-features">
+							<li>Real-time lookups</li>
+							<li>Country + city data</li>
+							<li>Timezone info</li>
+							<li>ISP detection</li>
+						</ul>
+						<div class="project-card-actions">
+							<a href="https://geoip.echovalue.dev" class="btn btn-primary" target="_blank">open tool
+								↗</a>
+						</div>
+					</div>
+				</article>
+
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Open Source Section -->
+	<section id="opensource" class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>open-source</h2>
+				<p>Community projects. MIT licensed. Free to use and contribute.</p>
+			</div>
+
+			<div class="projects-grid">
+				<!-- InstaTrack -->
+				<article class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon">📊</span>
+						<h3>instatrack</h3>
+					</div>
+					<div class="project-card-content">
+						<p>
+							Instagram analytics and tracking tool. Monitor followers, engagement,
+							and growth patterns over time.
+						</p>
+						<div class="project-card-actions">
+							<a href="https://github.com/njoylab/instatrack" class="btn btn-primary" target="_blank"
+								rel="noopener noreferrer">
+								<i class="fab fa-github"></i> view on github
 							</a>
 						</div>
 					</div>
+				</article>
+
+				<!-- Room Book Simple -->
+				<article class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon">📅</span>
+						<h3>room-book-simple</h3>
+					</div>
+					<div class="project-card-content">
+						<p>
+							Simple room booking system. Lightweight, easy to deploy,
+							perfect for small businesses and co-working spaces.
+						</p>
+						<div class="project-card-actions">
+							<a href="https://github.com/njoylab/room-book-simple" class="btn btn-primary"
+								target="_blank" rel="noopener noreferrer">
+								<i class="fab fa-github"></i> view on github
+							</a>
+						</div>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact" class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>contact</h2>
+				<p>Questions? Feedback? Bugs? Reach out.</p>
+			</div>
+
+			<div class="contact-info">
+				<div class="contact-item">
+					<h3>email</h3>
+					support at echovalue dot dev
+				</div>
+				<div class="contact-item">
+					<h3>social</h3>
+					<div class="social-links">
+						<a href="https://twitter.com/emln_" aria-label="Twitter">
+							<i class="fab fa-twitter"></i>
+						</a>
+						<a href="https://www.linkedin.com/in/emlns/" aria-label="LinkedIn">
+							<i class="fab fa-linkedin"></i>
+						</a>
+						<a href="https://github.com/njoylab" aria-label="GitHub">
+							<i class="fab fa-github"></i>
+						</a>
+					</div>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<!-- Footer -->
-		<footer class="footer">
-			<div class="container">
-				<p>
-					© <a href="https://www.njoylab.com" target="_blank">nJoylab</a> · IT12822520966 · <span class="text-mono">v2.0</span> ·
-					<a href="legal/privacy.html">Privacy Policy</a> ·
-					<a href="legal/toc.html">Terms and Conditions</a>
-				</p>
-			</div>
-		</footer>
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<p>
+				© <a href="https://www.njoylab.com" target="_blank" rel="noopener noreferrer">nJoylab</a> ·
+				IT12822520966 · <span class="text-mono">v2.0</span> ·
+				<a href="privacy.html">Privacy Policy</a> ·
+				<a href="toc.html">Terms and Conditions</a>
+			</p>
+		</div>
+	</footer>
 
-	</body>
+</body>
+
 </html>
