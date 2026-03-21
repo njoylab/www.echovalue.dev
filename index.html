@@ -44,6 +44,11 @@
 			<a href="/" class="navbar-brand">
 				echoValue
 			</a>
+			<button class="navbar-toggle" aria-label="Toggle navigation">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
 			<ul class="navbar-nav">
 				<li><a href="#projects">Projects</a></li>
 				<li><a href="#tools">Free Tools</a></li>
@@ -65,7 +70,7 @@
 			<p class="text-muted" style="font-size: 1.125rem; margin-bottom: 2rem;">
 				$ curl-friendly APIs · serverless-ready · side-project approved
 			</p>
-			<a href="#projects" class="btn btn-outline">explore --all</a>
+			<a href="#projects" class="btn btn-primary">explore --all</a>
 		</div>
 	</section>
 
@@ -155,7 +160,7 @@
 							<li>API with 3rd party services</li>
 						</ul>
 						<div class="project-card-actions">
-							<a href="https://urlsummary.echovalue.dev" class="btn btn-primary" target="_blank">open tool
+							<a href="https://urlsummary.echovalue.dev" class="btn btn-primary" target="_blank" rel="noopener noreferrer">open tool
 								↗</a>
 						</div>
 					</div>
@@ -185,7 +190,7 @@
 				<!-- JSONLint Tool Card -->
 				<article class="project-card">
 					<div class="project-card-header">
-						<span class="project-card-icon" style="font-family: var(--font-mono);">{ }</span>
+						<span class="project-card-icon text-mono">{ }</span>
 						<h3>jsonlint</h3>
 					</div>
 					<div class="project-card-content">
@@ -200,8 +205,12 @@
 							<li>Auto-formatting</li>
 						</ul>
 						<div class="project-card-actions">
-							<a href="https://jsonlint.echovalue.dev" class="btn btn-primary" target="_blank">open tool
+							<a href="https://jsonlint.echovalue.dev" class="btn btn-primary" target="_blank" rel="noopener noreferrer">open tool
 								↗</a>
+							<a href="https://github.com/njoylab/json-linter-tool" class="btn btn-secondary" target="_blank"
+								rel="noopener noreferrer">
+								<i class="fab fa-github"></i> view on github
+							</a>
 						</div>
 					</div>
 				</article>
@@ -224,7 +233,7 @@
 							<li>ISP detection</li>
 						</ul>
 						<div class="project-card-actions">
-							<a href="https://geoip.echovalue.dev" class="btn btn-primary" target="_blank">open tool
+							<a href="https://geoip.echovalue.dev" class="btn btn-primary" target="_blank" rel="noopener noreferrer">open tool
 								↗</a>
 						</div>
 					</div>
@@ -246,6 +255,10 @@
 						</ul>
 						<div class="project-card-actions">
 							<a href="https://webhook.echovalue.dev" class="btn btn-primary" target="_blank" rel="noopener noreferrer">open tool ↗</a>
+							<a href="https://github.com/njoylab/webhook.echovalue.dev" class="btn btn-secondary" target="_blank"
+								rel="noopener noreferrer">
+								<i class="fab fa-github"></i> view on github
+							</a>
 						</div>
 					</div>
 				</article>
@@ -275,7 +288,9 @@
 							and growth patterns over time.
 						</p>
 						<div class="project-card-actions">
-							<a href="https://github.com/njoylab/instatrack" class="btn btn-primary" target="_blank"
+							<a href="https://instatrack.njoylab.com/" class="btn btn-primary" target="_blank"
+								rel="noopener noreferrer">open tool ↗</a>
+							<a href="https://github.com/njoylab/instatrack" class="btn btn-secondary" target="_blank"
 								rel="noopener noreferrer">
 								<i class="fab fa-github"></i> view on github
 							</a>
@@ -340,15 +355,25 @@
 	<!-- Footer -->
 	<footer class="footer">
 		<div class="container">
-			<p>
-				© <a href="https://www.njoylab.com" target="_blank" rel="noopener noreferrer">nJoylab</a> ·
-				IT12822520966 · <span class="text-mono">v2.0</span> ·
-				<a href="privacy.html">Privacy Policy</a> ·
-				<a href="toc.html">Terms and Conditions</a>
-			</p>
+			<div class="footer-content">
+				<ul class="footer-links">
+					<li><a href="/">Home</a></li>
+					<li><a href="db-api/">DB API</a></li>
+					<li><a href="monitor-api/">Monitor API</a></li>
+					<li><a href="https://docs.echovalue.dev">Documentation</a></li>
+					<li><a href="privacy.html">Privacy</a></li>
+					<li><a href="toc.html">Terms</a></li>
+				</ul>
+			</div>
+			<div class="footer-bottom">
+				<p>
+					© <a href="https://www.njoylab.com" target="_blank" rel="noopener noreferrer">nJoylab</a> ·
+					IT12822520966 · <span class="text-mono">v2.0</span>
+				</p>
+			</div>
 		</div>
 	</footer>
-
+	<script src="assets/js/nav-toggle.js"></script>
 </body>
 
 </html>

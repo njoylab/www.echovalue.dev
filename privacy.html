@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>echoValue - Privacy Policy</title>
 		<meta name="description" content="Privacy policy for echoValue services and website.">
 		<link rel="canonical" href="https://www.echovalue.dev/privacy.html">
@@ -24,6 +24,8 @@
 		<meta property="twitter:description" content="Privacy policy for echoValue services and website.">
 		<meta property="twitter:image" content="https://www.njoylab.com/images/echovalue-api.webp">
 		<link rel="stylesheet" href="assets/css/dev-theme.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+			integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
 	</head>
 	<body>
 
@@ -33,6 +35,11 @@
 				<a href="/" class="navbar-brand">
 					echoValue
 				</a>
+				<button class="navbar-toggle" aria-label="Toggle navigation">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
 				<ul class="navbar-nav">
 					<li><a href="/">Home</a></li>
 				</ul>
@@ -40,39 +47,39 @@
 		</nav>
 
 		<!-- Content -->
-		<section class="section" style="padding-top: 8rem;">
+		<section class="section pt-nav">
 			<div class="container">
-				<div style="max-width: 800px; margin: 0 auto;">
-					<h1 style="font-size: 2.5rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 1rem;">Privacy Policy</h1>
-					<p style="color: var(--color-text-muted); margin-bottom: 3rem;">Last Updated: 10/12/2023</p>
+				<div class="legal-content">
+					<h1>Privacy Policy</h1>
+					<p class="legal-date">Last Updated: 10/12/2023</p>
 
-					<div style="line-height: 1.8; color: var(--color-text-secondary);">
-						<h2 style="font-size: 1.5rem; font-weight: 600; color: var(--color-text-primary); margin-top: 2rem; margin-bottom: 1rem;">Introduction</h2>
+					<div class="legal-body">
+						<h2>Introduction</h2>
 						<p>
 							Welcome to echoValue API. We are committed to protecting your privacy and handling any personal information we obtain from you with care and respect. This Privacy Policy outlines how we collect, use, and safeguard your information when you use our services.
 						</p>
 
-						<h2 style="font-size: 1.5rem; font-weight: 600; color: var(--color-text-primary); margin-top: 2rem; margin-bottom: 1rem;">Information Collection</h2>
+						<h2>Information Collection</h2>
 						<p>
 							echoValue API itself does not collect any personal information from its users. Our service is designed to function without the need for user data collection, ensuring your privacy and security.
 						</p>
 
-						<h2 style="font-size: 1.5rem; font-weight: 600; color: var(--color-text-primary); margin-top: 2rem; margin-bottom: 1rem;">Use of Stripe for Payments</h2>
+						<h2>Use of Stripe for Payments</h2>
 						<p>
 							For users who choose to access our paid features, we utilize Stripe for payment processing. In these cases, you will be required to provide your email address and payment information directly to Stripe. Please note that Stripe operates independently from echoValue API, and their use of your information is governed by Stripe's own Privacy Policy.
 						</p>
 
-						<h2 style="font-size: 1.5rem; font-weight: 600; color: var(--color-text-primary); margin-top: 2rem; margin-bottom: 1rem;">Data Security</h2>
+						<h2>Data Security</h2>
 						<p>
 							We take data security seriously. While echoValue API does not store personal user data, any interaction with our payment processors is protected through industry-standard encryption and security measures.
 						</p>
 
-						<h2 style="font-size: 1.5rem; font-weight: 600; color: var(--color-text-primary); margin-top: 2rem; margin-bottom: 1rem;">Changes to This Policy</h2>
+						<h2>Changes to This Policy</h2>
 						<p>
 							echoValue API reserves the right to modify this privacy policy at any time. Any changes will be posted on our website and, where appropriate, notified to you by email.
 						</p>
 
-						<h2 style="font-size: 1.5rem; font-weight: 600; color: var(--color-text-primary); margin-top: 2rem; margin-bottom: 1rem;">Contact Us</h2>
+						<h2>Contact Us</h2>
 						<p>
 							If you have any questions or concerns about this privacy policy, please contact us at support at echovalue dot dev.
 						</p>
@@ -81,16 +88,27 @@
 			</div>
 		</section>
 
-		<!-- Footer -->
-		<footer class="footer">
-			<div class="container">
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<ul class="footer-links">
+					<li><a href="/">Home</a></li>
+					<li><a href="db-api/">DB API</a></li>
+					<li><a href="monitor-api/">Monitor API</a></li>
+					<li><a href="https://docs.echovalue.dev">Documentation</a></li>
+					<li><a href="privacy.html">Privacy</a></li>
+					<li><a href="toc.html">Terms</a></li>
+				</ul>
+			</div>
+			<div class="footer-bottom">
 				<p>
-					© <a href="https://www.njoylab.com" target="_blank" rel="noopener noreferrer">nJoylab</a> · IT12822520966 · <span class="text-mono">v2.0</span> ·
-					<a href="privacy.html">Privacy Policy</a> ·
-					<a href="toc.html">Terms and Conditions</a>
+					© <a href="https://www.njoylab.com" target="_blank" rel="noopener noreferrer">nJoylab</a> ·
+					IT12822520966 · <span class="text-mono">v2.0</span>
 				</p>
 			</div>
-		</footer>
-
+		</div>
+	</footer>
+		<script src="assets/js/nav-toggle.js"></script>
 	</body>
 </html>

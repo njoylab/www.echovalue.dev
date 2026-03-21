@@ -43,6 +43,11 @@
 			<a href="/" class="navbar-brand">
 				echoValue DB API
 			</a>
+			<button class="navbar-toggle" aria-label="Toggle navigation">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
 			<ul class="navbar-nav">
 				<li><a href="#getstarted">Get Started</a></li>
 				<li><a href="#pricing">Pricing</a></li>
@@ -89,7 +94,7 @@ curl 'https://api.echovalue.dev/default/hello' \<br />
 <span class="code-output">% world</span></code>
 			</div>
 
-			<div style="text-align: center; margin-top: 2rem;">
+			<div class="text-center mt-3">
 				<a href="https://docs.echovalue.dev/#db-api-key-value-store" class="btn btn-primary">read docs →</a>
 			</div>
 		</div>
@@ -104,26 +109,38 @@ curl 'https://api.echovalue.dev/default/hello' \<br />
 
 			<div class="projects-grid">
 				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon">⚡</span>
+						<h3>instant-start</h3>
+					</div>
 					<div class="project-card-content">
-						<h3 style="margin-bottom: 0.75rem;">⚡ instant-start</h3>
 						<p>Token in seconds. No forms. No email. No waiting.</p>
 					</div>
 				</div>
 				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon">💰</span>
+						<h3>pay-as-you-go</h3>
+					</div>
 					<div class="project-card-content">
-						<h3 style="margin-bottom: 0.75rem;">💰 pay-as-you-go</h3>
 						<p>Credits never expire. No monthly fees. No surprises.</p>
 					</div>
 				</div>
 				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon">☁️</span>
+						<h3>serverless-ready</h3>
+					</div>
 					<div class="project-card-content">
-						<h3 style="margin-bottom: 0.75rem;">☁️ serverless-ready</h3>
 						<p>Perfect for Lambda, Vercel, Cloudflare Workers.</p>
 					</div>
 				</div>
 				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon">🔒</span>
+						<h3>secure</h3>
+					</div>
 					<div class="project-card-content">
-						<h3 style="margin-bottom: 0.75rem;">🔒 secure</h3>
 						<p>Token auth. Encrypted data. RESTful interface.</p>
 					</div>
 				</div>
@@ -149,39 +166,36 @@ curl 'https://api.echovalue.dev/default/hello' \<br />
 						<li>✓ No registration</li>
 						<li>✓ Full API access</li>
 					</ul>
-					<a href="https://docs.echovalue.dev/#token-management" class="btn btn-secondary"
-						style="width: 100%;">start free</a>
+					<a href="https://docs.echovalue.dev/#token-management" class="btn btn-secondary btn-block">start free</a>
 				</div>
 
-				<div class="pricing-card">
+				<div class="pricing-card featured">
 					<h3>Standard</h3>
-					<div class="price">$4 <small style="font-size: 1rem; color: #64748b;">/ €3.70</small></div>
+					<div class="price">$4 <small>/ €3.70</small></div>
 					<ul>
 						<li>✓ 1 million operations</li>
 						<li>✓ No subscription</li>
 						<li>✓ No expiration</li>
 						<li>✓ Full API access</li>
 					</ul>
-					<a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary"
-						style="width: 100%;">buy credits</a>
+					<a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary btn-block">buy credits</a>
 				</div>
 
 				<div class="pricing-card">
 					<h3>Pro</h3>
-					<div class="price">$10 <small style="font-size: 1rem; color: #64748b;">/ €9.20</small></div>
+					<div class="price">$10 <small>/ €9.20</small></div>
 					<ul>
 						<li>✓ 3 million operations</li>
 						<li>✓ No subscription</li>
 						<li>✓ No expiration</li>
 						<li>✓ Best value</li>
 					</ul>
-					<a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary"
-						style="width: 100%;">buy credits</a>
+					<a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary btn-block">buy credits</a>
 				</div>
 			</div>
 
-			<p class="text-center mt-4" style="color: #64748b;">
-				Need something different? <a href="#contact" style="color: #2563eb;">Contact us</a>
+			<p class="text-center mt-4 text-muted">
+				Need something different? <a href="#contact">Contact us</a>
 			</p>
 		</div>
 	</section>
@@ -220,15 +234,25 @@ curl 'https://api.echovalue.dev/default/hello' \<br />
 	<!-- Footer -->
 	<footer class="footer">
 		<div class="container">
-			<p>
-				© <a href="https://www.njoylab.com" target="_blank" rel="noopener noreferrer">nJoylab</a> ·
-				IT12822520966 · <span class="text-mono">v2.0</span> ·
-				<a href="../privacy.html">Privacy Policy</a> ·
-				<a href="../toc.html">Terms and Conditions</a>
-			</p>
+			<div class="footer-content">
+				<ul class="footer-links">
+					<li><a href="/">Home</a></li>
+					<li><a href="../db-api/">DB API</a></li>
+					<li><a href="../monitor-api/">Monitor API</a></li>
+					<li><a href="https://docs.echovalue.dev">Documentation</a></li>
+					<li><a href="../privacy.html">Privacy</a></li>
+					<li><a href="../toc.html">Terms</a></li>
+				</ul>
+			</div>
+			<div class="footer-bottom">
+				<p>
+					© <a href="https://www.njoylab.com" target="_blank" rel="noopener noreferrer">nJoylab</a> ·
+					IT12822520966 · <span class="text-mono">v2.0</span>
+				</p>
+			</div>
 		</div>
 	</footer>
-
+	<script src="../assets/js/nav-toggle.js"></script>
 </body>
 
 </html>
