@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Static marketing/portfolio site for [echoValue](https://www.echovalue.dev) — pay-as-you-go APIs and free developer tools. No framework, no build step, no bundler. Just HTML, CSS, Sass, and vanilla/jQuery JS served as-is.
+Static marketing/portfolio site for [echoValue](https://www.echovalue.dev) — pay-as-you-go APIs and free developer tools. No framework, no build step, no bundler. Just HTML, CSS, and vanilla JS served as-is.
 
 ## Project Structure
 
@@ -14,20 +14,13 @@ Static marketing/portfolio site for [echoValue](https://www.echovalue.dev) — p
 ├── db-api/index.html       # DB API product landing page
 ├── monitor-api/index.html  # Monitor API landing page
 ├── assets/
-│   ├── css/                # Compiled stylesheets (do NOT edit directly)
-│   │   ├── dev-theme.css   # Active theme loaded by pages
-│   │   ├── custom.css      # Custom overrides (also loaded)
-│   │   ├── main.css        # Legacy Hyperspace theme
-│   │   └── noscript.css
-│   ├── sass/               # Source of truth for styles
-│   │   ├── main.scss       # Entry point
-│   │   ├── base/           # Reset, page, typography
-│   │   ├── components/     # Buttons, cards, forms, sections, etc.
-│   │   ├── layout/         # Header, footer, sidebar, wrapper
-│   │   └── libs/           # Variables, mixins, breakpoints, vendor
-│   ├── js/                 # JavaScript (jQuery plugins + main.js)
-│   └── webfonts/           # Self-hosted web fonts
-└── images/                 # Site imagery and icons
+│   ├── css/
+│   │   └── dev-theme.css   # Single active theme (edit this)
+│   ├── js/
+│   │   └── nav-toggle.js   # Mobile hamburger toggle (12 lines)
+│   └── (no build artifacts, no vendor libs)
+└── images/
+    └── echovalue_logo.webp # Brand logo
 ```
 
 ## Build, Test & Development Commands
@@ -43,26 +36,12 @@ python3 -m http.server 8000
 npx serve .
 ```
 
-### Sass Compilation
-
-Sass sources in `assets/sass/` must be compiled to `assets/css/` before committing. Use any Sass CLI:
-
-```sh
-# Compile main theme
-sass assets/sass/main.scss assets/css/main.css
-
-# Watch for changes
-sass --watch assets/sass/main.scss:assets/css/main.css
-```
-
-`dev-theme.css` and `custom.css` appear to be hand-maintained CSS, not Sass outputs. Edit those files directly.
-
 ### Linting & Type Checking
 
 No linting or type-checking tools are configured. If you add one, prefer:
 - **HTML**: `html-validate` or VS Code built-in
 - **CSS**: `stylelint`
-- **JS**: `eslint` (though code is legacy jQuery, minimal edits expected)
+- **JS**: `eslint`
 
 ### Testing
 
@@ -84,19 +63,17 @@ No automated tests. Validate manually:
 - Use relative paths for internal links (`../assets/css/dev-theme.css` from subdirs)
 - Keep `lang="en"` on `<html>`
 
-### CSS / Sass
-- CSS custom properties (variables) are defined in `:root` in `custom.css` — use them
+### CSS
+- All styles live in `assets/css/dev-theme.css` — this is the single source of truth
+- CSS custom properties (variables) are defined in `:root` — use them
 - Naming: BEM-ish kebab-case (`.project-card`, `.project-card-header`, `.btn-primary`)
-- Utility classes follow Tailwind-like shorthand: `.mt-1` through `.mt-4`, `.mb-1` through `.mb-4`, `.text-center`, `.text-muted`
+- Utility classes follow Tailwind-like shorthand: `.mt-1` through `.mt-4`, `.mb-1` through `.mb-4`, `.text-center`, `.text-muted`, `.btn-block`, `.pt-nav`
 - Responsive breakpoint: single `@media (max-width: 768px)` query for mobile
-- When editing Sass partials (`_*.scss`), recompile to `main.css` afterward
-- Prefer editing Sass in `assets/sass/` over raw CSS when changing core structural styles
-- `dev-theme.css` and `custom.css` are edited directly (not Sass-generated)
+- Edit `dev-theme.css` directly — there is no Sass or CSS build step
 
 ### JavaScript
-- Legacy jQuery-based code in `assets/js/main.js` (from Hyperspace/Pixelarity template)
-- Minified vendor libs (`jquery.min.js`, `breakpoints.min.js`, etc.) — do not edit
-- IIFE pattern: `(function($) { ... })(jQuery);`
+- Minimal JS — only `assets/js/nav-toggle.js` (mobile hamburger toggle)
+- IIFE pattern: `(function () { ... })();`
 - Avoid adding new JS unless necessary; prefer CSS-only solutions
 
 ### File Naming
@@ -106,12 +83,12 @@ No automated tests. Validate manually:
 
 ## Design System
 
-The site uses a minimal, developer-focused aesthetic:
-- **Primary color**: `#2563eb` (blue)
-- **Font**: Inter (Google Fonts), with system font fallback stack
-- **Dark sections**: `#0f172a` background, light text
-- **Cards**: White with subtle border (`#e2e8f0`), rounded corners, hover lift effect
-- **Buttons**: `.btn-primary` (filled), `.btn-secondary` (light), `.btn-outline` (border)
+The site uses a GitHub Dark inspired developer aesthetic:
+- **Primary accent**: `#58a6ff` (blue) via `--color-accent-blue`
+- **Background**: `#0d1117` primary, `#161b22` secondary (cards)
+- **Font**: Inter (Google Fonts) + JetBrains Mono for code accents
+- **Cards**: Dark background with subtle border (`#30363d`), rounded corners, hover lift effect with box-shadow
+- **Buttons**: `.btn-primary` (filled), `.btn-secondary` (border), `.btn-outline` (accent border)
 - **Monospace accent**: `.mono` and `.text-mono` classes for code-style branding
 
 ## Commit & PR Guidelines
@@ -130,6 +107,5 @@ PRs should include:
 
 ## Key External Dependencies (CDN-loaded)
 
-- **jQuery 3.x** — loaded locally from `assets/js/jquery.min.js`
-- **Font Awesome 6.4.0** — loaded from cdnjs CDN in `<head>`
-- **Inter font** — loaded from Google Fonts in `custom.css`
+- **Font Awesome 6.4.0** — loaded from cdnjs CDN in `<head>` on every page
+- **Inter + JetBrains Mono fonts** — loaded from Google Fonts in `dev-theme.css` `@import`
