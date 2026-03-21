@@ -398,7 +398,7 @@ body {
 }
 
 .project-card-icon {
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   line-height: 1;
   width: 40px;
   height: 40px;
@@ -407,6 +407,8 @@ body {
   justify-content: center;
   background-color: var(--color-bg-tertiary);
   border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  opacity: 0.6;
 }
 
 .project-card-content {
