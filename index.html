@@ -35,6 +35,62 @@
 	<link rel="stylesheet" href="assets/css/dev-theme.css?v=1" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+	<!-- Structured Data -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "Organization",
+				"@id": "https://www.echovalue.dev/#organization",
+				"name": "echoValue",
+				"url": "https://www.echovalue.dev/",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "https://www.echovalue.dev/favicon.svg"
+				},
+				"description": "Pay-as-you-go APIs and free developer tools for developers. No subscriptions, no complexity.",
+				"sameAs": [
+					"https://twitter.com/emln_",
+					"https://www.linkedin.com/in/emlns/",
+					"https://github.com/njoylab"
+				]
+			},
+			{
+				"@type": "WebSite",
+				"@id": "https://www.echovalue.dev/#website",
+				"url": "https://www.echovalue.dev/",
+				"name": "echoValue",
+				"description": "Simple APIs and free developer tools. Key-Value Store, GeoIP, JSON Linter, DNS Lookup, URL Summarizer.",
+				"publisher": {
+					"@id": "https://www.echovalue.dev/#organization"
+				}
+			},
+			{
+				"@type": "SoftwareApplication",
+				"@id": "https://www.echovalue.dev/#software",
+				"name": "echoValue Developer Platform",
+				"applicationCategory": "DeveloperApplication",
+				"operatingSystem": "Web",
+				"url": "https://www.echovalue.dev/",
+				"offers": {
+					"@type": "Offer",
+					"price": "0",
+					"priceCurrency": "USD",
+					"description": "Free tools included. Pay-as-you-go APIs with no subscription."
+				},
+				"featureList": [
+					"Key-Value Store API",
+					"IP Geolocation Tool",
+					"JSON Linter and Formatter",
+					"DNS Lookup and Security Analyzer",
+					"URL Summarizer",
+					"Webhook Tester"
+				]
+			}
+		]
+	}
+	</script>
 </head>
 
 <body>
@@ -366,8 +422,8 @@
 					<li><a href="db-api/">DB API</a></li>
 					<li><a href="monitor-api/">Monitor API</a></li>
 					<li><a href="https://docs.echovalue.dev">Documentation</a></li>
-					<li><a href="privacy.html">Privacy</a></li>
-					<li><a href="toc.html">Terms</a></li>
+					<li><a href="/privacy">Privacy</a></li>
+					<li><a href="/toc">Terms</a></li>
 				</ul>
 			</div>
 			<div class="footer-bottom">
