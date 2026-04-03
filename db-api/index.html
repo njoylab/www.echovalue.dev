@@ -153,6 +153,116 @@ curl 'https://api.echovalue.dev/default/hello' \<br />
 		</div>
 	</section>
 
+	<!-- Agent State Section -->
+	<section class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>agent-state</h2>
+				<p>Give your AI agents shared state. Zero setup. One <span class="text-mono">curl</span> away.</p>
+			</div>
+
+			<p style="text-align:center; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--spacing-lg); font-size: 0.9375rem; line-height: 1.7;">
+				Use DB API as a lightweight coordination layer between LLM agents.
+				Share flags, status, locks, and signals — no database to provision.
+			</p>
+
+			<div class="code-block" style="position: relative;">
+				<button onclick="copyToolDef(this)" style="position:absolute;top:0.75rem;right:0.75rem;background:var(--color-bg-tertiary);border:1px solid var(--color-border);color:var(--color-text-muted);padding:0.3rem 0.6rem;border-radius:var(--radius-sm);font-family:var(--font-mono);font-size:0.6875rem;cursor:pointer;transition:all var(--transition-fast);display:flex;align-items:center;gap:0.35rem;" onmouseover="this.style.borderColor='var(--color-border-hover)';this.style.color='var(--color-text-primary)'" onmouseout="this.style.borderColor='var(--color-border)';this.style.color='var(--color-text-muted)'"><i class="fa-regular fa-copy"></i> copy</button>
+				<code><span class="code-comment">// Tool definition — works with OpenAI, Claude, Gemini</span><br />
+{<br />
+&nbsp;&nbsp;<span class="code-string">"name"</span>: <span class="code-string">"save_state"</span>,<br />
+&nbsp;&nbsp;<span class="code-string">"description"</span>: <span class="code-string">"Save a key-value pair to shared agent state"</span>,<br />
+&nbsp;&nbsp;<span class="code-string">"parameters"</span>: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"group"</span>: { <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Namespace / bucket"</span> },<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"key"</span>: &nbsp;&nbsp;{ <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Identifier"</span> },<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"value"</span>: { <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Data to store"</span> },<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"ttl"</span>: &nbsp;&nbsp;{ <span class="code-string">"type"</span>: <span class="code-string">"integer"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Expiry in seconds"</span> }<br />
+&nbsp;&nbsp;}<br />
+}<br /><br />
+{<br />
+&nbsp;&nbsp;<span class="code-string">"name"</span>: <span class="code-string">"read_state"</span>,<br />
+&nbsp;&nbsp;<span class="code-string">"description"</span>: <span class="code-string">"Read a value from shared agent state"</span>,<br />
+&nbsp;&nbsp;<span class="code-string">"parameters"</span>: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"group"</span>: { <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Namespace / bucket"</span> },<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"key"</span>: &nbsp;&nbsp;{ <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Identifier"</span> }<br />
+&nbsp;&nbsp;}<br />
+}</code>
+			</div>
+			<script>
+			function copyToolDef(btn) {
+				var json = JSON.stringify([
+					{
+						"name": "save_state",
+						"description": "Save a key-value pair to shared agent state",
+						"parameters": {
+							"group": { "type": "string", "description": "Namespace / bucket" },
+							"key": { "type": "string", "description": "Identifier" },
+							"value": { "type": "string", "description": "Data to store" },
+							"ttl": { "type": "integer", "description": "Expiry in seconds" }
+						}
+					},
+					{
+						"name": "read_state",
+						"description": "Read a value from shared agent state",
+						"parameters": {
+							"group": { "type": "string", "description": "Namespace / bucket" },
+							"key": { "type": "string", "description": "Identifier" }
+						}
+					}
+				], null, 2);
+				navigator.clipboard.writeText(json).then(function() {
+					var icon = btn.querySelector('i');
+					var orig = icon.className;
+					icon.className = 'fa-solid fa-check';
+					btn.lastChild.textContent = ' copied!';
+					btn.style.color = 'var(--color-accent-green)';
+					btn.style.borderColor = 'var(--color-accent-green)';
+					setTimeout(function() {
+						icon.className = orig;
+						btn.lastChild.textContent = ' copy';
+						btn.style.color = 'var(--color-text-muted)';
+						btn.style.borderColor = 'var(--color-border)';
+					}, 2000);
+				});
+			}
+			</script>
+
+			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-flag"></i></span>
+						<h3>status-flags</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Agent A writes <span class="text-mono">pipeline/status → "done"</span>. Agent B reads it and proceeds.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-lock"></i></span>
+						<h3>lightweight-locks</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Claim a task with <span class="text-mono">lock/import → "agent-2"</span> and TTL as auto-release.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-arrows-rotate"></i></span>
+						<h3>coordination</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Share counters, last-run timestamps, or next-task pointers across agents.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="text-center mt-3">
+				<a href="/db-api/agent-state/" class="btn btn-primary">see full example →</a>
+			</div>
+		</div>
+	</section>
+
 	<!-- Pricing Section -->
 	<section id="pricing" class="section">
 		<div class="container">

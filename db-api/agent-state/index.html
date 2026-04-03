@@ -1,0 +1,432 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Agent Shared State with echoValue DB API — Python & TypeScript Examples</title>
+	<meta name="description"
+		content="Give your AI agents shared state with echoValue DB API. Copy-paste examples for Python (Claude, OpenAI) and TypeScript. Zero setup, pay-as-you-go.">
+	<meta name="keywords" content="AI agent shared state, LLM tool calling, function calling, agent coordination, key-value store, echoValue">
+	<meta name="author" content="Emiliano Saurin">
+	<link rel="canonical" href="https://www.echovalue.dev/db-api/agent-state/">
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="icon" href="/favicon.ico">
+	<link rel="manifest" href="/site.webmanifest">
+	<!-- Open Graph -->
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://www.echovalue.dev/db-api/agent-state/">
+	<meta property="og:title" content="Agent Shared State with echoValue DB API">
+	<meta property="og:description" content="Give your AI agents shared state. Copy-paste examples for Python and TypeScript. Zero setup.">
+	<meta property="og:image" content="https://www.njoylab.com/images/echovalue-api.webp">
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://www.echovalue.dev/db-api/agent-state/">
+	<meta property="twitter:title" content="Agent Shared State with echoValue DB API">
+	<meta property="twitter:description" content="Give your AI agents shared state. Copy-paste examples for Python and TypeScript. Zero setup.">
+	<meta property="twitter:image" content="https://www.njoylab.com/images/echovalue-api.webp">
+	<link rel="stylesheet" href="../../assets/css/dev-theme.css?v=1" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar">
+		<div class="container">
+			<a href="/" class="navbar-brand">
+				echoValue DB API
+			</a>
+			<button class="theme-toggle" aria-label="Toggle theme">
+				<i class="fa-solid fa-moon"></i>
+				<i class="fa-solid fa-sun"></i>
+			</button>
+			<button class="navbar-toggle" aria-label="Toggle navigation">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<ul class="navbar-nav">
+				<li><a href="/db-api/">DB API</a></li>
+				<li><a href="/db-api/#pricing">Pricing</a></li>
+				<li><a href="/db-api/#contact">Contact</a></li>
+				<li><a href="https://docs.echovalue.dev">Documentation</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section class="hero compact">
+		<div class="container">
+			<h1><span class="mono">agent</span>-state</h1>
+			<p>
+				Give your AI agents shared state.<br>
+				Copy, paste, run. Works with Claude, OpenAI, Gemini.
+			</p>
+		</div>
+	</section>
+
+	<!-- How it works -->
+	<section class="section no-border">
+		<div class="container" style="max-width: 800px;">
+			<div class="section-header">
+				<h2>how-it-works</h2>
+			</div>
+
+			<div class="projects-grid" style="grid-template-columns: repeat(3, 1fr);">
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon" style="color: var(--color-accent-blue); opacity: 1;">1</span>
+						<h3>define</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Register <span class="text-mono">save_state</span> and <span class="text-mono">read_state</span> as tools your LLM can call.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon" style="color: var(--color-accent-blue); opacity: 1;">2</span>
+						<h3>handle</h3>
+					</div>
+					<div class="project-card-content">
+						<p>When the LLM calls a tool, your handler sends the request to echoValue DB API.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon" style="color: var(--color-accent-blue); opacity: 1;">3</span>
+						<h3>share</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Any agent with the same token can read and write. Shared state, zero config.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Code Example with Tabs -->
+	<section id="example" class="section">
+		<div class="container" style="max-width: 800px;">
+			<div class="section-header">
+				<h2>full-example</h2>
+				<p>Copy, paste, run. Swap the SDK for OpenAI or Gemini — the tool schema is the same.</p>
+			</div>
+
+			<div class="code-tabs">
+				<div class="code-tabs-header">
+					<button class="code-tab active" data-tab="python">python</button>
+					<button class="code-tab" data-tab="typescript">typescript</button>
+				</div>
+				<div class="code-block" style="position: relative; border-top-left-radius: 0; border-top-right-radius: 0;">
+					<button onclick="copyBlock(this)" class="copy-btn"><i class="fa-regular fa-copy"></i> copy</button>
+
+					<div class="code-tab-content active" id="tab-python">
+						<pre><code><span class="code-comment"># pip install anthropic requests</span>
+
+<span class="code-function">import</span> requests
+<span class="code-function">from</span> anthropic <span class="code-function">import</span> Anthropic
+
+<span class="code-comment"># Get a free token: curl https://token.echovalue.dev -d 'token=new'</span>
+TOKEN = <span class="code-string">"your-echovalue-token"</span>
+BASE  = <span class="code-string">"https://api.echovalue.dev"</span>
+
+<span class="code-comment"># 1. Define the tools</span>
+tools = [
+    {
+        <span class="code-string">"name"</span>: <span class="code-string">"save_state"</span>,
+        <span class="code-string">"description"</span>: <span class="code-string">"Save a key-value pair to shared agent state"</span>,
+        <span class="code-string">"input_schema"</span>: {
+            <span class="code-string">"type"</span>: <span class="code-string">"object"</span>,
+            <span class="code-string">"properties"</span>: {
+                <span class="code-string">"group"</span>: {<span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Namespace / bucket"</span>},
+                <span class="code-string">"key"</span>:   {<span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Identifier"</span>},
+                <span class="code-string">"value"</span>: {<span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Data to store"</span>},
+                <span class="code-string">"ttl"</span>:   {<span class="code-string">"type"</span>: <span class="code-string">"integer"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Expiry in seconds"</span>}
+            },
+            <span class="code-string">"required"</span>: [<span class="code-string">"group"</span>, <span class="code-string">"key"</span>, <span class="code-string">"value"</span>]
+        }
+    },
+    {
+        <span class="code-string">"name"</span>: <span class="code-string">"read_state"</span>,
+        <span class="code-string">"description"</span>: <span class="code-string">"Read a value from shared agent state"</span>,
+        <span class="code-string">"input_schema"</span>: {
+            <span class="code-string">"type"</span>: <span class="code-string">"object"</span>,
+            <span class="code-string">"properties"</span>: {
+                <span class="code-string">"group"</span>: {<span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Namespace / bucket"</span>},
+                <span class="code-string">"key"</span>:   {<span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Identifier"</span>}
+            },
+            <span class="code-string">"required"</span>: [<span class="code-string">"group"</span>, <span class="code-string">"key"</span>]
+        }
+    }
+]
+
+<span class="code-comment"># 2. Handle tool calls → echoValue API</span>
+<span class="code-function">def</span> <span class="code-accent">run_tool</span>(name, args):
+    headers = {<span class="code-string">"x-token"</span>: TOKEN}
+    <span class="code-function">if</span> name == <span class="code-string">"save_state"</span>:
+        ttl = args.get(<span class="code-string">"ttl"</span>, 86400)
+        r = requests.post(
+            <span class="code-string">f"<span class="code-output">{BASE}</span>/<span class="code-output">{args['group']}</span>/<span class="code-output">{args['key']}</span>?ttl=<span class="code-output">{ttl}</span>"</span>,
+            data=args[<span class="code-string">"value"</span>], headers=headers)
+        <span class="code-function">return</span> r.text
+    <span class="code-function">if</span> name == <span class="code-string">"read_state"</span>:
+        r = requests.get(
+            <span class="code-string">f"<span class="code-output">{BASE}</span>/<span class="code-output">{args['group']}</span>/<span class="code-output">{args['key']}</span>"</span>,
+            headers=headers)
+        <span class="code-function">return</span> r.text
+
+<span class="code-comment"># 3. Run the agent</span>
+client = Anthropic()
+response = client.messages.create(
+    model=<span class="code-string">"claude-sonnet-4-20250514"</span>,
+    max_tokens=1024,
+    tools=tools,
+    messages=[{<span class="code-string">"role"</span>: <span class="code-string">"user"</span>, <span class="code-string">"content"</span>: <span class="code-string">"Save status=done for the import pipeline"</span>}]
+)
+
+<span class="code-comment"># 4. Process tool calls from the response</span>
+<span class="code-function">for</span> block <span class="code-function">in</span> response.content:
+    <span class="code-function">if</span> block.type == <span class="code-string">"tool_use"</span>:
+        result = run_tool(block.name, block.input)
+        print(<span class="code-string">f"<span class="code-output">{block.name}</span> → <span class="code-output">{result}</span>"</span>)
+        <span class="code-comment"># <span class="code-output">save_state → OK</span></span></code></pre>
+					</div>
+
+					<div class="code-tab-content" id="tab-typescript">
+						<pre><code><span class="code-comment">// npm install @anthropic-ai/sdk</span>
+
+<span class="code-function">import</span> Anthropic <span class="code-function">from</span> <span class="code-string">"@anthropic-ai/sdk"</span>;
+
+<span class="code-comment">// Get a free token: curl https://token.echovalue.dev -d 'token=new'</span>
+<span class="code-function">const</span> TOKEN = <span class="code-string">"your-echovalue-token"</span>;
+<span class="code-function">const</span> BASE = <span class="code-string">"https://api.echovalue.dev"</span>;
+
+<span class="code-comment">// 1. Define the tools</span>
+<span class="code-function">const</span> tools: Anthropic.Tool[] = [
+  {
+    name: <span class="code-string">"save_state"</span>,
+    description: <span class="code-string">"Save a key-value pair to shared agent state"</span>,
+    input_schema: {
+      type: <span class="code-string">"object"</span> <span class="code-function">as const</span>,
+      properties: {
+        group: { type: <span class="code-string">"string"</span>, description: <span class="code-string">"Namespace / bucket"</span> },
+        key:   { type: <span class="code-string">"string"</span>, description: <span class="code-string">"Identifier"</span> },
+        value: { type: <span class="code-string">"string"</span>, description: <span class="code-string">"Data to store"</span> },
+        ttl:   { type: <span class="code-string">"integer"</span>, description: <span class="code-string">"Expiry in seconds"</span> },
+      },
+      required: [<span class="code-string">"group"</span>, <span class="code-string">"key"</span>, <span class="code-string">"value"</span>],
+    },
+  },
+  {
+    name: <span class="code-string">"read_state"</span>,
+    description: <span class="code-string">"Read a value from shared agent state"</span>,
+    input_schema: {
+      type: <span class="code-string">"object"</span> <span class="code-function">as const</span>,
+      properties: {
+        group: { type: <span class="code-string">"string"</span>, description: <span class="code-string">"Namespace / bucket"</span> },
+        key:   { type: <span class="code-string">"string"</span>, description: <span class="code-string">"Identifier"</span> },
+      },
+      required: [<span class="code-string">"group"</span>, <span class="code-string">"key"</span>],
+    },
+  },
+];
+
+<span class="code-comment">// 2. Handle tool calls → echoValue API</span>
+<span class="code-function">async function</span> <span class="code-accent">runTool</span>(name: <span class="code-function">string</span>, args: Record&lt;<span class="code-function">string</span>, <span class="code-function">any</span>&gt;) {
+  <span class="code-function">const</span> headers = { <span class="code-string">"x-token"</span>: TOKEN };
+
+  <span class="code-function">if</span> (name === <span class="code-string">"save_state"</span>) {
+    <span class="code-function">const</span> ttl = args.ttl ?? 86400;
+    <span class="code-function">const</span> res = <span class="code-function">await</span> fetch(
+      <span class="code-string">`<span class="code-output">${BASE}</span>/<span class="code-output">${args.group}</span>/<span class="code-output">${args.key}</span>?ttl=<span class="code-output">${ttl}</span>`</span>,
+      { method: <span class="code-string">"POST"</span>, body: args.value, headers }
+    );
+    <span class="code-function">return</span> res.text();
+  }
+
+  <span class="code-function">if</span> (name === <span class="code-string">"read_state"</span>) {
+    <span class="code-function">const</span> res = <span class="code-function">await</span> fetch(
+      <span class="code-string">`<span class="code-output">${BASE}</span>/<span class="code-output">${args.group}</span>/<span class="code-output">${args.key}</span>`</span>,
+      { headers }
+    );
+    <span class="code-function">return</span> res.text();
+  }
+}
+
+<span class="code-comment">// 3. Run the agent</span>
+<span class="code-function">const</span> client = <span class="code-function">new</span> Anthropic();
+<span class="code-function">const</span> response = <span class="code-function">await</span> client.messages.create({
+  model: <span class="code-string">"claude-sonnet-4-20250514"</span>,
+  max_tokens: 1024,
+  tools,
+  messages: [{ role: <span class="code-string">"user"</span>, content: <span class="code-string">"Save status=done for the import pipeline"</span> }],
+});
+
+<span class="code-comment">// 4. Process tool calls from the response</span>
+<span class="code-function">for</span> (<span class="code-function">const</span> block <span class="code-function">of</span> response.content) {
+  <span class="code-function">if</span> (block.type === <span class="code-string">"tool_use"</span>) {
+    <span class="code-function">const</span> result = <span class="code-function">await</span> runTool(block.name, block.input <span class="code-function">as</span> Record&lt;<span class="code-function">string</span>, <span class="code-function">any</span>&gt;);
+    console.log(<span class="code-string">`<span class="code-output">${block.name}</span> → <span class="code-output">${result}</span>`</span>);
+    <span class="code-comment">// <span class="code-output">save_state → OK</span></span>
+  }
+}</code></pre>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="section bg-light">
+		<div class="container" style="max-width: 600px; text-align: center;">
+			<div class="section-header">
+				<h2>get-started</h2>
+				<p>Free tier includes 100 operations. No registration. No credit card.</p>
+			</div>
+			<div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+				<a href="https://docs.echovalue.dev/#token-management" class="btn btn-primary">get free token →</a>
+				<a href="https://docs.echovalue.dev/#db-api-key-value-store" class="btn btn-secondary">read full docs →</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<ul class="footer-links">
+					<li><a href="/">Home</a></li>
+					<li><a href="/db-api/">DB API</a></li>
+					<li><a href="/monitor-api/">Monitor API</a></li>
+					<li><a href="https://docs.echovalue.dev">Documentation</a></li>
+					<li><a href="/privacy.html">Privacy</a></li>
+					<li><a href="/toc.html">Terms</a></li>
+				</ul>
+			</div>
+			<div class="footer-bottom">
+				<p>
+					&copy; <a href="https://www.njoylab.com" target="_blank" rel="noopener noreferrer">nJoylab</a> &middot;
+					IT12822520966 &middot; <span class="text-mono">v2.0</span>
+				</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="../../assets/js/nav-toggle.js?v=1"></script>
+	<script src="../../assets/js/theme-toggle.js?v=1"></script>
+	<script>
+	// Tab switching
+	document.querySelectorAll('.code-tab').forEach(function(tab) {
+		tab.addEventListener('click', function() {
+			var target = this.dataset.tab;
+			// Update active tab
+			document.querySelectorAll('.code-tab').forEach(function(t) { t.classList.remove('active'); });
+			this.classList.add('active');
+			// Update active content
+			document.querySelectorAll('.code-tab-content').forEach(function(c) { c.classList.remove('active'); });
+			document.getElementById('tab-' + target).classList.add('active');
+		});
+	});
+
+	function copyBlock(btn) {
+		var activeContent = btn.closest('.code-block').querySelector('.code-tab-content.active');
+		var code = activeContent ? activeContent.querySelector('code') : btn.closest('.code-block').querySelector('code');
+		var text = code.innerText || code.textContent;
+		navigator.clipboard.writeText(text).then(function() {
+			var icon = btn.querySelector('i');
+			var orig = icon.className;
+			icon.className = 'fa-solid fa-check';
+			btn.lastChild.textContent = ' copied!';
+			btn.style.color = 'var(--color-accent-green)';
+			btn.style.borderColor = 'var(--color-accent-green)';
+			setTimeout(function() {
+				icon.className = orig;
+				btn.lastChild.textContent = ' copy';
+				btn.style.color = '';
+				btn.style.borderColor = '';
+			}, 2000);
+		});
+	}
+	</script>
+	<style>
+	.copy-btn {
+		position: absolute;
+		top: 0.75rem;
+		right: 0.75rem;
+		background: var(--color-bg-tertiary);
+		border: 1px solid var(--color-border);
+		color: var(--color-text-muted);
+		padding: 0.3rem 0.6rem;
+		border-radius: var(--radius-sm);
+		font-family: var(--font-mono);
+		font-size: 0.6875rem;
+		cursor: pointer;
+		transition: all var(--transition-fast);
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+	}
+	.copy-btn:hover {
+		border-color: var(--color-border-hover);
+		color: var(--color-text-primary);
+	}
+	.code-block pre {
+		margin: 0;
+		white-space: pre;
+		overflow-x: auto;
+	}
+	.code-block pre code {
+		font-family: var(--font-mono);
+		font-size: 0.8125rem;
+		line-height: 1.7;
+	}
+	/* Tabs */
+	.code-tabs-header {
+		display: flex;
+		gap: 0;
+		border: 1px solid var(--color-border);
+		border-bottom: none;
+		border-radius: var(--radius-md) var(--radius-md) 0 0;
+		overflow: hidden;
+		background: var(--color-bg-secondary);
+	}
+	.code-tab {
+		background: none;
+		border: none;
+		color: var(--color-text-muted);
+		font-family: var(--font-mono);
+		font-size: 0.8125rem;
+		font-weight: 500;
+		padding: 0.625rem 1.25rem;
+		cursor: pointer;
+		transition: color var(--transition-fast), background-color var(--transition-fast);
+		border-right: 1px solid var(--color-border);
+	}
+	.code-tab:last-child {
+		border-right: none;
+	}
+	.code-tab:hover {
+		color: var(--color-text-primary);
+	}
+	.code-tab.active {
+		color: var(--color-text-primary);
+		background: var(--color-bg-primary);
+		border-bottom: 2px solid var(--color-accent-blue);
+	}
+	.code-tab-content {
+		display: none;
+	}
+	.code-tab-content.active {
+		display: block;
+	}
+	</style>
+</body>
+
+</html>
