@@ -88,7 +88,7 @@
 				<code><span class="code-comment"># 1. Your wallet email address</span><br />
 <span class="code-string">&lt;mytoken&gt;</span>@hook.echovalue.dev<br /><br />
 <span class="code-comment"># 2. Configure your webhook endpoint (once)</span><br />
-curl 'https://api.echovalue.dev/mail2webhook/config' \<br />
+curl 'https://api.echovalue.dev/webhook' \<br />
 &nbsp;&nbsp;-H 'x-token: mytoken' \<br />
 &nbsp;&nbsp;-d 'url=https://myapp.example.com/hooks/email'<br />
 <span class="code-output">% OK</span><br /><br />
@@ -141,7 +141,7 @@ curl 'https://api.echovalue.dev/mail2webhook/config' \<br />
 &nbsp;&nbsp;<span class="code-string">"externalMessageId"</span>: <span class="code-string">"&lt;CA+abc123@mail.gmail.com&gt;"</span>,<br />
 &nbsp;&nbsp;<span class="code-string">"receivedAt"</span>: <span class="code-string">"2026-04-04T09:21:35.218Z"</span>,<br />
 &nbsp;&nbsp;<span class="code-string">"from"</span>: { <span class="code-string">"email"</span>: <span class="code-string">"john@gmail.com"</span>, <span class="code-string">"name"</span>: <span class="code-string">"John Snow"</span> },<br />
-&nbsp;&nbsp;<span class="code-string">"to"</span>: [{ <span class="code-string">"email"</span>: <span class="code-string">"wallet-id@hook.echovalue.dev"</span>, <span class="code-string">"name"</span>: <span class="code-value">null</span> }],<br />
+&nbsp;&nbsp;<span class="code-string">"to"</span>: [{ <span class="code-string">"hash"</span>: <span class="code-string">"a1b2c3d4e5f6..."</span>, <span class="code-string">"name"</span>: <span class="code-value">null</span> }],<br />
 &nbsp;&nbsp;<span class="code-string">"subject"</span>: <span class="code-string">"Alert: Server down"</span>,<br />
 &nbsp;&nbsp;<span class="code-string">"text"</span>: <span class="code-string">"Server #3 is not responding"</span>,<br />
 &nbsp;&nbsp;<span class="code-string">"html"</span>: <span class="code-string">"&lt;div&gt;Server #3 is not responding&lt;/div&gt;"</span>,<br />
@@ -195,8 +195,9 @@ curl 'https://api.echovalue.dev/mail2webhook/config' \<br />
 						<h3>attachments</h3>
 					</div>
 					<div class="project-card-content">
-						<p>Each attachment includes a short-lived <span class="text-mono">downloadUrl</span> (5 min
-							TTL), filename, content type, and size in bytes. Max attachment size: <span class="text-mono">20 MB</span>.</p>
+						<p>Each attachment includes a short-lived <span class="text-mono">downloadUrl</span> (60 min
+							TTL), filename, content type, and size in bytes. Max attachment size: <span
+								class="text-mono">20 MB</span>.</p>
 					</div>
 				</div>
 			</div>
