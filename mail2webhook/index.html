@@ -1,0 +1,389 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>echoValue Mail2Webhook - Email to Webhook Bridge</title>
+	<meta name="description"
+		content="Turn any email into an HTTP webhook. Each wallet gets a public email address. Send an email, receive a POST request at your endpoint. No server setup required.">
+	<meta name="keywords"
+		content="echoValue, mail to webhook, email webhook, email to HTTP, webhook bridge, email automation">
+	<meta name="author" content="Emiliano Saurin">
+	<link rel="canonical" href="https://www.echovalue.dev/mail2webhook/">
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="icon" href="/favicon.ico">
+	<link rel="manifest" href="/site.webmanifest">
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.echovalue.dev/mail2webhook/">
+	<meta property="og:title" content="echoValue Mail2Webhook - Email to Webhook Bridge">
+	<meta property="og:description"
+		content="Turn any email into an HTTP webhook. Each wallet gets a public email address. Send an email, receive a POST at your endpoint.">
+	<meta property="og:image" content="https://www.njoylab.com/images/echovalue-api.webp">
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://www.echovalue.dev/mail2webhook/">
+	<meta property="twitter:title" content="echoValue Mail2Webhook - Email to Webhook Bridge">
+	<meta property="twitter:description"
+		content="Turn any email into an HTTP webhook. Each wallet gets a public email address. Send an email, receive a POST at your endpoint.">
+	<meta property="twitter:image" content="https://www.njoylab.com/images/echovalue-api.webp">
+	<link rel="stylesheet" href="../assets/css/dev-theme.css?v=1" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar">
+		<div class="container">
+			<a href="/" class="navbar-brand">
+				echoValue Mail2Webhook
+			</a>
+			<button class="theme-toggle" aria-label="Toggle theme">
+				<i class="fa-solid fa-moon"></i>
+				<i class="fa-solid fa-sun"></i>
+			</button>
+			<button class="navbar-toggle" aria-label="Toggle navigation">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<ul class="navbar-nav">
+				<li><a href="#how-it-works">How It Works</a></li>
+				<li><a href="#use-cases">Use Cases</a></li>
+				<li><a href="#payload">Payload</a></li>
+				<li><a href="#pricing">Pricing</a></li>
+				<li><a href="https://docs.echovalue.dev">Documentation</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section class="hero compact">
+		<div class="container">
+			<h1><span class="mono">mail</span>2webhook</h1>
+			<p>
+				Email → Webhook. Every wallet gets a public address.<br>
+				Send an email, receive an <span class="text-mono">HTTP POST</span> on your endpoint.
+			</p>
+		</div>
+	</section>
+
+	<!-- How it works -->
+	<section id="how-it-works" class="section no-border">
+		<div class="container">
+			<div class="section-header">
+				<h2>how-it-works</h2>
+				<p>Three steps. No server. No MX records to configure.</p>
+			</div>
+
+			<div class="code-block">
+				<code><span class="code-comment"># 1. Your wallet email address</span><br />
+<span class="code-string">&lt;mytoken&gt;</span>@hook.echovalue.dev<br /><br />
+<span class="code-comment"># 2. Configure your webhook endpoint (once)</span><br />
+curl 'https://api.echovalue.dev/mail2webhook/config' \<br />
+&nbsp;&nbsp;-H 'x-token: mytoken' \<br />
+&nbsp;&nbsp;-d 'url=https://myapp.example.com/hooks/email'<br />
+<span class="code-output">% OK</span><br /><br />
+<span class="code-comment"># 3. Send an email and watch the POST arrive</span><br />
+			</div>
+
+			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-envelope"></i></span>
+						<h3>1. get your address</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Request a token. Your public email is <span
+								class="text-mono">&lt;wallet-id&gt;@hook.echovalue.dev</span> — ready instantly.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-gear"></i></span>
+						<h3>2. configure endpoint</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Set your webhook URL once via the API. All incoming emails will POST there.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-bolt"></i></span>
+						<h3>3. receive events</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Every email triggers an HTTP POST to your endpoint with the full message as JSON.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Payload Section -->
+	<section id="payload" class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>payload</h2>
+				<p>What arrives at your webhook endpoint.</p>
+			</div>
+
+			<div class="code-block">
+				<code>{<br />
+&nbsp;&nbsp;<span class="code-string">"externalMessageId"</span>: <span class="code-string">"&lt;CA+abc123@mail.gmail.com&gt;"</span>,<br />
+&nbsp;&nbsp;<span class="code-string">"receivedAt"</span>: <span class="code-string">"2026-04-04T09:21:35.218Z"</span>,<br />
+&nbsp;&nbsp;<span class="code-string">"from"</span>: { <span class="code-string">"email"</span>: <span class="code-string">"john@gmail.com"</span>, <span class="code-string">"name"</span>: <span class="code-string">"John Snow"</span> },<br />
+&nbsp;&nbsp;<span class="code-string">"to"</span>: [{ <span class="code-string">"email"</span>: <span class="code-string">"wallet-id@hook.echovalue.dev"</span>, <span class="code-string">"name"</span>: <span class="code-value">null</span> }],<br />
+&nbsp;&nbsp;<span class="code-string">"subject"</span>: <span class="code-string">"Alert: Server down"</span>,<br />
+&nbsp;&nbsp;<span class="code-string">"text"</span>: <span class="code-string">"Server #3 is not responding"</span>,<br />
+&nbsp;&nbsp;<span class="code-string">"html"</span>: <span class="code-string">"&lt;div&gt;Server #3 is not responding&lt;/div&gt;"</span>,<br />
+&nbsp;&nbsp;<span class="code-string">"headers"</span>: { <span class="code-comment">/* raw email headers */</span> },<br />
+&nbsp;&nbsp;<span class="code-string">"attachments"</span>: [<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"filename"</span>: <span class="code-string">"attachment.pdf"</span>,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"contentType"</span>: <span class="code-string">"application/pdf"</span>,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"size"</span>: <span class="code-value">33380</span>,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"downloadUrl"</span>: <span class="code-string">"&lt;presigned_url&gt;"</span>,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"downloadUrlExpiresAt"</span>: <span class="code-string">"2026-04-04T09:26:35.218Z"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;]<br />
+}</code>
+			</div>
+
+			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-user"></i></span>
+						<h3>from / to</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Sender and recipients as objects with <span class="text-mono">email</span> and <span
+								class="text-mono">name</span>. Use <span class="text-mono">from.email</span> to filter,
+							route, or allow-list traffic in your handler.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-tag"></i></span>
+						<h3>subject</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Perfect for routing logic — treat it as an event type or command keyword.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-align-left"></i></span>
+						<h3>text / html</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Email body in both plain text and HTML. Parse, store, or forward either format — your call.
+						</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-paperclip"></i></span>
+						<h3>attachments</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Each attachment includes a short-lived <span class="text-mono">downloadUrl</span> (5 min
+							TTL), filename, content type, and size in bytes. Max attachment size: <span class="text-mono">20 MB</span>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Use Cases Section -->
+	<section id="use-cases" class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>use-cases</h2>
+				<p>Any system that sends email can now trigger your code.</p>
+			</div>
+
+			<div class="projects-grid">
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+						<h3>automation entry point</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Zapier, Make, n8n, Power Automate — all accept webhooks. Unlike native email triggers, no
+							OAuth or inbox access needed. Just a public address anyone can send to.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-robot"></i></span>
+						<h3>ai agent input</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Email is the interface everyone knows. Turn it into programmable input for AI agents —
+							classify, extract, triage, respond.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-industry"></i></span>
+						<h3>legacy integration</h3>
+					</div>
+					<div class="project-card-content">
+						<p>ERP systems, scanners, SCADA, printers — anything that sends email becomes webhook-capable.
+							No code changes on the source.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-bell"></i></span>
+						<h3>notification hub</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Centralize email alerts from multiple services into one endpoint. Forward to Slack,
+							PagerDuty, or your own dashboard.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-microchip"></i></span>
+						<h3>IoT &amp; embedded</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Hardware and industrial devices that can send email but not HTTP. A natural bridge to modern
+							APIs.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-mobile-screen"></i></span>
+						<h3>sms gateways</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Carrier SMS-to-email becomes SMS-to-webhook in one step. Zero infrastructure to manage.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Pricing Section -->
+	<section id="pricing" class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>pricing</h2>
+				<p>Zero subscriptions. Pay per use. Credits never expire.</p>
+			</div>
+
+			<div class="pricing-grid">
+				<div class="pricing-card">
+					<h3>Free</h3>
+					<div class="price">$0</div>
+					<ul>
+						<li>✓ 100 email events</li>
+						<li>✓ No credit card</li>
+						<li>✓ No registration</li>
+						<li>✓ Full API access</li>
+					</ul>
+					<a href="https://docs.echovalue.dev/#token-management" class="btn btn-secondary btn-block">start
+						free</a>
+				</div>
+
+				<div class="pricing-card featured">
+					<h3>Standard</h3>
+					<div class="price">$4 <small>/ €3.70</small></div>
+					<ul>
+						<li>✓ 1 million events</li>
+						<li>✓ No subscription</li>
+						<li>✓ No expiration</li>
+						<li>✓ Shared with db-api</li>
+					</ul>
+					<a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary btn-block">buy
+						credits</a>
+				</div>
+
+				<div class="pricing-card">
+					<h3>Pro</h3>
+					<div class="price">$10 <small>/ €9.20</small></div>
+					<ul>
+						<li>✓ 3 million events</li>
+						<li>✓ No subscription</li>
+						<li>✓ No expiration</li>
+						<li>✓ Best value</li>
+					</ul>
+					<a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary btn-block">buy
+						credits</a>
+				</div>
+			</div>
+
+			<p class="text-center mt-4 text-muted">
+				Credits are shared across all echoValue APIs. Pay once, use everywhere.
+			</p>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact" class="section bg-light">
+		<div class="container">
+			<div class="section-header">
+				<h2>Get Support</h2>
+				<p>Questions, feedback, or feature requests about Mail2Webhook.</p>
+			</div>
+
+			<div class="contact-info">
+				<div class="contact-item">
+					<h3>Email</h3>
+					support at echovalue dot dev
+				</div>
+				<div class="contact-item">
+					<h3>Social</h3>
+					<div class="social-links">
+						<a href="https://twitter.com/emln_" aria-label="Twitter">
+							<i class="fab fa-twitter"></i>
+						</a>
+						<a href="https://www.linkedin.com/in/emlns/" aria-label="LinkedIn">
+							<i class="fab fa-linkedin"></i>
+						</a>
+						<a href="https://github.com/njoylab" aria-label="GitHub">
+							<i class="fab fa-github"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<ul class="footer-links">
+					<li><a href="/">Home</a></li>
+					<li><a href="../db-api/">DB API</a></li>
+					<li><a href="../monitor-api/">Monitor API</a></li>
+					<li><a href="../mail2webhook/">Mail2Webhook</a></li>
+					<li><a href="https://docs.echovalue.dev">Documentation</a></li>
+					<li><a href="../privacy.html">Privacy</a></li>
+					<li><a href="../toc.html">Terms</a></li>
+				</ul>
+			</div>
+			<div class="footer-bottom">
+				<p>
+					© <a href="https://www.njoylab.com" target="_blank" rel="noopener noreferrer">nJoylab</a> ·
+					IT12822520966 · <span class="text-mono">v2.0</span>
+				</p>
+			</div>
+		</div>
+	</footer>
+	<script src="../assets/js/nav-toggle.js?v=1"></script>
+	<script src="../assets/js/theme-toggle.js?v=1"></script>
+</body>
+
+</html>
