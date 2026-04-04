@@ -9,14 +9,14 @@
 	<meta name="description"
 		content="echoValue DB API is a 'pay as you go' Key-Value Store API, ideal for small projects and serverless applications.">
 	<meta name="keywords" content="echoValue, Key-Value Store, API, NoSQL, Serverless, Cloud Storage, nosubscription">
-		<meta name="author" content="Emiliano Saurin">
-		<link rel="canonical" href="https://www.echovalue.dev/db-api/">
-		<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+	<meta name="author" content="Emiliano Saurin">
+	<link rel="canonical" href="https://www.echovalue.dev/db-api/">
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<link rel="icon" href="/favicon.ico">
-		<link rel="manifest" href="/site.webmanifest">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="icon" href="/favicon.ico">
+	<link rel="manifest" href="/site.webmanifest">
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://www.echovalue.dev/db-api/">
@@ -83,18 +83,18 @@
 
 			<div class="code-block">
 				<code><span class="code-comment"># Request a new token - it's free</span><br />
-curl 'https://token.echovalue.dev' -d 'token=new'
+curl 'https://api.echovalue.dev' -d 'token=new'
 
 <br /><span class="code-output">% mytoken</span>
 <br /><br />
 <span class="code-comment"># Save "world" under "hello" key</span><br />
-curl 'https://api.echovalue.dev/default/hello' \<br />
+curl 'https://api.echovalue.dev/kw/default/hello' \<br />
   -H 'x-token: mytoken' \<br />
   -d 'world'<br />
 <span class="code-output">% OK</span>
 <br /><br />
 <span class="code-comment"># Get the value under "hello" key</span><br />
-curl 'https://api.echovalue.dev/default/hello' \<br />
+curl 'https://api.echovalue.dev/kw/default/hello' \<br />
   -H 'x-token: mytoken'<br />
 <span class="code-output">% world</span></code>
 			</div>
@@ -179,13 +179,18 @@ curl 'https://api.echovalue.dev/default/hello' \<br />
 				<p>Give your AI agents shared state. Zero setup. One <span class="text-mono">curl</span> away.</p>
 			</div>
 
-			<p style="text-align:center; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--spacing-lg); font-size: 0.9375rem; line-height: 1.7;">
+			<p
+				style="text-align:center; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--spacing-lg); font-size: 0.9375rem; line-height: 1.7;">
 				Use DB API as a lightweight coordination layer between LLM agents.
 				Share flags, status, locks, and signals — no database to provision.
 			</p>
 
 			<div class="code-block" style="position: relative;">
-				<button onclick="copyToolDef(this)" style="position:absolute;top:0.75rem;right:0.75rem;background:var(--color-bg-tertiary);border:1px solid var(--color-border);color:var(--color-text-muted);padding:0.3rem 0.6rem;border-radius:var(--radius-sm);font-family:var(--font-mono);font-size:0.6875rem;cursor:pointer;transition:all var(--transition-fast);display:flex;align-items:center;gap:0.35rem;" onmouseover="this.style.borderColor='var(--color-border-hover)';this.style.color='var(--color-text-primary)'" onmouseout="this.style.borderColor='var(--color-border)';this.style.color='var(--color-text-muted)'"><i class="fa-regular fa-copy"></i> copy</button>
+				<button onclick="copyToolDef(this)"
+					style="position:absolute;top:0.75rem;right:0.75rem;background:var(--color-bg-tertiary);border:1px solid var(--color-border);color:var(--color-text-muted);padding:0.3rem 0.6rem;border-radius:var(--radius-sm);font-family:var(--font-mono);font-size:0.6875rem;cursor:pointer;transition:all var(--transition-fast);display:flex;align-items:center;gap:0.35rem;"
+					onmouseover="this.style.borderColor='var(--color-border-hover)';this.style.color='var(--color-text-primary)'"
+					onmouseout="this.style.borderColor='var(--color-border)';this.style.color='var(--color-text-muted)'"><i
+						class="fa-regular fa-copy"></i> copy</button>
 				<code><span class="code-comment">// Tool definition — works with OpenAI, Claude, Gemini</span><br />
 {<br />
 &nbsp;&nbsp;<span class="code-string">"name"</span>: <span class="code-string">"save_state"</span>,<br />
@@ -207,42 +212,42 @@ curl 'https://api.echovalue.dev/default/hello' \<br />
 }</code>
 			</div>
 			<script>
-			function copyToolDef(btn) {
-				var json = JSON.stringify([
-					{
-						"name": "save_state",
-						"description": "Save a key-value pair to shared agent state",
-						"parameters": {
-							"group": { "type": "string", "description": "Namespace / bucket" },
-							"key": { "type": "string", "description": "Identifier" },
-							"value": { "type": "string", "description": "Data to store" },
-							"ttl": { "type": "integer", "description": "Expiry in seconds" }
+				function copyToolDef(btn) {
+					var json = JSON.stringify([
+						{
+							"name": "save_state",
+							"description": "Save a key-value pair to shared agent state",
+							"parameters": {
+								"group": { "type": "string", "description": "Namespace / bucket" },
+								"key": { "type": "string", "description": "Identifier" },
+								"value": { "type": "string", "description": "Data to store" },
+								"ttl": { "type": "integer", "description": "Expiry in seconds" }
+							}
+						},
+						{
+							"name": "read_state",
+							"description": "Read a value from shared agent state",
+							"parameters": {
+								"group": { "type": "string", "description": "Namespace / bucket" },
+								"key": { "type": "string", "description": "Identifier" }
+							}
 						}
-					},
-					{
-						"name": "read_state",
-						"description": "Read a value from shared agent state",
-						"parameters": {
-							"group": { "type": "string", "description": "Namespace / bucket" },
-							"key": { "type": "string", "description": "Identifier" }
-						}
-					}
-				], null, 2);
-				navigator.clipboard.writeText(json).then(function() {
-					var icon = btn.querySelector('i');
-					var orig = icon.className;
-					icon.className = 'fa-solid fa-check';
-					btn.lastChild.textContent = ' copied!';
-					btn.style.color = 'var(--color-accent-green)';
-					btn.style.borderColor = 'var(--color-accent-green)';
-					setTimeout(function() {
-						icon.className = orig;
-						btn.lastChild.textContent = ' copy';
-						btn.style.color = 'var(--color-text-muted)';
-						btn.style.borderColor = 'var(--color-border)';
-					}, 2000);
-				});
-			}
+					], null, 2);
+					navigator.clipboard.writeText(json).then(function () {
+						var icon = btn.querySelector('i');
+						var orig = icon.className;
+						icon.className = 'fa-solid fa-check';
+						btn.lastChild.textContent = ' copied!';
+						btn.style.color = 'var(--color-accent-green)';
+						btn.style.borderColor = 'var(--color-accent-green)';
+						setTimeout(function () {
+							icon.className = orig;
+							btn.lastChild.textContent = ' copy';
+							btn.style.color = 'var(--color-text-muted)';
+							btn.style.borderColor = 'var(--color-border)';
+						}, 2000);
+					});
+				}
 			</script>
 
 			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
@@ -252,7 +257,8 @@ curl 'https://api.echovalue.dev/default/hello' \<br />
 						<h3>status-flags</h3>
 					</div>
 					<div class="project-card-content">
-						<p>Agent A writes <span class="text-mono">pipeline/status → "done"</span>. Agent B reads it and proceeds.</p>
+						<p>Agent A writes <span class="text-mono">pipeline/status → "done"</span>. Agent B reads it and
+							proceeds.</p>
 					</div>
 				</div>
 				<div class="project-card">
@@ -261,7 +267,8 @@ curl 'https://api.echovalue.dev/default/hello' \<br />
 						<h3>lightweight-locks</h3>
 					</div>
 					<div class="project-card-content">
-						<p>Claim a task with <span class="text-mono">lock/import → "agent-2"</span> and TTL as auto-release.</p>
+						<p>Claim a task with <span class="text-mono">lock/import → "agent-2"</span> and TTL as
+							auto-release.</p>
 					</div>
 				</div>
 				<div class="project-card">
@@ -299,7 +306,8 @@ curl 'https://api.echovalue.dev/default/hello' \<br />
 						<li>✓ No registration</li>
 						<li>✓ Full API access</li>
 					</ul>
-					<a href="https://docs.echovalue.dev/#token-management" class="btn btn-secondary btn-block">start free</a>
+					<a href="https://docs.echovalue.dev/#token-management" class="btn btn-secondary btn-block">start
+						free</a>
 				</div>
 
 				<div class="pricing-card featured">
@@ -311,7 +319,8 @@ curl 'https://api.echovalue.dev/default/hello' \<br />
 						<li>✓ No expiration</li>
 						<li>✓ Full API access</li>
 					</ul>
-					<a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary btn-block">buy credits</a>
+					<a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary btn-block">buy
+						credits</a>
 				</div>
 
 				<div class="pricing-card">
@@ -323,7 +332,8 @@ curl 'https://api.echovalue.dev/default/hello' \<br />
 						<li>✓ No expiration</li>
 						<li>✓ Best value</li>
 					</ul>
-					<a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary btn-block">buy credits</a>
+					<a href="https://docs.echovalue.dev/#recharging-wallet" class="btn btn-primary btn-block">buy
+						credits</a>
 				</div>
 			</div>
 
