@@ -58,6 +58,7 @@
 				<li><a href="#how-it-works">How It Works</a></li>
 				<li><a href="#use-cases">Use Cases</a></li>
 				<li><a href="#payload">Payload</a></li>
+				<li><a href="#formats">Formats</a></li>
 				<li><a href="#pricing">Pricing</a></li>
 				<li><a href="https://docs.echovalue.dev/mail2webhook/">API Reference</a></li>
 				<li><a href="https://docs.echovalue.dev">Documentation</a></li>
@@ -198,6 +199,82 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 						<p>Each attachment includes a short-lived <span class="text-mono">downloadUrl</span> (60 min
 							TTL), filename, content type, and size in bytes. Max attachment size: <span
 								class="text-mono">20 MB</span>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Native Formats Section -->
+	<section id="formats" class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>native-formats</h2>
+				<p>Set <span class="text-mono">format</span> once. No payload handling on your end.</p>
+			</div>
+
+			<div class="code-block">
+				<code><span class="code-comment"># Forward emails directly to Slack</span><br />
+curl 'https://api.echovalue.dev/webhook' \<br />
+&nbsp;&nbsp;-H 'x-token: mytoken' \<br />
+&nbsp;&nbsp;-H 'Content-Type: application/json' \<br />
+&nbsp;&nbsp;-d '{"url":"https://hooks.slack.com/services/T00/B00/XXX","format":"slack"}'<br />
+<span class="code-output">% OK</span></code>
+			</div>
+
+			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-brands fa-slack"></i></span>
+						<h3>slack</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Posts to any channel via Incoming Webhooks. Subject and sender formatted in Slack markdown. <a href="https://docs.echovalue.dev/mail2webhook-slack/">Setup guide →</a></p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-brands fa-discord"></i></span>
+						<h3>discord</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Delivers to a Discord channel webhook. Emails arrive as formatted messages with bold subject. <a href="https://docs.echovalue.dev/mail2webhook-discord/">Setup guide →</a></p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-comments"></i></span>
+						<h3>microsoft teams</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Sends to a Teams channel via Workflow or Connector webhook. Compatible with both setup methods. <a href="https://docs.echovalue.dev/mail2webhook-teams/">Setup guide →</a></p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-brands fa-telegram"></i></span>
+						<h3>telegram</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Sends via Telegram Bot API with HTML formatting. Works for personal chats, groups, and channels. Requires <span class="text-mono">options.chat_id</span>. <a href="https://docs.echovalue.dev/mail2webhook-telegram/">Setup guide →</a></p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
+						<h3>pagerduty</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Triggers incidents via Events API v2. Subject becomes the summary, sender the source. Requires <span class="text-mono">options.routing_key</span>. <a href="https://docs.echovalue.dev/mail2webhook-pagerduty/">Setup guide →</a></p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-code"></i></span>
+						<h3>raw (default)</h3>
+					</div>
+					<div class="project-card-content">
+						<p>No <span class="text-mono">format</span> set? The full email payload is forwarded as-is — your endpoint receives <span class="text-mono">from</span>, <span class="text-mono">subject</span>, <span class="text-mono">text</span>, <span class="text-mono">html</span>, and attachments.</p>
 					</div>
 				</div>
 			</div>

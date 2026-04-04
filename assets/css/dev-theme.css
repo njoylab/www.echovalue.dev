@@ -455,6 +455,19 @@ body {
   opacity: 0.8;
 }
 
+.project-card-content a {
+  color: var(--color-accent-cyan);
+  text-decoration: none;
+}
+
+.project-card-content a:hover {
+  text-decoration: underline;
+}
+
+[data-theme="light"] .project-card-content a {
+  color: var(--color-accent-blue);
+}
+
 .project-card-actions {
   display: flex;
   gap: 0.625rem;
