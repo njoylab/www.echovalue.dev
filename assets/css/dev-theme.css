@@ -336,11 +336,15 @@ body {
   box-shadow: 0 0 0 0 rgba(10, 132, 255, 0);
 }
 
+.btn-primary:visited {
+  color: #fff;
+}
+
 .btn-primary:hover {
-  background-color: transparent;
+  background-color: var(--color-accent-blue);
   color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 0 0 1px #fff;
+  box-shadow: 0 0 0 1px var(--color-accent-blue);
 }
 
 .btn-secondary {
@@ -804,6 +808,10 @@ body {
 
 [data-theme="light"] .navbar {
   background-color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .btn-primary {
+  color: #fff !important;
 }
 
 /* ===== THEME TOGGLE ===== */
