@@ -88,13 +88,13 @@ curl 'https://api.echovalue.dev/token' -d 'token=new'
 <br /><span class="code-output">% mytoken</span>
 <br /><br />
 <span class="code-comment"># Save "world" under "hello" key</span><br />
-curl 'https://api.echovalue.dev/kw/default/hello' \<br />
+curl 'https://api.echovalue.dev/kv/default/hello' \<br />
   -H 'x-token: mytoken' \<br />
   -d 'world'<br />
 <span class="code-output">% OK</span>
 <br /><br />
 <span class="code-comment"># Get the value under "hello" key</span><br />
-curl 'https://api.echovalue.dev/kw/default/hello' \<br />
+curl 'https://api.echovalue.dev/kv/default/hello' \<br />
   -H 'x-token: mytoken'<br />
 <span class="code-output">% world</span></code>
 			</div>
