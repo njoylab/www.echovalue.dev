@@ -402,6 +402,40 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 				</div>
 			</div>
 
+			<div class="code-block mt-4">
+				<h4 style="margin-bottom: 1rem; color: var(--color-text-muted);">Cost per operation</h4>
+				<table style="width: 100%; border-collapse: collapse;">
+					<thead>
+						<tr style="border-bottom: 1px solid var(--color-border);">
+							<th style="text-align: left; padding: 0.5rem;">Operation</th>
+							<th style="text-align: right; padding: 0.5rem;">Cost</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr style="border-bottom: 1px solid var(--color-border);">
+							<td style="padding: 0.5rem;">Configure webhook</td>
+							<td style="text-align: right; padding: 0.5rem;">1 credit</td>
+						</tr>
+						<tr style="border-bottom: 1px solid var(--color-border);">
+							<td style="padding: 0.5rem;">Get webhook config</td>
+							<td style="text-align: right; padding: 0.5rem;">1 credit</td>
+						</tr>
+						<tr style="border-bottom: 1px solid var(--color-border);">
+							<td style="padding: 0.5rem;">Delete webhook</td>
+							<td style="text-align: right; padding: 0.5rem;">1 credit</td>
+						</tr>
+						<tr style="border-bottom: 1px solid var(--color-border);">
+							<td style="padding: 0.5rem;">Email processed (no attachments)</td>
+							<td style="text-align: right; padding: 0.5rem;">2 credits</td>
+						</tr>
+						<tr>
+							<td style="padding: 0.5rem;">Email processed (with attachments)</td>
+							<td style="text-align: right; padding: 0.5rem;">5 credits</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
 			<p class="text-center mt-4 text-muted">
 				Credits are shared across all echoValue APIs. Pay once, use everywhere.
 			</p>
