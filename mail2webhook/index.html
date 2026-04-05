@@ -272,13 +272,13 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 						<p>Triggers incidents via Events API v2. Subject becomes the summary, sender the source. Requires <span class="text-mono">options.routing_key</span>. <a href="https://docs.echovalue.dev/mail2webhook-pagerduty/">Setup guide →</a></p>
 					</div>
 				</div>
-				<div class="project-card">
+					<div class="project-card">
 					<div class="project-card-header">
 						<span class="project-card-icon"><i class="fa-solid fa-code"></i></span>
-						<h3>raw (default)</h3>
+						<h3>custom format</h3>
 					</div>
 					<div class="project-card-content">
-						<p>No <span class="text-mono">format</span> set? The full email payload is forwarded as-is — your endpoint receives <span class="text-mono">from</span>, <span class="text-mono">subject</span>, <span class="text-mono">text</span>, <span class="text-mono">html</span>, and attachments.</p>
+						<p>Define your own JSON template with placeholders. Map any email field (subject, from, text, html, attachments) to your webhook payload. <a href="https://docs.echovalue.dev/mail2webhook-custom/">Docs →</a></p>
 					</div>
 				</div>
 			</div>
