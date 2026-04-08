@@ -90,15 +90,15 @@
 			</div>
 
 			<div class="code-block">
-				<code><span class="code-comment"># 1. Your mailbox address (opaque)</span><br />
-<span class="code-string">r_abcd1234</span>@hook.echovalue.dev<br /><br />
-<span class="code-comment"># 2. Configure your webhook endpoint (once)</span><br />
-curl 'https://api.echovalue.dev/webhook' \<br />
-&nbsp;&nbsp;-H 'x-token: mytoken' \<br />
-&nbsp;&nbsp;-H 'content-type: application/json' \<br />
-&nbsp;&nbsp;-d '{"url":"https://myapp.example.com/hooks/email"}'<br />
-<span class="code-output">% {"mailboxId":"r_abcd1234","id":"0","email":"r_abcd1234@hook.echovalue.dev",...}</span><br /><br />
-<span class="code-comment"># 3. Send an email and watch the POST arrive</span><br />
+				<span class="code-comment"># 1. Configure your webhook endpoint (once)</span><br />
+				curl 'https://api.echovalue.dev/webhook' \<br />
+				&nbsp;&nbsp;-H 'x-token: mytoken' \<br />
+				&nbsp;&nbsp;-H 'content-type: application/json' \<br />
+				&nbsp;&nbsp;-d '{"url":"https://myapp.example.com/hooks/email"}'<br />
+				<span class="code-output">%
+					{"mailboxId":"r_abcd1234","id":"0","email":"r_abcd1234@hook.echovalue.dev",...}</span><br /><br />
+				<span class="code-comment"># 2. Send an email and watch the POST arrive</span><br />
+				<span class="code-string">r_abcd1234</span>@hook.echovalue.dev<br />
 			</div>
 
 			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
@@ -234,7 +234,9 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 						<h3>slack</h3>
 					</div>
 					<div class="project-card-content">
-						<p>Posts to any channel via Incoming Webhooks. Subject and sender formatted in Slack markdown. <a href="https://docs.echovalue.dev/mail2webhook-slack/">Setup guide →</a></p>
+						<p>Posts to any channel via Incoming Webhooks. Subject and sender formatted in Slack markdown.
+							<a href="https://docs.echovalue.dev/mail2webhook-slack/">Setup guide →</a>
+						</p>
 					</div>
 				</div>
 				<div class="project-card">
@@ -243,7 +245,9 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 						<h3>discord</h3>
 					</div>
 					<div class="project-card-content">
-						<p>Delivers to a Discord channel webhook. Emails arrive as formatted messages with bold subject. <a href="https://docs.echovalue.dev/mail2webhook-discord/">Setup guide →</a></p>
+						<p>Delivers to a Discord channel webhook. Emails arrive as formatted messages with bold subject.
+							<a href="https://docs.echovalue.dev/mail2webhook-discord/">Setup guide →</a>
+						</p>
 					</div>
 				</div>
 				<div class="project-card">
@@ -252,7 +256,8 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 						<h3>microsoft teams</h3>
 					</div>
 					<div class="project-card-content">
-						<p>Sends to a Teams channel via Workflow or Connector webhook. Compatible with both setup methods. <a href="https://docs.echovalue.dev/mail2webhook-teams/">Setup guide →</a></p>
+						<p>Sends to a Teams channel via Workflow or Connector webhook. Compatible with both setup
+							methods. <a href="https://docs.echovalue.dev/mail2webhook-teams/">Setup guide →</a></p>
 					</div>
 				</div>
 				<div class="project-card">
@@ -261,7 +266,9 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 						<h3>telegram</h3>
 					</div>
 					<div class="project-card-content">
-						<p>Sends via Telegram Bot API with HTML formatting. Works for personal chats, groups, and channels. Requires <span class="text-mono">options.chat_id</span>. <a href="https://docs.echovalue.dev/mail2webhook-telegram/">Setup guide →</a></p>
+						<p>Sends via Telegram Bot API with HTML formatting. Works for personal chats, groups, and
+							channels. Requires <span class="text-mono">options.chat_id</span>. <a
+								href="https://docs.echovalue.dev/mail2webhook-telegram/">Setup guide →</a></p>
 					</div>
 				</div>
 				<div class="project-card">
@@ -270,16 +277,20 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 						<h3>pagerduty</h3>
 					</div>
 					<div class="project-card-content">
-						<p>Triggers incidents via Events API v2. Subject becomes the summary, sender the source. Requires <span class="text-mono">options.routing_key</span>. <a href="https://docs.echovalue.dev/mail2webhook-pagerduty/">Setup guide →</a></p>
+						<p>Triggers incidents via Events API v2. Subject becomes the summary, sender the source.
+							Requires <span class="text-mono">options.routing_key</span>. <a
+								href="https://docs.echovalue.dev/mail2webhook-pagerduty/">Setup guide →</a></p>
 					</div>
 				</div>
-					<div class="project-card">
+				<div class="project-card">
 					<div class="project-card-header">
 						<span class="project-card-icon"><i class="fa-solid fa-code"></i></span>
 						<h3>custom format</h3>
 					</div>
 					<div class="project-card-content">
-						<p>Define your own JSON template with placeholders. Map any email field (subject, from, text, html, attachments) to your webhook payload. <a href="https://docs.echovalue.dev/mail2webhook-custom/">Docs →</a></p>
+						<p>Define your own JSON template with placeholders. Map any email field (subject, from, text,
+							html, attachments) to your webhook payload. <a
+								href="https://docs.echovalue.dev/mail2webhook-custom/">Docs →</a></p>
 					</div>
 				</div>
 			</div>
