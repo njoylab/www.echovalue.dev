@@ -97,7 +97,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 &nbsp;&nbsp;-H 'x-token: mytoken' \<br />
 &nbsp;&nbsp;-H 'content-type: application/json' \<br />
 &nbsp;&nbsp;-d '{"url":"https://myapp.example.com/hooks/email"}'<br />
-<span class="code-output">% {"id":"0","email":"r_abcd1234@hook.echovalue.dev",...}</span><br /><br />
+<span class="code-output">% {"mailboxId":"r_abcd1234","id":"0","email":"r_abcd1234@hook.echovalue.dev",...}</span><br /><br />
 <span class="code-comment"># 3. Send an email and watch the POST arrive</span><br />
 			</div>
 
@@ -224,7 +224,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 &nbsp;&nbsp;-H 'x-token: mytoken' \<br />
 &nbsp;&nbsp;-H 'Content-Type: application/json' \<br />
 &nbsp;&nbsp;-d '{"url":"https://hooks.slack.com/services/T00/B00/XXX","format":"slack"}'<br />
-<span class="code-output">% {"id":"0","email":"r_abcd1234@hook.echovalue.dev",...}</span></code>
+<span class="code-output">% {"mailboxId":"r_abcd1234","id":"0","email":"r_abcd1234@hook.echovalue.dev",...}</span></code>
 			</div>
 
 			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
