@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>echoValue Mail2Webhook - Email to Webhook Bridge</title>
 	<meta name="description"
-		content="Turn any email into an HTTP webhook. Each wallet gets a public email address. Send an email, receive a POST request at your endpoint. No server setup required.">
+		content="Turn any email into an HTTP webhook. Each webhook gets an opaque mailbox address. Send an email, receive a POST request at your endpoint. No server setup required.">
 	<meta name="keywords"
 		content="echoValue, mail to webhook, email webhook, email to HTTP, webhook bridge, email automation">
 	<meta name="author" content="Emiliano Saurin">
@@ -23,14 +23,14 @@
 	<meta property="og:url" content="https://www.echovalue.dev/mail2webhook/">
 	<meta property="og:title" content="echoValue Mail2Webhook - Email to Webhook Bridge">
 	<meta property="og:description"
-		content="Turn any email into an HTTP webhook. Each wallet gets a public email address. Send an email, receive a POST at your endpoint.">
+		content="Turn any email into an HTTP webhook. Each webhook gets an opaque mailbox address. Send an email, receive a POST at your endpoint.">
 	<meta property="og:image" content="https://www.njoylab.com/images/echovalue-api.webp">
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="https://www.echovalue.dev/mail2webhook/">
 	<meta property="twitter:title" content="echoValue Mail2Webhook - Email to Webhook Bridge">
 	<meta property="twitter:description"
-		content="Turn any email into an HTTP webhook. Each wallet gets a public email address. Send an email, receive a POST at your endpoint.">
+		content="Turn any email into an HTTP webhook. Each webhook gets an opaque mailbox address. Send an email, receive a POST at your endpoint.">
 	<meta property="twitter:image" content="https://www.njoylab.com/images/echovalue-api.webp">
 	<link rel="stylesheet" href="../assets/css/dev-theme.css?v=8" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -71,7 +71,7 @@
 		<div class="container">
 			<h1><span class="mono">mail</span>2webhook</h1>
 			<p>
-				Email → Webhook. Every wallet gets a public address.<br>
+				Email → Webhook. Every webhook gets an opaque mailbox address.<br>
 				Send an email, receive an <span class="text-mono">HTTP POST</span> on your endpoint.
 			</p>
 			<div class="code-block" style="margin-top: var(--spacing-md); text-align: left;">
@@ -90,13 +90,14 @@
 			</div>
 
 			<div class="code-block">
-				<code><span class="code-comment"># 1. Your wallet email address</span><br />
-<span class="code-string">&lt;mytoken&gt;</span>@hook.echovalue.dev<br /><br />
+				<code><span class="code-comment"># 1. Your mailbox address (opaque)</span><br />
+<span class="code-string">r_abcd1234</span>@hook.echovalue.dev<br /><br />
 <span class="code-comment"># 2. Configure your webhook endpoint (once)</span><br />
 curl 'https://api.echovalue.dev/webhook' \<br />
 &nbsp;&nbsp;-H 'x-token: mytoken' \<br />
-&nbsp;&nbsp;-d 'url=https://myapp.example.com/hooks/email'<br />
-<span class="code-output">% OK</span><br /><br />
+&nbsp;&nbsp;-H 'content-type: application/json' \<br />
+&nbsp;&nbsp;-d '{"url":"https://myapp.example.com/hooks/email"}'<br />
+<span class="code-output">% {"id":"0","email":"r_abcd1234@hook.echovalue.dev",...}</span><br /><br />
 <span class="code-comment"># 3. Send an email and watch the POST arrive</span><br />
 			</div>
 
@@ -107,8 +108,8 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 						<h3>1. get your address</h3>
 					</div>
 					<div class="project-card-content">
-						<p>Request a token. Your public email is <span
-								class="text-mono">&lt;wallet-id&gt;@hook.echovalue.dev</span> — ready instantly.</p>
+						<p>Request a token, configure your webhook, and use the returned mailbox address <span
+								class="text-mono">&lt;mailboxId&gt;@hook.echovalue.dev</span>.</p>
 					</div>
 				</div>
 				<div class="project-card">
@@ -146,7 +147,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 &nbsp;&nbsp;<span class="code-string">"externalMessageId"</span>: <span class="code-string">"&lt;CA+abc123@mail.gmail.com&gt;"</span>,<br />
 &nbsp;&nbsp;<span class="code-string">"receivedAt"</span>: <span class="code-string">"2026-04-04T09:21:35.218Z"</span>,<br />
 &nbsp;&nbsp;<span class="code-string">"from"</span>: { <span class="code-string">"email"</span>: <span class="code-string">"john@gmail.com"</span>, <span class="code-string">"name"</span>: <span class="code-string">"John Snow"</span> },<br />
-&nbsp;&nbsp;<span class="code-string">"to"</span>: [{ <span class="code-string">"hash"</span>: <span class="code-string">"a1b2c3d4e5f6..."</span>, <span class="code-string">"name"</span>: <span class="code-value">null</span> }],<br />
+&nbsp;&nbsp;<span class="code-string">"to"</span>: { <span class="code-string">"hash"</span>: <span class="code-string">"a1b2c3d4e5f6..."</span> },<br />
 &nbsp;&nbsp;<span class="code-string">"subject"</span>: <span class="code-string">"Alert: Server down"</span>,<br />
 &nbsp;&nbsp;<span class="code-string">"text"</span>: <span class="code-string">"Server #3 is not responding"</span>,<br />
 &nbsp;&nbsp;<span class="code-string">"html"</span>: <span class="code-string">"&lt;div&gt;Server #3 is not responding&lt;/div&gt;"</span>,<br />
@@ -223,7 +224,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 &nbsp;&nbsp;-H 'x-token: mytoken' \<br />
 &nbsp;&nbsp;-H 'Content-Type: application/json' \<br />
 &nbsp;&nbsp;-d '{"url":"https://hooks.slack.com/services/T00/B00/XXX","format":"slack"}'<br />
-<span class="code-output">% OK</span></code>
+<span class="code-output">% {"id":"0","email":"r_abcd1234@hook.echovalue.dev",...}</span></code>
 			</div>
 
 			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
@@ -301,7 +302,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 					</div>
 					<div class="project-card-content">
 						<p>Zapier, Make, n8n, Power Automate — all accept webhooks. Unlike native email triggers, no
-							OAuth or inbox access needed. Just a public address anyone can send to.</p>
+							OAuth or inbox access needed. Just an opaque mailbox address anyone can send to.</p>
 					</div>
 				</div>
 				<div class="project-card">
