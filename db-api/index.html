@@ -13,6 +13,8 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -33,7 +35,7 @@
 	<meta property="twitter:description"
 		content="echoValue DB API is a 'pay as you go' Key-Value Store API, ideal for small projects and serverless applications.">
 	<meta property="twitter:image" content="https://www.njoylab.com/images/echovalue-api.webp">
-	<link rel="stylesheet" href="../assets/css/dev-theme.css?v=9" />
+	<link rel="stylesheet" href="../assets/css/dev-theme.css?v=10" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
 	<!-- Structured Data -->
@@ -238,12 +240,10 @@ curl 'https://api.echovalue.dev/kv/default/hello' \<br />
 				Share flags, status, locks, and signals — no database to provision.
 			</p>
 
-			<div class="code-block" style="position: relative;">
-				<button onclick="copyToolDef(this)"
-					style="position:absolute;top:0.75rem;right:0.75rem;background:var(--color-bg-tertiary);border:1px solid var(--color-border);color:var(--color-text-muted);padding:0.3rem 0.6rem;border-radius:var(--radius-sm);font-family:var(--font-mono);font-size:0.6875rem;cursor:pointer;transition:all var(--transition-fast);display:flex;align-items:center;gap:0.35rem;"
-					onmouseover="this.style.borderColor='var(--color-border-hover)';this.style.color='var(--color-text-primary)'"
-					onmouseout="this.style.borderColor='var(--color-border)';this.style.color='var(--color-text-muted)'"><i
-						class="fa-regular fa-copy"></i> copy</button>
+			<div class="code-block">
+				<button class="copy-btn" type="button" data-copy-tool-def aria-label="Copy tool definitions">
+					<i class="fa-regular fa-copy"></i> <span data-copy-label>copy</span>
+				</button>
 				<code><span class="code-comment">// Tool definition — works with OpenAI, Claude, Gemini</span><br />
 {<br />
 &nbsp;&nbsp;<span class="code-string">"name"</span>: <span class="code-string">"save_state"</span>,<br />
@@ -264,44 +264,6 @@ curl 'https://api.echovalue.dev/kv/default/hello' \<br />
 &nbsp;&nbsp;}<br />
 }</code>
 			</div>
-			<script>
-				function copyToolDef(btn) {
-					var json = JSON.stringify([
-						{
-							"name": "save_state",
-							"description": "Save a key-value pair to shared agent state",
-							"parameters": {
-								"group": { "type": "string", "description": "Namespace / bucket" },
-								"key": { "type": "string", "description": "Identifier" },
-								"value": { "type": "string", "description": "Data to store" },
-								"ttl": { "type": "integer", "description": "Expiry in seconds" }
-							}
-						},
-						{
-							"name": "read_state",
-							"description": "Read a value from shared agent state",
-							"parameters": {
-								"group": { "type": "string", "description": "Namespace / bucket" },
-								"key": { "type": "string", "description": "Identifier" }
-							}
-						}
-					], null, 2);
-					navigator.clipboard.writeText(json).then(function () {
-						var icon = btn.querySelector('i');
-						var orig = icon.className;
-						icon.className = 'fa-solid fa-check';
-						btn.lastChild.textContent = ' copied!';
-						btn.style.color = 'var(--color-accent-green)';
-						btn.style.borderColor = 'var(--color-accent-green)';
-						setTimeout(function () {
-							icon.className = orig;
-							btn.lastChild.textContent = ' copy';
-							btn.style.color = 'var(--color-text-muted)';
-							btn.style.borderColor = 'var(--color-border)';
-						}, 2000);
-					});
-				}
-			</script>
 
 			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
 				<div class="project-card">
@@ -438,13 +400,13 @@ curl 'https://api.echovalue.dev/kv/default/hello' \<br />
 				<div class="contact-item">
 					<h3>Social</h3>
 					<div class="social-links">
-						<a href="https://twitter.com/emln_" aria-label="Twitter">
+						<a href="https://twitter.com/emln_" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
 							<i class="fab fa-twitter"></i>
 						</a>
-						<a href="https://www.linkedin.com/in/emlns/" aria-label="LinkedIn">
+						<a href="https://www.linkedin.com/in/emlns/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
 							<i class="fab fa-linkedin"></i>
 						</a>
-						<a href="https://github.com/njoylab" aria-label="GitHub">
+						<a href="https://github.com/njoylab" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
 							<i class="fab fa-github"></i>
 						</a>
 					</div>
@@ -478,6 +440,7 @@ curl 'https://api.echovalue.dev/kv/default/hello' \<br />
 	</footer>
 	<script src="../assets/js/nav-toggle.js?v=1"></script>
 	<script src="../assets/js/theme-toggle.js?v=1"></script>
+	<script src="../assets/js/copy-tool-def.js?v=1" defer></script>
 </body>
 
 </html>

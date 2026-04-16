@@ -8,10 +8,13 @@
 	<title>Agent Shared State with echoValue DB API — Python & TypeScript Examples</title>
 	<meta name="description"
 		content="Give your AI agents shared state with echoValue DB API. Copy-paste examples for Python (Claude, OpenAI) and TypeScript. Zero setup, pay-as-you-go.">
-	<meta name="keywords"
-		content="AI agent shared state, LLM tool calling, function calling, agent coordination, key-value store, echoValue">
 	<meta name="author" content="Emiliano Saurin">
 	<link rel="canonical" href="https://www.echovalue.dev/db-api/agent-state/">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -32,12 +35,14 @@
 	<meta property="twitter:description"
 		content="Give your AI agents shared state. Copy-paste examples for Python and TypeScript. Zero setup.">
 	<meta property="twitter:image" content="https://www.njoylab.com/images/echovalue-api.webp">
-	<link rel="stylesheet" href="../../assets/css/dev-theme.css?v=8" />
+	<link rel="stylesheet" href="../../assets/css/dev-theme.css?v=10" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
 </head>
 
 <body>
+
+	<a href="#main" class="skip-link">Skip to content</a>
 
 	<!-- Navigation -->
 	<nav class="navbar">
@@ -62,6 +67,8 @@
 			</ul>
 		</div>
 	</nav>
+
+	<main id="main">
 
 	<!-- Hero Section -->
 	<section class="hero compact">
@@ -124,12 +131,13 @@
 
 			<div class="code-tabs">
 				<div class="code-tabs-header">
-					<button class="code-tab active" data-tab="python">python</button>
-					<button class="code-tab" data-tab="typescript">typescript</button>
+					<button class="code-tab active" type="button" data-tab="python">python</button>
+					<button class="code-tab" type="button" data-tab="typescript">typescript</button>
 				</div>
-				<div class="code-block"
-					style="position: relative; border-top-left-radius: 0; border-top-right-radius: 0;">
-					<button onclick="copyBlock(this)" class="copy-btn"><i class="fa-regular fa-copy"></i> copy</button>
+				<div class="code-block code-block--tabbed">
+					<button class="copy-btn" type="button" data-copy-block aria-label="Copy active code block">
+						<i class="fa-regular fa-copy"></i> <span data-copy-label>copy</span>
+					</button>
 
 					<div class="code-tab-content active" id="tab-python">
 						<pre><code><span class="code-comment"># pip install anthropic requests</span>
@@ -303,6 +311,8 @@ response = client.messages.create(
 		</div>
 	</section>
 
+	</main>
+
 	<!-- Footer -->
 	<footer class="footer">
 		<div class="container">
@@ -328,122 +338,7 @@ response = client.messages.create(
 
 	<script src="../../assets/js/nav-toggle.js?v=1"></script>
 	<script src="../../assets/js/theme-toggle.js?v=1"></script>
-	<script>
-		// Tab switching
-		document.querySelectorAll('.code-tab').forEach(function (tab) {
-			tab.addEventListener('click', function () {
-				var target = this.dataset.tab;
-				// Update active tab
-				document.querySelectorAll('.code-tab').forEach(function (t) { t.classList.remove('active'); });
-				this.classList.add('active');
-				// Update active content
-				document.querySelectorAll('.code-tab-content').forEach(function (c) { c.classList.remove('active'); });
-				document.getElementById('tab-' + target).classList.add('active');
-			});
-		});
-
-		function copyBlock(btn) {
-			var activeContent = btn.closest('.code-block').querySelector('.code-tab-content.active');
-			var code = activeContent ? activeContent.querySelector('code') : btn.closest('.code-block').querySelector('code');
-			var text = code.innerText || code.textContent;
-			navigator.clipboard.writeText(text).then(function () {
-				var icon = btn.querySelector('i');
-				var orig = icon.className;
-				icon.className = 'fa-solid fa-check';
-				btn.lastChild.textContent = ' copied!';
-				btn.style.color = 'var(--color-accent-green)';
-				btn.style.borderColor = 'var(--color-accent-green)';
-				setTimeout(function () {
-					icon.className = orig;
-					btn.lastChild.textContent = ' copy';
-					btn.style.color = '';
-					btn.style.borderColor = '';
-				}, 2000);
-			});
-		}
-	</script>
-	<style>
-		.copy-btn {
-			position: absolute;
-			top: 0.75rem;
-			right: 0.75rem;
-			background: var(--color-bg-tertiary);
-			border: 1px solid var(--color-border);
-			color: var(--color-text-muted);
-			padding: 0.3rem 0.6rem;
-			border-radius: var(--radius-sm);
-			font-family: var(--font-mono);
-			font-size: 0.6875rem;
-			cursor: pointer;
-			transition: all var(--transition-fast);
-			display: flex;
-			align-items: center;
-			gap: 0.35rem;
-		}
-
-		.copy-btn:hover {
-			border-color: var(--color-border-hover);
-			color: var(--color-text-primary);
-		}
-
-		.code-block pre {
-			margin: 0;
-			white-space: pre;
-			overflow-x: auto;
-		}
-
-		.code-block pre code {
-			font-family: var(--font-mono);
-			font-size: 0.8125rem;
-			line-height: 1.7;
-		}
-
-		/* Tabs */
-		.code-tabs-header {
-			display: flex;
-			gap: 0;
-			border: 1px solid var(--color-border);
-			border-bottom: none;
-			border-radius: var(--radius-md) var(--radius-md) 0 0;
-			overflow: hidden;
-			background: var(--color-bg-secondary);
-		}
-
-		.code-tab {
-			background: none;
-			border: none;
-			color: var(--color-text-muted);
-			font-family: var(--font-mono);
-			font-size: 0.8125rem;
-			font-weight: 500;
-			padding: 0.625rem 1.25rem;
-			cursor: pointer;
-			transition: color var(--transition-fast), background-color var(--transition-fast);
-			border-right: 1px solid var(--color-border);
-		}
-
-		.code-tab:last-child {
-			border-right: none;
-		}
-
-		.code-tab:hover {
-			color: var(--color-text-primary);
-		}
-
-		.code-tab.active {
-			color: var(--color-text-primary);
-			background: var(--color-bg-primary);
-			border-bottom: 2px solid var(--color-accent-blue);
-		}
-
-		.code-tab-content {
-			display: none;
-		}
-
-		.code-tab-content.active {
-			display: block;
-		}
-	</style>
+	<script src="../../assets/js/code-tabs.js?v=1" defer></script>
 </body>
 
 </html>
