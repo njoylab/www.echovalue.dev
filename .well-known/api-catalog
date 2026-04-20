@@ -2,6 +2,13 @@
   "linkset": [
     {
       "anchor": "https://api.echovalue.dev/",
+      "service-desc": [
+        {
+          "href": "https://docs.echovalue.dev/openapi.yaml",
+          "type": "application/yaml",
+          "title": "echoValue OpenAPI specification"
+        }
+      ],
       "service-doc": [
         {
           "href": "https://docs.echovalue.dev/",
@@ -12,6 +19,13 @@
     },
     {
       "anchor": "https://api.echovalue.dev/kv",
+      "service-desc": [
+        {
+          "href": "https://docs.echovalue.dev/openapi.yaml",
+          "type": "application/yaml",
+          "title": "DB API OpenAPI specification"
+        }
+      ],
       "service-doc": [
         {
           "href": "https://docs.echovalue.dev/key-value/",
@@ -27,6 +41,13 @@
     },
     {
       "anchor": "https://api.echovalue.dev/webhook",
+      "service-desc": [
+        {
+          "href": "https://docs.echovalue.dev/openapi.yaml",
+          "type": "application/yaml",
+          "title": "Mail2Webhook OpenAPI specification"
+        }
+      ],
       "service-doc": [
         {
           "href": "https://docs.echovalue.dev/mail2webhook/",
