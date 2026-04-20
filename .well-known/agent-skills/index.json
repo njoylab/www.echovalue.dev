@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agentskills.io/schemas/agent-skills-index-v0.2.0.json",
+  "skills": [
+    {
+      "name": "Link Headers",
+      "type": "documentation",
+      "description": "Documents the RFC 8288 Link response headers published for agent discovery.",
+      "url": "https://www.echovalue.dev/.well-known/agent-skills/link-headers.md",
+      "sha256": "034f92190f76ca15920581da26f856564f2524b0bcc7be69cb21762e3e63aad8"
+    },
+    {
+      "name": "Content Signals",
+      "type": "documentation",
+      "description": "Documents the AI content usage preferences declared in robots.txt.",
+      "url": "https://www.echovalue.dev/.well-known/agent-skills/content-signals.md",
+      "sha256": "feb24d18b8f9f32e55fd522c411961858c4f204ef6097ab2a22fae091e01c64b"
+    },
+    {
+      "name": "API Catalog",
+      "type": "documentation",
+      "description": "Documents the API catalog published for automated API discovery.",
+      "url": "https://www.echovalue.dev/.well-known/agent-skills/api-catalog.md",
+      "sha256": "5b7898871b83528bb78ab8ce66338f379e529b979678dc31e318e00470709c83"
+    },
+    {
+      "name": "Agent Skills Index",
+      "type": "documentation",
+      "description": "Documents the agent skills discovery index published by this site.",
+      "url": "https://www.echovalue.dev/.well-known/agent-skills/agent-skills.md",
+      "sha256": "8335577133f849cd4ea002f5563e0ed6484419d7a28984fd3f198bb3742a132e"
+    }
+  ]
+}

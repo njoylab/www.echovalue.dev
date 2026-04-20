@@ -1,0 +1,39 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://api.echovalue.dev/",
+      "service-doc": [
+        {
+          "href": "https://docs.echovalue.dev/",
+          "type": "text/html",
+          "title": "echoValue API documentation"
+        }
+      ]
+    },
+    {
+      "anchor": "https://api.echovalue.dev/kv",
+      "service-doc": [
+        {
+          "href": "https://docs.echovalue.dev/key-value/",
+          "type": "text/html",
+          "title": "DB API documentation"
+        },
+        {
+          "href": "https://www.echovalue.dev/db-api/agent-state/",
+          "type": "text/html",
+          "title": "Agent shared state examples"
+        }
+      ]
+    },
+    {
+      "anchor": "https://api.echovalue.dev/webhook",
+      "service-doc": [
+        {
+          "href": "https://docs.echovalue.dev/mail2webhook/",
+          "type": "text/html",
+          "title": "Mail2Webhook documentation"
+        }
+      ]
+    }
+  ]
+}

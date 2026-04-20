@@ -1,0 +1,30 @@
+/
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
+  Link: <https://docs.echovalue.dev/>; rel="service-doc"; type="text/html"
+  Link: </.well-known/agent-skills/index.json>; rel="describedby"; type="application/json"
+
+/db-api/
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
+  Link: <https://docs.echovalue.dev/key-value/>; rel="service-doc"; type="text/html"
+
+/mail2webhook/
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
+  Link: <https://docs.echovalue.dev/mail2webhook/>; rel="service-doc"; type="text/html"
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; charset=utf-8
+
+/.well-known/agent-skills/index.json
+  Content-Type: application/json; charset=utf-8
+
+/.well-known/agent-skills/link-headers.md
+  Content-Type: text/markdown; charset=utf-8
+
+/.well-known/agent-skills/content-signals.md
+  Content-Type: text/markdown; charset=utf-8
+
+/.well-known/agent-skills/api-catalog.md
+  Content-Type: text/markdown; charset=utf-8
+
+/.well-known/agent-skills/agent-skills.md
+  Content-Type: text/markdown; charset=utf-8
