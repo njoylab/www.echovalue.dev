@@ -4,6 +4,7 @@ This site publishes an agent skills discovery index at `https://www.echovalue.de
 
 ## Included skills
 
+- Agent discovery index
 - Link header discovery
 - Content signals policy
 - API catalog publication

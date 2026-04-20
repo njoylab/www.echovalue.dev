@@ -7,9 +7,11 @@ This site publishes RFC 8288 `Link` response headers to advertise agent-useful r
 - `rel="api-catalog"` points to `https://www.echovalue.dev/.well-known/api-catalog`
 - `rel="service-doc"` points to the relevant echoValue documentation
 - `rel="describedby"` points to the agent skills index at `https://www.echovalue.dev/.well-known/agent-skills/index.json`
+- `rel="describedby"` also points to markdown discovery documents for the site or product page when available
 
 ## Scope
 
 - Homepage: `https://www.echovalue.dev/`
 - DB API page: `https://www.echovalue.dev/db-api/`
 - Mail2Webhook page: `https://www.echovalue.dev/mail2webhook/`
+- Monitor API page: `https://www.echovalue.dev/monitor-api/`

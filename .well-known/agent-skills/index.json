@@ -2,6 +2,13 @@
   "$schema": "https://agentskills.io/schemas/agent-skills-index-v0.2.0.json",
   "skills": [
     {
+      "name": "Agent Discovery Index",
+      "type": "documentation",
+      "description": "Central markdown index for discovering echoValue products and agent-useful resources.",
+      "url": "https://www.echovalue.dev/.well-known/agent-skills/index.md",
+      "sha256": "9eb75da92e9367306e8eac5e9ac47a69ff9a3ea1a9fe85abab6b9699e14a69be"
+    },
+    {
       "name": "Link Headers",
       "type": "documentation",
       "description": "Documents the RFC 8288 Link response headers published for agent discovery.",
@@ -27,7 +34,28 @@
       "type": "documentation",
       "description": "Documents the agent skills discovery index published by this site.",
       "url": "https://www.echovalue.dev/.well-known/agent-skills/agent-skills.md",
-      "sha256": "8335577133f849cd4ea002f5563e0ed6484419d7a28984fd3f198bb3742a132e"
+      "sha256": "b5213e87f1ec459072ac0e4d1c4d3910a0f1d981ef65dcdb5c0ab0aed36135e7"
+    },
+    {
+      "name": "DB API Product Index",
+      "type": "documentation",
+      "description": "Compact markdown overview for the DB API product page, usage, auth, pricing, and docs.",
+      "url": "https://www.echovalue.dev/db-api/index.md",
+      "sha256": "8c75ad8a2a5d7b6e8f90086020616b7a78409c4478f50840be626af46fd6804e"
+    },
+    {
+      "name": "Mail2Webhook Product Index",
+      "type": "documentation",
+      "description": "Compact markdown overview for Mail2Webhook behavior, payload shape, pricing, and docs.",
+      "url": "https://www.echovalue.dev/mail2webhook/index.md",
+      "sha256": "265cdcc4c07ca73bc415575b8a2f72f9dc2897ee27cbb2d5cab4a7201e91ab1e"
+    },
+    {
+      "name": "Monitor API Product Index",
+      "type": "documentation",
+      "description": "Compact markdown overview for the upcoming Monitor API and its planned capabilities.",
+      "url": "https://www.echovalue.dev/monitor-api/index.md",
+      "sha256": "91e0b2abda716d432bf15ee424d6a7cd29b4954010c2a328b0646515cfc33945"
     }
   ]
 }
