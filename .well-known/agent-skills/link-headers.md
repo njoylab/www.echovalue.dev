@@ -8,6 +8,7 @@ This site publishes RFC 8288 `Link` response headers to advertise agent-useful r
 - `rel="service-doc"` points to the relevant echoValue documentation
 - `rel="describedby"` points to the agent skills index at `https://www.echovalue.dev/.well-known/agent-skills/index.json`
 - `rel="describedby"` also points to markdown discovery documents for the site or product page when available
+- `rel="alternate"` on the homepage points to a public markdown representation at `https://www.echovalue.dev/index.md`
 
 ## Scope
 

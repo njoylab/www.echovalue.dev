@@ -4,6 +4,7 @@
   Link: <https://docs.echovalue.dev/>; rel="service-doc"; type="text/html"
   Link: </.well-known/agent-skills/index.json>; rel="describedby"; type="application/json"
   Link: </.well-known/agent-skills/index.md>; rel="describedby"; type="text/markdown"
+  Link: </index.md>; rel="alternate"; type="text/markdown"
 
 /db-api/
   Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
@@ -29,6 +30,9 @@
   Content-Type: application/json; charset=utf-8
 
 /.well-known/agent-skills/index.md
+  Content-Type: text/markdown; charset=utf-8
+
+/index.md
   Content-Type: text/markdown; charset=utf-8
 
 /.well-known/agent-skills/link-headers.md
