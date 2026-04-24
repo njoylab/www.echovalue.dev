@@ -27,14 +27,16 @@
 	<meta property="og:title" content="echoValue Webhook API - Email and Cron Webhook Triggers">
 	<meta property="og:description"
 		content="Trigger HTTP webhooks from inbound email or cron schedules. Configure an endpoint once, then receive structured JSON payloads.">
-	<meta property="og:image" content="https://www.njoylab.com/images/echovalue-api.webp">
+	<meta property="og:image" content="https://www.echovalue.dev/images/echovalue-og.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="https://www.echovalue.dev/webhook-api/">
 	<meta property="twitter:title" content="echoValue Webhook API - Email and Cron Webhook Triggers">
 	<meta property="twitter:description"
 		content="Trigger HTTP webhooks from inbound email or cron schedules. Configure an endpoint once, then receive structured JSON payloads.">
-	<meta property="twitter:image" content="https://www.njoylab.com/images/echovalue-api.webp">
+	<meta property="twitter:image" content="https://www.echovalue.dev/images/echovalue-og.png">
 	<link rel="stylesheet" href="../assets/css/dev-theme.css?v=10" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
@@ -116,7 +118,7 @@
 				<li><a href="#payload">Payload</a></li>
 				<li><a href="#formats">Formats</a></li>
 				<li><a href="#pricing">Pricing</a></li>
-				<li><a href="https://docs.echovalue.dev/webhook/">API Reference</a></li>
+				<li><a href="https://docs.echovalue.dev/webhook/" target="_blank" rel="noopener noreferrer">API Reference</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -126,7 +128,7 @@
 	<!-- Hero Section -->
 	<section class="hero compact">
 		<div class="container">
-			<h1><span class="mono">webhook</span>-api</h1>
+			<h1><span class="mono">webhook</span>-api email and cron triggers</h1>
 			<p>
 				Email or cron → webhook. Configure an endpoint once.<br>
 				Receive structured <span class="text-mono">HTTP POST</span> events from echoValue.
@@ -337,7 +339,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 					</div>
 					<div class="project-card-content">
 						<p>Posts to any channel via Incoming Webhooks. Subject and sender formatted in Slack markdown.
-							<a href="https://docs.echovalue.dev/webhook/formats/slack/">Setup guide →</a>
+							<a href="https://docs.echovalue.dev/webhook/formats/slack/" target="_blank" rel="noopener noreferrer">Setup guide →</a>
 						</p>
 					</div>
 				</div>
@@ -348,7 +350,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 					</div>
 					<div class="project-card-content">
 						<p>Delivers to a Discord channel webhook. Emails arrive as formatted messages with bold subject.
-							<a href="https://docs.echovalue.dev/webhook/formats/discord/">Setup guide →</a>
+							<a href="https://docs.echovalue.dev/webhook/formats/discord/" target="_blank" rel="noopener noreferrer">Setup guide →</a>
 						</p>
 					</div>
 				</div>
@@ -359,7 +361,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 					</div>
 					<div class="project-card-content">
 						<p>Sends to a Teams channel via Workflow or Connector webhook. Compatible with both setup
-							methods. <a href="https://docs.echovalue.dev/webhook/formats/teams/">Setup guide →</a></p>
+							methods. <a href="https://docs.echovalue.dev/webhook/formats/teams/" target="_blank" rel="noopener noreferrer">Setup guide →</a></p>
 					</div>
 				</div>
 				<div class="project-card">
@@ -369,8 +371,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 					</div>
 					<div class="project-card-content">
 						<p>Sends via Telegram Bot API with HTML formatting. Works for personal chats, groups, and
-							channels. Requires <span class="text-mono">options.chat_id</span>. <a
-								href="https://docs.echovalue.dev/webhook/formats/telegram/">Setup guide →</a></p>
+							channels. Requires <span class="text-mono">options.chat_id</span>. <a href="https://docs.echovalue.dev/webhook/formats/telegram/" target="_blank" rel="noopener noreferrer">Setup guide →</a></p>
 					</div>
 				</div>
 				<div class="project-card">
@@ -380,8 +381,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 					</div>
 					<div class="project-card-content">
 						<p>Triggers incidents via Events API v2. Subject becomes the summary, sender the source.
-							Requires <span class="text-mono">options.routing_key</span>. <a
-								href="https://docs.echovalue.dev/webhook/formats/pagerduty/">Setup guide →</a></p>
+							Requires <span class="text-mono">options.routing_key</span>. <a href="https://docs.echovalue.dev/webhook/formats/pagerduty/" target="_blank" rel="noopener noreferrer">Setup guide →</a></p>
 					</div>
 				</div>
 				<div class="project-card">
@@ -391,8 +391,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 					</div>
 					<div class="project-card-content">
 						<p>Define your own JSON template with placeholders. Map any email field (subject, from, text,
-							html, attachments) to your webhook payload. <a
-								href="https://docs.echovalue.dev/webhook/formats/custom/">Docs →</a></p>
+							html, attachments) to your webhook payload. <a href="https://docs.echovalue.dev/webhook/formats/custom/" target="_blank" rel="noopener noreferrer">Docs →</a></p>
 					</div>
 				</div>
 			</div>
@@ -498,7 +497,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 						<li>✓ No registration</li>
 						<li>✓ Full API access</li>
 					</ul>
-					<a href="https://docs.echovalue.dev/token/create/" class="btn btn-secondary btn-block">start
+					<a href="https://docs.echovalue.dev/token/create/" class="btn btn-secondary btn-block" target="_blank" rel="noopener noreferrer">start
 						free</a>
 				</div>
 
@@ -511,7 +510,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 						<li>✓ No expiration</li>
 						<li>✓ Shared with db-api</li>
 					</ul>
-					<a href="https://docs.echovalue.dev/token/recharge/" class="btn btn-primary btn-block">buy
+					<a href="https://docs.echovalue.dev/token/recharge/" class="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">buy
 						credits</a>
 				</div>
 
@@ -524,7 +523,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 						<li>✓ No expiration</li>
 						<li>✓ Best value</li>
 					</ul>
-					<a href="https://docs.echovalue.dev/token/recharge/" class="btn btn-primary btn-block">buy
+					<a href="https://docs.echovalue.dev/token/recharge/" class="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">buy
 						credits</a>
 				</div>
 			</div>
@@ -615,9 +614,9 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 					<li><a href="../db-api/">DB API</a></li>
 					<li><a href="../webhook-api/">Webhook API</a></li>
 					<li><a href="../monitor-api/">Monitor API</a></li>
-					<li><a href="https://docs.echovalue.dev">Documentation</a></li>
-					<li><a href="../privacy.html">Privacy</a></li>
-					<li><a href="../toc.html">Terms</a></li>
+					<li><a href="https://docs.echovalue.dev" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+					<li><a href="/privacy">Privacy</a></li>
+					<li><a href="/toc">Terms</a></li>
 				</ul>
 			</div>
 			<div class="footer-bottom">
