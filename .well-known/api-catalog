@@ -50,7 +50,7 @@
       ],
       "service-doc": [
         {
-          "href": "https://docs.echovalue.dev/mail2webhook/",
+          "href": "https://docs.echovalue.dev/webhook/",
           "type": "text/html",
           "title": "Webhook API documentation"
         }
