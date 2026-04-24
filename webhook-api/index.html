@@ -44,48 +44,73 @@
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
-		"@type": "SoftwareApplication",
-		"name": "echoValue Webhook API",
-		"applicationCategory": "DeveloperApplication",
-		"operatingSystem": "Web",
-		"url": "https://www.echovalue.dev/webhook-api/",
-		"description": "Webhook trigger API for inbound email and cron schedules. Configure an endpoint once, then receive structured HTTP POST events.",
-		"publisher": {
-			"@type": "Organization",
-			"name": "echoValue",
-			"url": "https://www.echovalue.dev/"
-		},
-		"featureList": [
-			"Inbound email triggers",
-			"Cron schedule triggers",
-			"Opaque mailbox address",
-			"Full JSON payload",
-			"Native formats: Slack, Discord, Teams, Telegram, PagerDuty",
-			"Custom payload mappers",
-			"Structured webhook delivery",
-			"Attachment download URLs"
-		],
-		"offers": [
+		"@graph": [
 			{
-				"@type": "Offer",
-				"name": "Free",
-				"price": "0",
-				"priceCurrency": "USD",
-				"description": "100 events, no credit card, no registration"
+				"@type": "Organization",
+				"@id": "https://www.echovalue.dev/#organization",
+				"name": "echoValue",
+				"url": "https://www.echovalue.dev/"
 			},
 			{
-				"@type": "Offer",
-				"name": "Standard",
-				"price": "4",
-				"priceCurrency": "USD",
-				"description": "1 million events, no subscription, credits never expire"
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{
+						"@type": "ListItem",
+						"position": 1,
+						"name": "Home",
+						"item": "https://www.echovalue.dev/"
+					},
+					{
+						"@type": "ListItem",
+						"position": 2,
+						"name": "Webhook API",
+						"item": "https://www.echovalue.dev/webhook-api/"
+					}
+				]
 			},
 			{
-				"@type": "Offer",
-				"name": "Pro",
-				"price": "10",
-				"priceCurrency": "USD",
-				"description": "3 million events, no subscription, credits never expire"
+				"@type": "SoftwareApplication",
+				"name": "echoValue Webhook API",
+				"applicationCategory": "DeveloperApplication",
+				"operatingSystem": "Web",
+				"url": "https://www.echovalue.dev/webhook-api/",
+				"description": "Webhook trigger API for inbound email and cron schedules. Configure an endpoint once, then receive structured HTTP POST events.",
+				"publisher": {
+					"@id": "https://www.echovalue.dev/#organization"
+				},
+				"featureList": [
+					"Inbound email triggers",
+					"Cron schedule triggers",
+					"Opaque mailbox address",
+					"Full JSON payload",
+					"Native formats: Slack, Discord, Teams, Telegram, PagerDuty",
+					"Custom payload mappers",
+					"Structured webhook delivery",
+					"Attachment download URLs"
+				],
+				"offers": [
+					{
+						"@type": "Offer",
+						"name": "Free",
+						"price": "0",
+						"priceCurrency": "USD",
+						"description": "100 credits, no credit card, no registration"
+					},
+					{
+						"@type": "Offer",
+						"name": "Standard",
+						"price": "4",
+						"priceCurrency": "USD",
+						"description": "1 million credits, no subscription, credits never expire"
+					},
+					{
+						"@type": "Offer",
+						"name": "Pro",
+						"price": "10",
+						"priceCurrency": "USD",
+						"description": "3 million credits, no subscription, credits never expire"
+					}
+				]
 			}
 		]
 	}
@@ -492,7 +517,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 					<h3>Free</h3>
 					<div class="price">$0</div>
 					<ul>
-						<li>✓ 100 events</li>
+						<li>✓ 100 credits</li>
 						<li>✓ No credit card</li>
 						<li>✓ No registration</li>
 						<li>✓ Full API access</li>
@@ -505,7 +530,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 					<h3>Standard</h3>
 					<div class="price">$4 <small>/ €3.70</small></div>
 					<ul>
-						<li>✓ 1 million events</li>
+						<li>✓ 1 million credits</li>
 						<li>✓ No subscription</li>
 						<li>✓ No expiration</li>
 						<li>✓ Shared with db-api</li>
@@ -518,7 +543,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 					<h3>Pro</h3>
 					<div class="price">$10 <small>/ €9.20</small></div>
 					<ul>
-						<li>✓ 3 million events</li>
+						<li>✓ 3 million credits</li>
 						<li>✓ No subscription</li>
 						<li>✓ No expiration</li>
 						<li>✓ Best value</li>
