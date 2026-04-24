@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>echoValue - Simple APIs & Free Developer Tools</title>
 	<meta name="description"
-		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Monitoring, and free tools like JSONLint, GeoIP, URL Summary, Lookup, and Webhook. No subscriptions, no complexity.">
+		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Webhook API for email and cron triggers, Monitoring, and free tools like JSONLint, GeoIP, URL Summary, and Lookup. No subscriptions, no complexity.">
 	<meta name="author" content="Emiliano Saurin">
 	<link rel="canonical" href="https://www.echovalue.dev/">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,14 +26,14 @@
 	<meta property="og:url" content="https://www.echovalue.dev/">
 	<meta property="og:title" content="echoValue - Simple APIs & Free Developer Tools">
 	<meta property="og:description"
-		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Monitoring, and free tools like JSONLint, GeoIP, URL Summary, Lookup, and Webhook.">
+		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Webhook API for email and cron triggers, Monitoring, and free developer tools.">
 	<meta property="og:image" content="https://www.njoylab.com/images/echovalue-api.webp">
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="https://www.echovalue.dev/">
 	<meta property="twitter:title" content="echoValue - Simple APIs & Free Developer Tools">
 	<meta property="twitter:description"
-		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Monitoring, and free tools like JSONLint, GeoIP, URL Summary, Lookup, and Webhook.">
+		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Webhook API for email and cron triggers, Monitoring, and free developer tools.">
 	<meta property="twitter:image" content="https://www.njoylab.com/images/echovalue-api.webp">
 	<link rel="stylesheet" href="assets/css/dev-theme.css?v=10" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -64,7 +64,7 @@
 				"@id": "https://www.echovalue.dev/#website",
 				"url": "https://www.echovalue.dev/",
 				"name": "echoValue",
-				"description": "Simple APIs and free developer tools. Key-Value Store, GeoIP, JSON Linter, DNS Lookup, URL Summarizer.",
+				"description": "Simple APIs and free developer tools. Key-Value Store, Webhook API, GeoIP, JSON Linter, DNS Lookup, URL Summarizer.",
 				"publisher": {
 					"@id": "https://www.echovalue.dev/#organization"
 				}
@@ -84,6 +84,8 @@
 				},
 				"featureList": [
 					"Key-Value Store API",
+					"Webhook API for email and cron triggers",
+					"Scheduled webhook triggers",
 					"IP Geolocation Tool",
 					"JSON Linter and Formatter",
 					"DNS Lookup and Security Analyzer",
@@ -176,25 +178,25 @@
 					</div>
 				</article>
 
-				<!-- Mail2Webhook Card -->
+				<!-- Webhook API Card -->
 				<article class="project-card">
 					<div class="project-card-header">
-						<span class="project-card-icon"><i class="fa-solid fa-envelope-open-text"></i></span>
-						<h3>mail2webhook</h3>
+						<span class="project-card-icon"><i class="fa-solid fa-right-left"></i></span>
+						<h3>webhook-api</h3>
 					</div>
 					<div class="project-card-content">
 						<p>
-							Turn any email into an HTTP webhook. Each wallet gets a public address.
-							Send an email, receive a POST at your endpoint. Zero server setup.
+							Trigger webhooks from inbound email or cron schedules.
+							Configure an endpoint once, then receive signed JSON payloads.
 						</p>
 						<ul class="project-features">
-							<li>&lt;email&gt;@hook.echovalue.dev</li>
-							<li>Full JSON payload</li>
+							<li>Email triggers</li>
+							<li>Cron triggers</li>
+							<li>Signed JSON payloads</li>
 							<li>Shared credit system</li>
-							<li>Any sender, any system</li>
 						</ul>
 						<div class="project-card-actions">
-							<a href="mail2webhook/" class="btn btn-primary">learn more →</a>
+							<a href="webhook-api/" class="btn btn-primary">learn more →</a>
 							<a href="https://docs.echovalue.dev/mail2webhook/" class="btn btn-secondary">api
 								ref</a>
 						</div>
@@ -463,6 +465,7 @@
 				<ul class="footer-links">
 					<li><a href="/">Home</a></li>
 					<li><a href="db-api/">DB API</a></li>
+					<li><a href="webhook-api/">Webhook API</a></li>
 					<li><a href="monitor-api/">Monitor API</a></li>
 					<li><a href="https://docs.echovalue.dev">Documentation</a></li>
 					<li><a href="/privacy">Privacy</a></li>

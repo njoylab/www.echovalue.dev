@@ -7,7 +7,7 @@ echoValue publishes pay-as-you-go APIs and free developer tools. The platform is
 ## Main Products
 
 - DB API: hosted key-value storage for scripts, serverless apps, and agent state
-- Mail2Webhook: receive inbound email as webhook deliveries
+- Webhook API: deliver webhooks from inbound email or cron schedules
 - Monitor API: upcoming monitoring service for web pages and remote files
 
 ## Shared Platform Model
@@ -22,8 +22,8 @@ echoValue publishes pay-as-you-go APIs and free developer tools. The platform is
 
 - DB API: `https://www.echovalue.dev/db-api/`
 - DB API markdown index: `https://www.echovalue.dev/db-api/index.md`
-- Mail2Webhook: `https://www.echovalue.dev/mail2webhook/`
-- Mail2Webhook markdown index: `https://www.echovalue.dev/mail2webhook/index.md`
+- Webhook API: `https://www.echovalue.dev/webhook-api/`
+- Webhook API markdown index: `https://www.echovalue.dev/webhook-api/index.md`
 - Monitor API: `https://www.echovalue.dev/monitor-api/`
 - Monitor API markdown index: `https://www.echovalue.dev/monitor-api/index.md`
 
@@ -46,5 +46,5 @@ echoValue publishes pay-as-you-go APIs and free developer tools. The platform is
 ## Notes
 
 - DB API is live
-- Mail2Webhook is live
+- Webhook API is live
 - Monitor API is coming soon

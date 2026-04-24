@@ -1,0 +1,3 @@
+/mail2webhook/ /webhook-api/ 301
+/mail2webhook/index.html /webhook-api/ 301
+/mail2webhook/index.md /webhook-api/index.md 301

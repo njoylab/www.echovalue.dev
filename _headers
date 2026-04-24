@@ -16,7 +16,13 @@
   Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
   Link: <https://docs.echovalue.dev/openapi.yaml>; rel="service-desc"; type="application/yaml"
   Link: <https://docs.echovalue.dev/mail2webhook/>; rel="service-doc"; type="text/html"
-  Link: </mail2webhook/index.md>; rel="describedby"; type="text/markdown"
+  Link: </webhook-api/index.md>; rel="describedby"; type="text/markdown"
+
+/webhook-api/
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"
+  Link: <https://docs.echovalue.dev/openapi.yaml>; rel="service-desc"; type="application/yaml"
+  Link: <https://docs.echovalue.dev/mail2webhook/>; rel="service-doc"; type="text/html"
+  Link: </webhook-api/index.md>; rel="describedby"; type="text/markdown"
 
 /monitor-api/
   Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"

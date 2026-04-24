@@ -45,14 +45,14 @@
         {
           "href": "https://docs.echovalue.dev/openapi.yaml",
           "type": "application/yaml",
-          "title": "Mail2Webhook OpenAPI specification"
+          "title": "Webhook API OpenAPI specification"
         }
       ],
       "service-doc": [
         {
           "href": "https://docs.echovalue.dev/mail2webhook/",
           "type": "text/html",
-          "title": "Mail2Webhook documentation"
+          "title": "Webhook API documentation"
         }
       ]
     }

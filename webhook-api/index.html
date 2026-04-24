@@ -1,0 +1,633 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>echoValue Webhook API - Email and Cron Webhook Triggers</title>
+	<meta name="description"
+		content="Trigger HTTP webhooks from inbound email or cron schedules. Configure an endpoint once, then receive signed JSON payloads from echoValue. No server setup required.">
+	<meta name="author" content="Emiliano Saurin">
+	<link rel="canonical" href="https://www.echovalue.dev/webhook-api/">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="icon" href="/favicon.ico">
+	<link rel="manifest" href="/site.webmanifest">
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.echovalue.dev/webhook-api/">
+	<meta property="og:title" content="echoValue Webhook API - Email and Cron Webhook Triggers">
+	<meta property="og:description"
+		content="Trigger HTTP webhooks from inbound email or cron schedules. Configure an endpoint once, then receive signed JSON payloads.">
+	<meta property="og:image" content="https://www.njoylab.com/images/echovalue-api.webp">
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://www.echovalue.dev/webhook-api/">
+	<meta property="twitter:title" content="echoValue Webhook API - Email and Cron Webhook Triggers">
+	<meta property="twitter:description"
+		content="Trigger HTTP webhooks from inbound email or cron schedules. Configure an endpoint once, then receive signed JSON payloads.">
+	<meta property="twitter:image" content="https://www.njoylab.com/images/echovalue-api.webp">
+	<link rel="stylesheet" href="../assets/css/dev-theme.css?v=10" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+	<!-- Structured Data -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "SoftwareApplication",
+		"name": "echoValue Webhook API",
+		"applicationCategory": "DeveloperApplication",
+		"operatingSystem": "Web",
+		"url": "https://www.echovalue.dev/webhook-api/",
+		"description": "Webhook trigger API for inbound email and cron schedules. Configure an endpoint once, then receive signed HTTP POST events.",
+		"publisher": {
+			"@type": "Organization",
+			"name": "echoValue",
+			"url": "https://www.echovalue.dev/"
+		},
+		"featureList": [
+			"Inbound email triggers",
+			"Cron schedule triggers",
+			"Opaque mailbox address",
+			"Full JSON payload",
+			"Native formats: Slack, Discord, Teams, Telegram, PagerDuty",
+			"Custom payload mappers",
+			"Signed webhook delivery",
+			"Attachment download URLs"
+		],
+		"offers": [
+			{
+				"@type": "Offer",
+				"name": "Free",
+				"price": "0",
+				"priceCurrency": "USD",
+				"description": "100 events, no credit card, no registration"
+			},
+			{
+				"@type": "Offer",
+				"name": "Standard",
+				"price": "4",
+				"priceCurrency": "USD",
+				"description": "1 million events, no subscription, credits never expire"
+			},
+			{
+				"@type": "Offer",
+				"name": "Pro",
+				"price": "10",
+				"priceCurrency": "USD",
+				"description": "3 million events, no subscription, credits never expire"
+			}
+		]
+	}
+	</script>
+</head>
+
+<body>
+
+	<a href="#main" class="skip-link">Skip to content</a>
+
+	<!-- Navigation -->
+	<nav class="navbar">
+		<div class="container">
+			<a href="/" class="navbar-brand">
+				echoValue Webhook API
+			</a>
+			<button class="theme-toggle" aria-label="Toggle theme">
+				<i class="fa-solid fa-moon"></i>
+				<i class="fa-solid fa-sun"></i>
+			</button>
+			<button class="navbar-toggle" aria-label="Toggle navigation">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<ul class="navbar-nav">
+				<li><a href="#how-it-works">How It Works</a></li>
+				<li><a href="#triggers">Triggers</a></li>
+				<li><a href="#use-cases">Use Cases</a></li>
+				<li><a href="#payload">Payload</a></li>
+				<li><a href="#formats">Formats</a></li>
+				<li><a href="#pricing">Pricing</a></li>
+				<li><a href="https://docs.echovalue.dev/mail2webhook/">API Reference</a></li>
+				<li><a href="https://docs.echovalue.dev">Documentation</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<main id="main">
+
+	<!-- Hero Section -->
+	<section class="hero compact">
+		<div class="container">
+			<h1><span class="mono">webhook</span>-api</h1>
+			<p>
+				Email or cron → webhook. Configure an endpoint once.<br>
+				Receive signed <span class="text-mono">HTTP POST</span> events from echoValue.
+			</p>
+			<div class="code-block" style="margin-top: var(--spacing-md); text-align: left;">
+				<code><span class="code-comment"># Trigger types: email, cron</span><br />
+<span class="code-comment"># Native formats: Slack, Discord, Teams, Telegram, PagerDuty</span></code>
+			</div>
+		</div>
+	</section>
+
+	<!-- How it works -->
+	<section id="how-it-works" class="section no-border">
+		<div class="container">
+			<div class="section-header">
+				<h2>how-it-works</h2>
+				<p>Three steps. No server. One endpoint for multiple trigger sources.</p>
+			</div>
+
+			<div class="code-block">
+				<span class="code-comment"># 1. Configure your webhook endpoint (once)</span><br />
+				curl 'https://api.echovalue.dev/webhook' \<br />
+				&nbsp;&nbsp;-H 'x-token: mytoken' \<br />
+				&nbsp;&nbsp;-H 'content-type: application/json' \<br />
+				&nbsp;&nbsp;-d '{"url":"https://myapp.example.com/hooks/events","trigger":"email"}'<br />
+				<span class="code-output">%
+					{"mailboxId":"r_abcd1234","email":"r_abcd1234@hook.echovalue.dev",...}</span><br /><br />
+				<span class="code-comment"># Or configure a scheduled webhook</span><br />
+				curl 'https://api.echovalue.dev/webhook' \<br />
+				&nbsp;&nbsp;-H 'x-token: mytoken' \<br />
+				&nbsp;&nbsp;-H 'content-type: application/json' \<br />
+				&nbsp;&nbsp;-d '{"url":"https://myapp.example.com/hooks/events","trigger":"cron","schedule":"*/15 * * * *"}'<br />
+			</div>
+
+			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-gear"></i></span>
+						<h3>1. configure endpoint</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Set your webhook URL once via the API. echoValue delivers trigger events to that endpoint.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-code-branch"></i></span>
+						<h3>2. choose trigger</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Use an opaque mailbox address for inbound email or a cron schedule for timed delivery.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-bolt"></i></span>
+						<h3>3. receive events</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Every trigger sends a signed HTTP POST to your endpoint with a structured JSON payload.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Triggers Section -->
+	<section id="triggers" class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>triggers</h2>
+				<p>Start with email or schedule delivery with cron. Same endpoint model, same credit system.</p>
+			</div>
+
+			<div class="projects-grid">
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-envelope-open-text"></i></span>
+						<h3>email trigger</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Every webhook can get an opaque mailbox address such as <span class="text-mono">&lt;mailboxId&gt;@hook.echovalue.dev</span>. Send an email and receive the parsed message as JSON.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-clock"></i></span>
+						<h3>cron trigger</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Run scheduled webhook calls for periodic jobs, reminders, heartbeat checks, and automation workflows without hosting a scheduler.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-shield-halved"></i></span>
+						<h3>signed delivery</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Receive JSON payloads at your endpoint and verify delivery with the same webhook security model across trigger types.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Payload Section -->
+	<section id="payload" class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>email-payload</h2>
+				<p>What arrives at your webhook endpoint for the email trigger.</p>
+			</div>
+
+			<div class="code-block">
+				<code>{<br />
+&nbsp;&nbsp;<span class="code-string">"externalMessageId"</span>: <span class="code-string">"&lt;CA+abc123@mail.gmail.com&gt;"</span>,<br />
+&nbsp;&nbsp;<span class="code-string">"receivedAt"</span>: <span class="code-string">"2026-04-04T09:21:35.218Z"</span>,<br />
+&nbsp;&nbsp;<span class="code-string">"from"</span>: { <span class="code-string">"email"</span>: <span class="code-string">"john@gmail.com"</span>, <span class="code-string">"name"</span>: <span class="code-string">"John Snow"</span> },<br />
+&nbsp;&nbsp;<span class="code-string">"to"</span>: { <span class="code-string">"hash"</span>: <span class="code-string">"a1b2c3d4e5f6..."</span> },<br />
+&nbsp;&nbsp;<span class="code-string">"subject"</span>: <span class="code-string">"Alert: Server down"</span>,<br />
+&nbsp;&nbsp;<span class="code-string">"text"</span>: <span class="code-string">"Server #3 is not responding"</span>,<br />
+&nbsp;&nbsp;<span class="code-string">"html"</span>: <span class="code-string">"&lt;div&gt;Server #3 is not responding&lt;/div&gt;"</span>,<br />
+&nbsp;&nbsp;<span class="code-string">"headers"</span>: { <span class="code-comment">/* raw email headers */</span> },<br />
+&nbsp;&nbsp;<span class="code-string">"attachments"</span>: [<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"filename"</span>: <span class="code-string">"attachment.pdf"</span>,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"contentType"</span>: <span class="code-string">"application/pdf"</span>,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"size"</span>: <span class="code-value">33380</span>,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"downloadUrl"</span>: <span class="code-string">"&lt;presigned_url&gt;"</span>,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"downloadUrlExpiresAt"</span>: <span class="code-string">"2026-04-04T09:26:35.218Z"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;]<br />
+}</code>
+			</div>
+
+			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-user"></i></span>
+						<h3>from / to</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Sender and recipients as objects with <span class="text-mono">email</span> and <span
+								class="text-mono">name</span>. Use <span class="text-mono">from.email</span> to filter,
+							route, or allow-list traffic in your handler.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-tag"></i></span>
+						<h3>subject</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Perfect for routing logic — treat it as an event type or command keyword.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-align-left"></i></span>
+						<h3>text / html</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Email body in both plain text and HTML. Parse, store, or forward either format — your call.
+						</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-paperclip"></i></span>
+						<h3>attachments</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Each attachment includes a short-lived <span class="text-mono">downloadUrl</span> (60 min
+							TTL), filename, content type, and size in bytes. Max attachment size: <span
+								class="text-mono">20 MB</span>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Native Formats Section -->
+	<section id="formats" class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>native-formats</h2>
+				<p>Set <span class="text-mono">format</span> once. No payload handling on your end.</p>
+			</div>
+
+			<div class="code-block">
+				<code><span class="code-comment"># Forward emails directly to Slack</span><br />
+curl 'https://api.echovalue.dev/webhook' \<br />
+&nbsp;&nbsp;-H 'x-token: mytoken' \<br />
+&nbsp;&nbsp;-H 'Content-Type: application/json' \<br />
+&nbsp;&nbsp;-d '{"url":"https://hooks.slack.com/services/T00/B00/XXX","format":"slack"}'<br />
+<span class="code-output">% {"mailboxId":"r_abcd1234","email":"r_abcd1234@hook.echovalue.dev",...}</span></code>
+			</div>
+
+			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-brands fa-slack"></i></span>
+						<h3>slack</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Posts to any channel via Incoming Webhooks. Subject and sender formatted in Slack markdown.
+							<a href="https://docs.echovalue.dev/mail2webhook-slack/">Setup guide →</a>
+						</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-brands fa-discord"></i></span>
+						<h3>discord</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Delivers to a Discord channel webhook. Emails arrive as formatted messages with bold subject.
+							<a href="https://docs.echovalue.dev/mail2webhook-discord/">Setup guide →</a>
+						</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-comments"></i></span>
+						<h3>microsoft teams</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Sends to a Teams channel via Workflow or Connector webhook. Compatible with both setup
+							methods. <a href="https://docs.echovalue.dev/mail2webhook-teams/">Setup guide →</a></p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-brands fa-telegram"></i></span>
+						<h3>telegram</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Sends via Telegram Bot API with HTML formatting. Works for personal chats, groups, and
+							channels. Requires <span class="text-mono">options.chat_id</span>. <a
+								href="https://docs.echovalue.dev/mail2webhook-telegram/">Setup guide →</a></p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
+						<h3>pagerduty</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Triggers incidents via Events API v2. Subject becomes the summary, sender the source.
+							Requires <span class="text-mono">options.routing_key</span>. <a
+								href="https://docs.echovalue.dev/mail2webhook-pagerduty/">Setup guide →</a></p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-code"></i></span>
+						<h3>custom format</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Define your own JSON template with placeholders. Map any email field (subject, from, text,
+							html, attachments) to your webhook payload. <a
+								href="https://docs.echovalue.dev/mail2webhook-custom/">Docs →</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Use Cases Section -->
+	<section id="use-cases" class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>use-cases</h2>
+				<p>Turn inbound messages and schedules into webhook-driven automation.</p>
+			</div>
+
+			<div class="projects-grid">
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+						<h3>automation entry point</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Zapier, Make, n8n, Power Automate — all accept webhooks. Unlike native email triggers, no
+							OAuth or inbox access needed. Use an opaque mailbox address or scheduled delivery.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-robot"></i></span>
+						<h3>ai agent input</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Email is the interface everyone knows. Turn it into programmable input for AI agents —
+							classify, extract, triage, respond.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-stopwatch"></i></span>
+						<h3>scheduled jobs</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Run scheduled pings, reminders, periodic syncs, and heartbeat jobs without deploying a cron worker.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-industry"></i></span>
+						<h3>legacy integration</h3>
+					</div>
+					<div class="project-card-content">
+						<p>ERP systems, scanners, SCADA, printers — anything that sends email becomes webhook-capable.
+							No code changes on the source.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-bell"></i></span>
+						<h3>notification hub</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Centralize email alerts from multiple services into one endpoint. Forward to Slack,
+							PagerDuty, or your own dashboard.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-microchip"></i></span>
+						<h3>IoT &amp; embedded</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Hardware and industrial devices that can send email but not HTTP. A natural bridge to modern
+							APIs.</p>
+					</div>
+				</div>
+				<div class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-mobile-screen"></i></span>
+						<h3>sms gateways</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Carrier SMS-to-email becomes SMS-to-webhook in one step. Zero infrastructure to manage.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Pricing Section -->
+	<section id="pricing" class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>pricing</h2>
+				<p>Zero subscriptions. Pay per use. Credits never expire.</p>
+			</div>
+
+			<div class="pricing-grid">
+				<div class="pricing-card">
+					<h3>Free</h3>
+					<div class="price">$0</div>
+					<ul>
+						<li>✓ 100 events</li>
+						<li>✓ No credit card</li>
+						<li>✓ No registration</li>
+						<li>✓ Full API access</li>
+					</ul>
+					<a href="https://docs.echovalue.dev/token/" class="btn btn-secondary btn-block">start
+						free</a>
+				</div>
+
+				<div class="pricing-card featured">
+					<h3>Standard</h3>
+					<div class="price">$4 <small>/ €3.70</small></div>
+					<ul>
+						<li>✓ 1 million events</li>
+						<li>✓ No subscription</li>
+						<li>✓ No expiration</li>
+						<li>✓ Shared with db-api</li>
+					</ul>
+					<a href="https://docs.echovalue.dev/token/#recharge-wallet" class="btn btn-primary btn-block">buy
+						credits</a>
+				</div>
+
+				<div class="pricing-card">
+					<h3>Pro</h3>
+					<div class="price">$10 <small>/ €9.20</small></div>
+					<ul>
+						<li>✓ 3 million events</li>
+						<li>✓ No subscription</li>
+						<li>✓ No expiration</li>
+						<li>✓ Best value</li>
+					</ul>
+					<a href="https://docs.echovalue.dev/token/#recharge-wallet" class="btn btn-primary btn-block">buy
+						credits</a>
+				</div>
+			</div>
+
+			<div class="code-block mt-4">
+				<h4 style="margin-bottom: 1rem; color: var(--color-text-muted);">Cost per operation</h4>
+				<table style="width: 100%; border-collapse: collapse;">
+					<thead>
+						<tr style="border-bottom: 1px solid var(--color-border);">
+							<th style="text-align: left; padding: 0.5rem;">Operation</th>
+							<th style="text-align: right; padding: 0.5rem;">Cost</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr style="border-bottom: 1px solid var(--color-border);">
+							<td style="padding: 0.5rem;">Configure webhook</td>
+							<td style="text-align: right; padding: 0.5rem;">1 credit</td>
+						</tr>
+						<tr style="border-bottom: 1px solid var(--color-border);">
+							<td style="padding: 0.5rem;">Get webhook config</td>
+							<td style="text-align: right; padding: 0.5rem;">1 credit</td>
+						</tr>
+						<tr style="border-bottom: 1px solid var(--color-border);">
+							<td style="padding: 0.5rem;">Delete webhook</td>
+							<td style="text-align: right; padding: 0.5rem;">1 credit</td>
+						</tr>
+						<tr style="border-bottom: 1px solid var(--color-border);">
+							<td style="padding: 0.5rem;">Email processed (no attachments)</td>
+							<td style="text-align: right; padding: 0.5rem;">2 credits</td>
+						</tr>
+						<tr style="border-bottom: 1px solid var(--color-border);">
+							<td style="padding: 0.5rem;">Email processed (with attachments)</td>
+							<td style="text-align: right; padding: 0.5rem;">5 credits</td>
+						</tr>
+						<tr>
+							<td style="padding: 0.5rem;">Scheduled webhook event</td>
+							<td style="text-align: right; padding: 0.5rem;">2 credits</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<p class="text-center mt-4 text-muted">
+				Credits are shared across all echoValue APIs. Pay once, use everywhere.
+			</p>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact" class="section bg-light">
+		<div class="container">
+			<div class="section-header">
+				<h2>Get Support</h2>
+				<p>Questions, feedback, or feature requests about Webhook API.</p>
+			</div>
+
+			<div class="contact-info">
+				<div class="contact-item">
+					<h3>Email</h3>
+					support at echovalue dot dev
+				</div>
+				<div class="contact-item">
+					<h3>Social</h3>
+					<div class="social-links">
+						<a href="https://twitter.com/emln_" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+							<i class="fab fa-twitter"></i>
+						</a>
+						<a href="https://www.linkedin.com/in/emlns/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+							<i class="fab fa-linkedin"></i>
+						</a>
+						<a href="https://github.com/njoylab" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+							<i class="fab fa-github"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	</main>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<ul class="footer-links">
+					<li><a href="/">Home</a></li>
+					<li><a href="../db-api/">DB API</a></li>
+					<li><a href="../webhook-api/">Webhook API</a></li>
+					<li><a href="../monitor-api/">Monitor API</a></li>
+					<li><a href="https://docs.echovalue.dev">Documentation</a></li>
+					<li><a href="../privacy.html">Privacy</a></li>
+					<li><a href="../toc.html">Terms</a></li>
+				</ul>
+			</div>
+			<div class="footer-bottom">
+				<p>
+					© <a href="https://www.njoylab.com" target="_blank" rel="noopener noreferrer">nJoylab</a> ·
+					IT12822520966 · <span class="text-mono">v2.0</span>
+				</p>
+			</div>
+		</div>
+	</footer>
+	<script src="../assets/js/nav-toggle.js?v=1"></script>
+	<script src="../assets/js/theme-toggle.js?v=1"></script>
+</body>
+
+</html>

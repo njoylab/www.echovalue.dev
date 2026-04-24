@@ -6,14 +6,14 @@
       "type": "documentation",
       "description": "Central markdown index for discovering echoValue products and agent-useful resources.",
       "url": "https://www.echovalue.dev/.well-known/agent-skills/index.md",
-      "sha256": "9eb75da92e9367306e8eac5e9ac47a69ff9a3ea1a9fe85abab6b9699e14a69be"
+      "sha256": "f5190720cf98fe259238f25ebbae2667b3df00b4cff3efdf5ec21fa7144f08a9"
     },
     {
       "name": "Link Headers",
       "type": "documentation",
       "description": "Documents the RFC 8288 Link response headers published for agent discovery.",
       "url": "https://www.echovalue.dev/.well-known/agent-skills/link-headers.md",
-      "sha256": "034f92190f76ca15920581da26f856564f2524b0bcc7be69cb21762e3e63aad8"
+      "sha256": "f7abc824023d6b52f4b3efb0171b4ac8e07fc77dc32a0b854d41c0ff22ed8a81"
     },
     {
       "name": "Content Signals",
@@ -27,7 +27,7 @@
       "type": "documentation",
       "description": "Documents the API catalog published for automated API discovery.",
       "url": "https://www.echovalue.dev/.well-known/agent-skills/api-catalog.md",
-      "sha256": "5b7898871b83528bb78ab8ce66338f379e529b979678dc31e318e00470709c83"
+      "sha256": "bf8204a4774813f277b65e1b3a326cd227940df632963dd329fae2610e0f0e67"
     },
     {
       "name": "Agent Skills Index",
@@ -44,11 +44,11 @@
       "sha256": "8c75ad8a2a5d7b6e8f90086020616b7a78409c4478f50840be626af46fd6804e"
     },
     {
-      "name": "Mail2Webhook Product Index",
+      "name": "Webhook API Product Index",
       "type": "documentation",
-      "description": "Compact markdown overview for Mail2Webhook behavior, payload shape, pricing, and docs.",
-      "url": "https://www.echovalue.dev/mail2webhook/index.md",
-      "sha256": "265cdcc4c07ca73bc415575b8a2f72f9dc2897ee27cbb2d5cab4a7201e91ab1e"
+      "description": "Compact markdown overview for Webhook API behavior, email and cron triggers, payload shape, pricing, and docs.",
+      "url": "https://www.echovalue.dev/webhook-api/index.md",
+      "sha256": "18ae2f63fac3843a50f166370f2b59af5265739445914bb9ad7b52dfc03fe50b"
     },
     {
       "name": "Monitor API Product Index",
