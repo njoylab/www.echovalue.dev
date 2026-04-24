@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>echoValue - Simple APIs & Free Developer Tools</title>
 	<meta name="description"
-		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Webhook API for email and cron triggers, Monitoring, and free tools like JSONLint, GeoIP, URL Summary, Lookup, and Crontab. No subscriptions, no complexity.">
+		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Webhook API, API utilities like My IP, URL To Metadata, and DNS Lookup, plus free tools like JSONLint, GeoIP, URL Summary, Lookup, and Crontab. No subscriptions, no complexity.">
 	<meta name="author" content="Emiliano Saurin">
 	<link rel="canonical" href="https://www.echovalue.dev/">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,14 +26,14 @@
 	<meta property="og:url" content="https://www.echovalue.dev/">
 	<meta property="og:title" content="echoValue - Simple APIs & Free Developer Tools">
 	<meta property="og:description"
-		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Webhook API for email and cron triggers, Monitoring, and free developer tools including Crontab.">
+		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Webhook API, My IP, URL To Metadata, and free developer tools including Crontab.">
 	<meta property="og:image" content="https://www.njoylab.com/images/echovalue-api.webp">
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="https://www.echovalue.dev/">
 	<meta property="twitter:title" content="echoValue - Simple APIs & Free Developer Tools">
 	<meta property="twitter:description"
-		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Webhook API for email and cron triggers, Monitoring, and free developer tools including Crontab.">
+		content="echoValue provides simple, pay-as-you-go APIs for developers. Key-Value Store, Webhook API, My IP, URL To Metadata, and free developer tools including Crontab.">
 	<meta property="twitter:image" content="https://www.njoylab.com/images/echovalue-api.webp">
 	<link rel="stylesheet" href="assets/css/dev-theme.css?v=10" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -64,7 +64,7 @@
 				"@id": "https://www.echovalue.dev/#website",
 				"url": "https://www.echovalue.dev/",
 				"name": "echoValue",
-				"description": "Simple APIs and free developer tools. Key-Value Store, Webhook API, GeoIP, JSON Linter, DNS Lookup, URL Summarizer, Crontab.",
+				"description": "Simple APIs and free developer tools. Key-Value Store, Webhook API, My IP API, URL To Metadata API, GeoIP, JSON Linter, DNS Lookup, URL Summarizer, Crontab.",
 				"publisher": {
 					"@id": "https://www.echovalue.dev/#organization"
 				}
@@ -86,6 +86,8 @@
 					"Key-Value Store API",
 					"Webhook API for email and cron triggers",
 					"Scheduled webhook triggers",
+					"My IP API",
+					"URL To Metadata API",
 					"IP Geolocation Tool",
 					"JSON Linter and Formatter",
 					"DNS Lookup and Security Analyzer",
@@ -120,6 +122,7 @@
 			</button>
 			<ul class="navbar-nav">
 				<li><a href="#projects">Projects</a></li>
+				<li><a href="#api-utilities">API Utilities</a></li>
 				<li><a href="#tools">Free Tools</a></li>
 				<li><a href="#opensource">Open Source</a></li>
 				<li><a href="#contact">Contact</a></li>
@@ -173,8 +176,7 @@
 						</ul>
 						<div class="project-card-actions">
 							<a href="db-api/" class="btn btn-primary">learn more →</a>
-							<a href="https://docs.echovalue.dev/key-value/" class=" btn btn-secondary">api
-								ref</a>
+							<a href="https://docs.echovalue.dev/key-value/" class=" btn btn-secondary">api-ref</a>
 						</div>
 					</div>
 				</article>
@@ -198,31 +200,108 @@
 						</ul>
 						<div class="project-card-actions">
 							<a href="webhook-api/" class="btn btn-primary">learn more →</a>
-							<a href="https://docs.echovalue.dev/mail2webhook/" class="btn btn-secondary">api
-								ref</a>
+							<a href="https://docs.echovalue.dev/mail2webhook/" class="btn btn-secondary">api-ref</a>
 						</div>
 					</div>
 				</article>
 
-				<!-- Monitor API Card -->
+			</div>
+		</div>
+	</section>
+
+	<!-- API Utilities Section -->
+	<section id="api-utilities" class="section">
+		<div class="container">
+			<div class="section-header">
+				<h2>api-utilities</h2>
+				<p>Small HTTP endpoints for scripts, agents, and backend workflows. Same token, same credit wallet.</p>
+			</div>
+
+			<div class="projects-grid">
+				<!-- My IP API Card -->
 				<article class="project-card">
 					<div class="project-card-header">
-						<span class="project-card-icon"><i class="fa-solid fa-satellite-dish"></i></span>
-						<h3>monitor-api <span class="badge">soon</span></h3>
+						<span class="project-card-icon"><i class="fa-solid fa-location-crosshairs"></i></span>
+						<h3>myip</h3>
 					</div>
 					<div class="project-card-content">
 						<p>
-							Watch web pages and files for changes. Get webhook notifications on updates.
-							Track competitors, data feeds, or any content changes automatically.
+							Inspect the public IP seen by echoValue, including request-derived geo metadata.
+							Useful for servers, scripts, and network checks.
 						</p>
 						<ul class="project-features">
-							<li>Shared auth with db-api</li>
-							<li>Same credit system</li>
-							<li>Custom check intervals</li>
-							<li>Webhook callbacks</li>
+							<li>1 credit per request</li>
+							<li>IPv4 and IPv6 detection</li>
+							<li>Country, city, region, timezone</li>
 						</ul>
+						<div class="code-block">
+							<code><span class="code-comment"># GET current caller IP</span><br />
+curl 'https://api.echovalue.dev/myip' \<br />
+  -H 'x-token: mytoken'</code>
+						</div>
 						<div class="project-card-actions">
-							<a href="monitor-api/" class="btn btn-secondary">learn more</a>
+							<a href="https://docs.echovalue.dev/myip/" class="btn btn-primary" target="_blank"
+								rel="noopener noreferrer">api-ref</a>
+						</div>
+					</div>
+				</article>
+
+				<!-- URL To Metadata API Card -->
+				<article class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-tags"></i></span>
+						<h3>url-to-metadata</h3>
+					</div>
+					<div class="project-card-content">
+						<p>
+							Fetch structured metadata for a public URL, with optional AI summary enrichment
+							when you need a compact page digest.
+						</p>
+						<ul class="project-features">
+							<li>55 credits base scrape</li>
+							<li>Optional AI summary enrichment</li>
+							<li>Flexible JSON metadata response</li>
+						</ul>
+						<div class="code-block">
+							<code><span class="code-comment"># POST public URL to analyze</span><br />
+curl 'https://api.echovalue.dev/url-to-metadata' \<br />
+  -H 'x-token: mytoken' \<br />
+  -H 'content-type: application/json' \<br />
+  -d '{"url":"https://example.com/article","aiSummary":"short"}'</code>
+						</div>
+						<div class="project-card-actions">
+							<a href="https://docs.echovalue.dev/url-to-metadata/" class="btn btn-primary" target="_blank"
+								rel="noopener noreferrer">api-ref</a>
+						</div>
+					</div>
+				</article>
+
+				<!-- DNS Lookup API Card -->
+				<article class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+						<h3>dns-lookup</h3>
+					</div>
+					<div class="project-card-content">
+						<p>
+							Paid DNS lookup API for scripts, agents, and backend checks that need
+							structured DNS data.
+						</p>
+						<ul class="project-features">
+							<li>5 credits per request</li>
+							<li>DNS record lookup</li>
+							<li>Structured JSON response</li>
+						</ul>
+						<div class="code-block">
+							<code><span class="code-comment"># POST domain lookup request</span><br />
+curl 'https://api.echovalue.dev/dns-lookup' \<br />
+  -H 'x-token: mytoken' \<br />
+  -H 'content-type: application/json' \<br />
+  -d '{"domains":["example.com"],"recordTypes":["A","MX","TXT"],"enableEnrichment":true}'</code>
+						</div>
+						<div class="project-card-actions">
+							<a href="https://docs.echovalue.dev/dns-lookup/" class="btn btn-primary"
+								target="_blank" rel="noopener noreferrer">api-ref</a>
 						</div>
 					</div>
 				</article>
@@ -240,51 +319,6 @@
 
 			<div class="projects-grid">
 
-				<!-- URL Summary Tool Card -->
-				<article class="project-card">
-					<div class="project-card-header">
-						<span class="project-card-icon"><i class="fa-solid fa-file-lines"></i></span>
-						<h3>urlsummary</h3>
-					</div>
-					<div class="project-card-content">
-						<p>
-							A powerful web scraping tool that extracts structured data from any web page.
-						</p>
-						<ul class="project-features">
-							<li>JSON output</li>
-							<li>AI-powered summaries</li>
-							<li>API with 3rd party services</li>
-						</ul>
-						<div class="project-card-actions">
-							<a href="https://urlsummary.echovalue.dev" class="btn btn-primary" target="_blank"
-								rel="noopener noreferrer">open tool
-								↗</a>
-						</div>
-					</div>
-				</article>
-
-				<!-- Lookup Tool Card -->
-				<article class="project-card">
-					<div class="project-card-header">
-						<span class="project-card-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-						<h3>lookup</h3>
-					</div>
-					<div class="project-card-content">
-						<p>
-							Lookup utility for domains and IPs. Quick answers, no clutter.
-						</p>
-						<ul class="project-features">
-							<li>JSON output</li>
-							<li>Domain and IP lookups</li>
-							<li>API with 3rd party services</li>
-						</ul>
-						<div class="project-card-actions">
-							<a href="https://lookup.echovalue.dev" class="btn btn-primary" target="_blank"
-								rel="noopener noreferrer">open tool
-								↗</a>
-						</div>
-					</div>
-				</article>
 				<!-- JSONLint Tool Card -->
 				<article class="project-card">
 					<div class="project-card-header">
@@ -316,6 +350,54 @@
 					</div>
 				</article>
 
+				<!-- Webhook Tool Card -->
+				<article class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-right-left"></i></span>
+						<h3>webhook</h3>
+					</div>
+					<div class="project-card-content">
+						<p>Instant webhook testing. Get a unique URL, send requests, inspect payloads in real time.</p>
+						<ul class="project-features">
+							<li>Open source</li>
+							<li>Free, no signup</li>
+							<li>24h in-memory retention</li>
+							<li>Request inspection</li>
+						</ul>
+						<div class="project-card-actions">
+							<a href="https://webhook.echovalue.dev" class="btn btn-primary" target="_blank"
+								rel="noopener noreferrer">open tool ↗</a>
+							<a href="https://github.com/njoylab/webhook.echovalue.dev" class="btn btn-secondary"
+								target="_blank" rel="noopener noreferrer">
+								<i class="fab fa-github"></i> github
+							</a>
+						</div>
+					</div>
+				</article>
+
+				<!-- Lookup Tool Card -->
+				<article class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+						<h3>lookup</h3>
+					</div>
+					<div class="project-card-content">
+						<p>
+							Free lookup utility for domains and IPs. Quick answers, no clutter.
+						</p>
+						<ul class="project-features">
+							<li>Free web tool</li>
+							<li>Domain and IP lookups</li>
+							<li>JSON output</li>
+						</ul>
+						<div class="project-card-actions">
+							<a href="https://lookup.echovalue.dev" class="btn btn-primary" target="_blank"
+								rel="noopener noreferrer">open tool
+								↗</a>
+						</div>
+					</div>
+				</article>
+
 				<!-- GeoIP Tool Card -->
 				<article class="project-card">
 					<div class="project-card-header">
@@ -343,31 +425,6 @@
 					</div>
 				</article>
 
-				<!-- Webhook Tool Card -->
-				<article class="project-card">
-					<div class="project-card-header">
-						<span class="project-card-icon"><i class="fa-solid fa-right-left"></i></span>
-						<h3>webhook</h3>
-					</div>
-					<div class="project-card-content">
-						<p>Instant webhook testing. Get a unique URL, send requests, inspect payloads in real time.</p>
-						<ul class="project-features">
-							<li>Open source</li>
-							<li>Free, no signup</li>
-							<li>24h in-memory retention</li>
-							<li>Request inspection</li>
-						</ul>
-						<div class="project-card-actions">
-							<a href="https://webhook.echovalue.dev" class="btn btn-primary" target="_blank"
-								rel="noopener noreferrer">open tool ↗</a>
-							<a href="https://github.com/njoylab/webhook.echovalue.dev" class="btn btn-secondary"
-								target="_blank" rel="noopener noreferrer">
-								<i class="fab fa-github"></i> github
-							</a>
-						</div>
-					</div>
-				</article>
-
 				<!-- Crontab Tool Card -->
 				<article class="project-card">
 					<div class="project-card-header">
@@ -379,14 +436,41 @@
 							Crontab utility for building, reading, and checking cron expressions.
 						</p>
 						<ul class="project-features">
+							<li>Open source</li>
 							<li>Free, no signup</li>
 							<li>Cron expression helper</li>
 							<li>Readable schedule output</li>
-							<li>Developer-focused workflow</li>
 						</ul>
 						<div class="project-card-actions">
 							<a href="https://crontab.echovalue.dev" class="btn btn-primary" target="_blank"
 								rel="noopener noreferrer">open tool ↗</a>
+							<a href="https://github.com/njoylab/crontab.echovalue.dev" class="btn btn-secondary"
+								target="_blank" rel="noopener noreferrer">
+								<i class="fab fa-github"></i> github
+							</a>
+						</div>
+					</div>
+				</article>
+
+				<!-- URL Summary Tool Card -->
+				<article class="project-card">
+					<div class="project-card-header">
+						<span class="project-card-icon"><i class="fa-solid fa-file-lines"></i></span>
+						<h3>urlsummary</h3>
+					</div>
+					<div class="project-card-content">
+						<p>
+							A powerful web scraping tool that extracts structured data from any web page.
+						</p>
+						<ul class="project-features">
+							<li>JSON output</li>
+							<li>AI-powered summaries</li>
+							<li>API with 3rd party services</li>
+						</ul>
+						<div class="project-card-actions">
+							<a href="https://urlsummary.echovalue.dev" class="btn btn-primary" target="_blank"
+								rel="noopener noreferrer">open tool
+								↗</a>
 						</div>
 					</div>
 				</article>
@@ -490,7 +574,6 @@
 					<li><a href="/">Home</a></li>
 					<li><a href="db-api/">DB API</a></li>
 					<li><a href="webhook-api/">Webhook API</a></li>
-					<li><a href="monitor-api/">Monitor API</a></li>
 					<li><a href="https://docs.echovalue.dev">Documentation</a></li>
 					<li><a href="/privacy">Privacy</a></li>
 					<li><a href="/toc">Terms</a></li>
