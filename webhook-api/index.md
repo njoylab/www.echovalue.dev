@@ -24,7 +24,7 @@ Webhook API delivers HTTP webhook events from multiple trigger sources. The firs
 
 - Site page: `https://www.echovalue.dev/webhook-api/`
 - API base: `https://api.echovalue.dev/`
-- Docs: `https://docs.echovalue.dev/mail2webhook/`
+- Docs: `https://docs.echovalue.dev/webhook/`
 - OpenAPI: `https://docs.echovalue.dev/openapi.yaml`
 
 ## Authentication
@@ -44,7 +44,7 @@ Webhook API delivers HTTP webhook events from multiple trigger sources. The firs
 
 - Email triggers use an opaque mailbox address such as `<mailboxId>@hook.echovalue.dev`
 - Cron triggers deliver scheduled webhook calls to the configured endpoint
-- Marketing copy states signed webhook delivery is supported
+- Marketing copy states structured webhook delivery is supported
 
 ## Email Payload Notes
 
