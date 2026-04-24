@@ -34,6 +34,7 @@ echoValue publishes pay-as-you-go APIs and free developer tools. The platform is
 - JSON Lint and Formatter
 - DNS Lookup and Security Analyzer
 - Webhook tools
+- Crontab utility
 
 ## Discovery Resources
 
