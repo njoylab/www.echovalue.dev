@@ -32,9 +32,9 @@ Mail2Webhook turns inbound email into webhook deliveries. Each configured webhoo
 
 ## Pricing
 
-- Free: 100 email events
-- Standard: $4 for 1 million events
-- Pro: $10 for 3 million events
+- Free: 100 credits
+- Standard: $4 for 1 million credits
+- Pro: $10 for 3 million credits
 - Credits do not expire
 - No subscription
 

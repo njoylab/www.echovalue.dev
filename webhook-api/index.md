@@ -34,9 +34,9 @@ Webhook API delivers HTTP webhook events from multiple trigger sources. The firs
 
 ## Pricing
 
-- Free: 100 events
-- Standard: $4 for 1 million events
-- Pro: $10 for 3 million events
+- Free: 100 credits
+- Standard: $4 for 1 million credits
+- Pro: $10 for 3 million credits
 - Credits do not expire
 - No subscription
 

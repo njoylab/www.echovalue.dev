@@ -13,7 +13,7 @@ Portfolio website for echoValue projects - simple, pay-as-you-go APIs for develo
 ## Projects
 
 ### DB API
-Key-Value Store API with no subscriptions. Perfect for serverless applications and quick prototyping.
+Key-Value Store API with no subscriptions. Handy for serverless apps and quick prototypes.
 
 ### Webhook API
 Webhook trigger API for inbound email and cron schedules.
