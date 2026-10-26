@@ -33,7 +33,7 @@
           "title": "DB API documentation"
         },
         {
-          "href": "https://www.echovalue.dev/db-api/agent-state/",
+          "href": "https://docs.echovalue.dev/guides/agent-shared-state/",
           "type": "text/html",
           "title": "Agent shared state examples"
         }
