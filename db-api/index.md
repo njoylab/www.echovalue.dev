@@ -62,5 +62,5 @@ curl 'https://api.echovalue.dev/kv/default/hello' \
 
 ## Related Pages
 
-- Shared state example: `https://www.echovalue.dev/db-api/agent-state/`
+- Shared state example: `https://docs.echovalue.dev/guides/agent-shared-state/`
 - Homepage: `https://www.echovalue.dev/`
