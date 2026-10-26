@@ -72,7 +72,8 @@ No automated tests. Validate manually:
 - Edit `dev-theme.css` directly — there is no Sass or CSS build step
 
 ### JavaScript
-- Minimal JS — only `assets/js/nav-toggle.js` (mobile hamburger toggle)
+- Shared on every page: `assets/js/nav-toggle.js` (mobile menu) and `assets/js/theme-toggle.js` (light/dark)
+- Page-specific: `code-tabs.js` (`.code-tabs`), `copy-tool-def.js` (DB API tool-def copy)
 - IIFE pattern: `(function () { ... })();`
 - Avoid adding new JS unless necessary; prefer CSS-only solutions
 
@@ -83,13 +84,16 @@ No automated tests. Validate manually:
 
 ## Design System
 
-The site uses a GitHub Dark inspired developer aesthetic:
-- **Primary accent**: `#58a6ff` (blue) via `--color-accent-blue`
-- **Background**: `#0d1117` primary, `#161b22` secondary (cards)
-- **Font**: Inter (Google Fonts) + JetBrains Mono for code accents
-- **Cards**: Dark background with subtle border (`#30363d`), rounded corners, hover lift effect with box-shadow
+Landing pages share one shell (navbar, footer, contact, theme) and one stylesheet. Before adding a page or editing that chrome, read `.cursor/skills/echovalue-ui/SKILL.md`. Copy blocks from `.cursor/skills/echovalue-ui/blocks.md` instead of inventing a new layout.
+
+The site uses a dark developer aesthetic. Colors come from the `--ev-color-*` tokens in `assets/css/dev-theme.css` (pages still use the `--color-*` aliases):
+- **Accent**: `#0066cc` via `--color-accent-blue` (links and buttons). Hero product token uses `--color-accent-green`
+- **Background**: `#0a0a0a` page, `#141414` cards, `#1c1c1e` raised surfaces
+- **Font**: Inter + JetBrains Mono, loaded from Google Fonts in each page `<head>`
+- **Cards**: `.project-card` and `.pricing-card` — dark surface, `--color-border`, hover border change
 - **Buttons**: `.btn-primary` (filled), `.btn-secondary` (border), `.btn-outline` (accent border)
-- **Monospace accent**: `.mono` and `.text-mono` classes for code-style branding
+- **Monospace accent**: `.mono` (green, inside headings) and `.text-mono`
+- **Light mode**: `data-theme="light"` on `<html>`, toggled by `.theme-toggle`
 
 ## Commit & PR Guidelines
 
