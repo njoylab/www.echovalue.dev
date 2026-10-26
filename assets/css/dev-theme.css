@@ -634,16 +634,17 @@ body {
   opacity: 0.8;
 }
 
-.project-card-content a {
+/* Card copy links only. .btn anchors keep their own text color. */
+.project-card-content a:not(.btn) {
   color: var(--color-accent-cyan);
   text-decoration: none;
 }
 
-.project-card-content a:hover {
+.project-card-content a:not(.btn):hover {
   text-decoration: underline;
 }
 
-[data-theme="light"] .project-card-content a {
+[data-theme="light"] .project-card-content a:not(.btn) {
   color: var(--color-accent-blue);
 }
 

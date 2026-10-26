@@ -40,6 +40,23 @@
 
 /index.md
   Content-Type: text/markdown; charset=utf-8
+  Link: <https://www.echovalue.dev/>; rel="canonical"
+
+/db-api/index.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://www.echovalue.dev/db-api/>; rel="canonical"
+
+/webhook-api/index.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://www.echovalue.dev/webhook-api/>; rel="canonical"
+
+/mail2webhook/index.md
+  Content-Type: text/markdown; charset=utf-8
+  Link: <https://www.echovalue.dev/webhook-api/>; rel="canonical"
+
+/monitor-api/index.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex
 
 /.well-known/agent-skills/link-headers.md
   Content-Type: text/markdown; charset=utf-8

@@ -1,12 +1,13 @@
 ---
 name: echovalue-ui
 description: >
-  Shared UI for echoValue landing pages (www.echovalue.dev). Use when creating,
-  editing, or reviewing any HTML page — homepage, product landings (db-api,
-  webhook-api, monitor-api, mail2webhook), nested examples, or legal pages —
-  so they keep the same head assets, navbar, hero, sections, cards, pricing,
-  contact, footer, and theme. Read this before adding a product page or
-  changing shared chrome.
+  Shared UI for echoValue landing pages. The checkout is
+  /Users/emiliano/dev/www.echovalue.dev. Use when creating, editing, or
+  reviewing any HTML page — homepage, product landings (db-api, webhook-api,
+  monitor-api, mail2webhook), nested examples, or legal pages — so they keep
+  the same head assets, navbar, hero, sections, cards, pricing, contact,
+  footer, and theme. Read this before adding a product page or changing
+  shared chrome.
 ---
 
 # echoValue UI
@@ -16,6 +17,10 @@ echoValue pages are static HTML. There is no templating, no build, and no compon
 Treat the shell (head assets, skip link, navbar frame, contact, footer, theme/nav scripts) as one component. Page copy and in-page sections are the only part that should differ.
 
 Copy-paste blocks live in [blocks.md](blocks.md). Use those snippets. Do not invent a parallel navbar, footer, button, or card.
+
+## Checkout
+
+Work from `/Users/emiliano/dev/www.echovalue.dev`. Tokens are in `assets/css/dev-theme.css`. Scripts are in `assets/js/`. Page markup is the HTML files in that tree. Read those files before changing shared chrome.
 
 ## When to read this
 
@@ -165,9 +170,7 @@ Update the shared shell on all of these when it changes:
 
 Known drift. When you already have a page open, bring its footer and contact block in line with [blocks.md](blocks.md). Do not open the other pages only to fix drift unless the task is a shell change.
 
-- `db-api/agent-state/index.html` footer lists Monitor API and omits Webhook API and Dashboard
-- `privacy.html` and `toc.html` footers omit Dashboard
-- Homepage contact headings are lowercase; product pages use `Email` and `Social`. Canonical contact block is the one in [blocks.md](blocks.md)
+The footer, Dashboard CTA, and contact headings currently match [blocks.md](blocks.md) on every page in the sync list. `mail2webhook/index.html` stays `noindex` and its canonical remains `https://www.echovalue.dev/webhook-api/`.
 
 ## Do not
 
