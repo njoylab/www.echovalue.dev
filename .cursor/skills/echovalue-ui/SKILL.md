@@ -1,5 +1,5 @@
 ---
-name: landing-ui
+name: echovalue-ui
 description: >
   Shared UI for echoValue landing pages (www.echovalue.dev). Use when creating,
   editing, or reviewing any HTML page — homepage, product landings (db-api,
@@ -9,7 +9,7 @@ description: >
   changing shared chrome.
 ---
 
-# Landing UI
+# echoValue UI
 
 echoValue pages are static HTML. There is no templating, no build, and no component runtime. Shared UI is the same markup copied into every page, styled by one stylesheet.
 

@@ -84,7 +84,7 @@ No automated tests. Validate manually:
 
 ## Design System
 
-Landing pages share one shell (navbar, footer, contact, theme) and one stylesheet. Before adding a page or editing that chrome, read `.cursor/skills/landing-ui/SKILL.md`. Copy blocks from `.cursor/skills/landing-ui/blocks.md` instead of inventing a new layout.
+Landing pages share one shell (navbar, footer, contact, theme) and one stylesheet. Before adding a page or editing that chrome, read `.cursor/skills/echovalue-ui/SKILL.md`. Copy blocks from `.cursor/skills/echovalue-ui/blocks.md` instead of inventing a new layout.
 
 The site uses a dark developer aesthetic. Colors come from the `--ev-color-*` tokens in `assets/css/dev-theme.css` (pages still use the `--color-*` aliases):
 - **Accent**: `#0066cc` via `--color-accent-blue` (links and buttons). Hero product token uses `--color-accent-green`

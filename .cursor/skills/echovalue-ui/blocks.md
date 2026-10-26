@@ -1,4 +1,4 @@
-# Landing UI blocks
+# echoValue UI blocks
 
 Snippets for [SKILL.md](SKILL.md). Replace `../assets/` with the prefix for the page depth (`assets/` at the site root, `../../assets/` two levels down).
 
