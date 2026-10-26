@@ -1,13 +1,15 @@
 ---
 name: echovalue-ui
 description: >
-  Shared UI for echoValue landing pages. The checkout is
+  Shared UI for echoValue landing pages and free-tool chrome. The checkout is
   /Users/emiliano/dev/www.echovalue.dev. Use when creating, editing, or
   reviewing any HTML page — homepage, product landings (db-api, webhook-api,
-  monitor-api, mail2webhook), nested examples, or legal pages — so they keep
-  the same head assets, navbar, hero, sections, cards, pricing, contact,
-  footer, and theme. Read this before adding a product page or changing
-  shared chrome.
+  monitor-api, mail2webhook), nested examples, or legal pages — or a free
+  tool on its own host (geoip, lookup, jsonlint, markdown-viewer, webhook,
+  secrets, crontab, urlsummary), so they keep the same head assets, navbar,
+  hero, sections, cards, pricing, contact, footer, theme, and the green tool
+  name in the brand. Read this before adding a product page, changing shared
+  chrome, or branding a tool.
 ---
 
 # echoValue UI
@@ -27,6 +29,7 @@ Work from `/Users/emiliano/dev/www.echovalue.dev`. Tokens are in `assets/css/dev
 - New page under `/` or `product-name/index.html`
 - Edits to nav, footer, contact, hero, pricing, cards, code samples, or `assets/css/dev-theme.css`
 - A landing that "looks off" next to `webhook-api/` or `db-api/`
+- A free-tool navbar or title (`https://geoip.echovalue.dev` and the other `*.echovalue.dev` tools)
 
 ## Start from a real page
 
@@ -109,7 +112,7 @@ Styles live only in `assets/css/dev-theme.css`. Use the tokens already defined o
 | Spacing | `.mt-1`…`.mt-4`, `.mb-1`…`.mb-4`, `.text-center`, `.text-muted`, `.text-mono`, `.mono` |
 | Narrow legal copy | `.legal-content` inside `.section.pt-nav` |
 
-Product `h1`: put the product token in `<span class="mono">db</span>-api …`. The `.mono` span is the green accent.
+Product `h1`: put the product token in `<span class="mono">db</span>-api …`. The `.mono` span is the green accent (`--color-accent-green`, `#30d158`). The navbar brand on these pages stays the default text color.
 
 Button labels are short commands, with an arrow when the link leaves the section: `read docs →`, `open dashboard ↗`, `view db-api →`. The navbar Dashboard item is `<a class="navbar-cta">`, not a `.btn`.
 
@@ -137,6 +140,33 @@ A feature card:
 Drop `.project-features` and `.project-card-actions` when the card is only a step. Keep the header icon and `h3`.
 
 Pricing always states no subscription and that credits do not expire. One tier is `.pricing-card.featured`. Free tier button is `.btn-secondary`; paid tiers are `.btn-primary`.
+
+## Free tools
+
+Free tools are separate apps at `https://{name}.echovalue.dev`: `geoip`, `lookup`, `jsonlint`, `markdown-viewer`, `webhook`, `secrets`, `crontab`, `urlsummary`, `jwt`, `qr`, `export`. Local folders sometimes differ (`json.echovalue.dev`, `md.echovalue.dev`, `social.echovalue.dev`). They are not pages in this checkout. The reference shell is [geoip](https://geoip.echovalue.dev) (`/Users/emiliano/dev/geoip.echovalue.dev`).
+
+The navbar brand is `echoValue` and the tool name, in JetBrains Mono, written as two words: `echoValue geoip`. `echoValue` stays the default text color at weight 600. The tool name is the green accent: `var(--positive)`, which aliases `var(--ev-color-success)` (`#30d158`), at weight 500. The same green holds in dark and light. The name is the short lowercase id, the same string as the homepage card `h3`.
+
+```html
+<a class="brand" href="/">echoValue <span class="brandProduct">geoip</span></a>
+```
+
+```css
+.brand {
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+.brandProduct {
+  color: var(--positive);
+  font-weight: 500;
+}
+```
+
+A page title may paint one identifier with that same green and the mono face. On geoip, `IP` in “What is my IP?” uses `--positive`. That word is the subject of the page. The brand green stays on the tool name.
+
+Homepage cards in this repo keep the tool name as a plain `h3`. Marketing product pages keep the green on the hero token (`.mono`) and leave the navbar brand in the default text color.
 
 ## Voice
 
