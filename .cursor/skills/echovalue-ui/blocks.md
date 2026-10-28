@@ -1,6 +1,6 @@
 # echoValue UI blocks
 
-Snippets for [SKILL.md](SKILL.md). Replace `../assets/` with the prefix for the page depth (`assets/` at the site root, `../../assets/` two levels down).
+Snippets for [SKILL.md](SKILL.md). Replace `../assets/` with the prefix for the page depth (`assets/` at the site root, `/assets/` on `404.html`). Replace `?v=N` on the stylesheet with the value every other page uses.
 
 ## Head assets
 
@@ -23,7 +23,7 @@ Page-specific tags (title, description, canonical, Open Graph, Twitter, JSON-LD)
 <meta property="og:image:height" content="630">
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:image" content="https://www.echovalue.dev/images/echovalue-og.png">
-<link rel="stylesheet" href="../assets/css/dev-theme.css?v=11" />
+<link rel="stylesheet" href="../assets/css/dev-theme.css?v=N" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 	integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
 ```
@@ -99,7 +99,9 @@ Homepage uses `section.hero` without `.compact`. A not-yet-shipped product puts 
 </section>
 ```
 
-The first section after the hero has `no-border`. Following sections use `section` only. Use `bg-light` on the contact band and on at most one supporting band.
+The first section after the hero has `no-border`. Following sections use `section` only. Use `bg-light` on the contact band and on at most one other band.
+
+A lead paragraph under the header is `<p class="section-intro">…</p>`, placed after `.section-header`.
 
 ## Code block
 
@@ -173,6 +175,30 @@ Requires `code-tabs.js` after the theme script. `data-tab` matches `id="tab-…"
 ```
 
 Replace the numbers with that product's real tiers. Keep one `.featured` card.
+
+## Cost table
+
+Goes after `.pricing-grid`, inside the same `.container`. The last column is right-aligned by the CSS. Add rows; no `style` attributes.
+
+```html
+<div class="code-block mt-4">
+	<h4 class="cost-table-title">Cost per operation</h4>
+	<table class="cost-table">
+		<thead>
+			<tr>
+				<th>Operation</th>
+				<th>Cost</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Set key/value</td>
+				<td>1 credit</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+```
 
 ## Contact
 

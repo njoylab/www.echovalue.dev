@@ -1,12 +1,12 @@
 ---
 name: echovalue-ui
 description: >
-  Shared UI for echoValue landing pages and free-tool chrome. The checkout is
-  /Users/emiliano/dev/www.echovalue.dev. Use when creating, editing, or
-  reviewing any HTML page — homepage, product landings (db-api, webhook-api,
-  monitor-api, mail2webhook), nested examples, or legal pages — or a free
-  tool on its own host (geoip, lookup, jsonlint, markdown-viewer, webhook,
-  secrets, crontab, urlsummary), so they keep the same head assets, navbar,
+  Shared UI for echoValue landing pages and free-tool chrome. Use when
+  creating, editing, or reviewing any www.echovalue.dev HTML page — homepage,
+  product landings (db-api, webhook-api, monitor-api), legal pages, or the
+  404 — or a free tool on its own *.echovalue.dev host (geoip, lookup,
+  jsonlint, markdown-viewer, webhook, secrets, crontab, urlsummary, jwt, qr,
+  export), so they keep the same head assets, navbar,
   hero, sections, cards, pricing, contact, footer, theme, and the green tool
   name in the brand. Read this before adding a product page, changing shared
   chrome, or branding a tool.
@@ -36,11 +36,13 @@ Work from `/Users/emiliano/dev/www.echovalue.dev`. Tokens are in `assets/css/dev
 | New page | Copy from | Asset prefix |
 | --- | --- | --- |
 | Product landing, one directory deep (`webhook-api/index.html`) | `webhook-api/index.html` | `../assets/` |
-| Nested example (`db-api/agent-state/index.html`) | `db-api/agent-state/index.html` | `../../assets/` |
+| Coming-soon product | `monitor-api/index.html` | `../assets/` |
 | Site root (`index.html`, `privacy.html`, `toc.html`) | the matching root page | `assets/` |
 | Legal page | `privacy.html` | `assets/` |
 
 Then replace title, meta, JSON-LD, brand text, nav anchors, and body sections. Leave the shell in place.
+
+Do not copy from `db-api/agent-state/` or `mail2webhook/`. Both still exist in the tree but `_redirects` sends them away with a 301 (agent-state to `https://docs.echovalue.dev/guides/agent-shared-state/`, mail2webhook to `/webhook-api/`). Nobody sees those files. Long examples and guides go to docs.echovalue.dev, not to a nested page here.
 
 ## Page skeleton
 
@@ -66,7 +68,7 @@ Indent with tabs. Self-close void elements with a space: `<br />`. External link
 Shared. Change it on every HTML page in the same commit:
 
 - Favicon set, web manifest, font stylesheet, Font Awesome 6.4.0 (with the integrity hash in [blocks.md](blocks.md))
-- `dev-theme.css?v=N` — one cache-buster on every page. Bump `N` everywhere when the CSS file changes. Current value is `v=11`
+- `dev-theme.css?v=N` — one cache-buster on every page. Read `N` from any existing page (`grep -o 'dev-theme.css?v=[0-9]*' index.html`) and bump it on every HTML file when the CSS file changes. The snippets in [blocks.md](blocks.md) write it as `?v=N`
 - Skip link, theme toggle, hamburger button
 - Footer link list and the "Built by nJoyLab.com · IT12822520966 · v2.0" line
 - Contact email and the three social links
@@ -86,25 +88,28 @@ Page-specific. Do not copy these across products:
 
 The site is static. CSS and JS paths are relative to the file:
 
-- Root pages: `assets/css/dev-theme.css?v=11`
-- One directory down: `../assets/css/dev-theme.css?v=11`
-- Two directories down: `../../assets/css/dev-theme.css?v=11`
+- Root pages: `assets/css/dev-theme.css?v=N`
+- One directory down: `../assets/css/dev-theme.css?v=N`
+- Exception: `404.html` uses root paths (`/assets/css/dev-theme.css?v=N`, `/assets/js/…`) because the host serves it at whatever URL was missing, at any depth
 
 Footer and cross-site links use root paths (`/db-api/`, `/privacy`, `/toc`) so the footer markup matches on every page. Docs and dashboard stay absolute: `https://docs.echovalue.dev`, `https://dash.echovalue.dev`.
 
 ## Compose sections from these classes
 
-Styles live only in `assets/css/dev-theme.css`. Use the tokens already defined on `:root` (`--ev-color-*`, and the `--color-*` aliases the pages already use). Do not add a second stylesheet, a `<style>` block, or a new hex color.
+Styles live only in `assets/css/dev-theme.css`. Use the tokens already defined on `:root` (`--ev-color-*`, and the `--color-*` aliases the pages already use). Do not add a second stylesheet, a `<style>` block, a `style="…"` attribute, or a new hex color. No page has inline styles today. If a layout needs a rule that does not exist, add a class to `dev-theme.css` and bump `?v=` on every page.
 
 | Need | Markup |
 | --- | --- |
-| Product hero | `section.hero.compact` > `.container` > `h1` + `p` + `.hero-actions` |
-| Homepage hero | `section.hero` (no `.compact`) |
+| Product hero | `section.hero.compact` > `.container` > `h1` + `p` + `.hero-actions`. A `.code-block` inside the hero is already left-aligned with top margin |
+| Homepage hero | `section.hero` (no `.compact`). The mono strapline is `p.text-muted.hero-tagline` |
 | Next section after the hero | `section.section.no-border` |
-| Later sections | `section.section`. Alternate a band with `section.section.bg-light` |
+| Later sections | `section.section`. `bg-light` goes on the contact band and on at most one other band |
 | Section title | `.section-header` > `h2` + `p`. The CSS prefixes `h2` with `// `, so the heading text is a short lowercase name: `pricing`, `how-it-works`, `get-started` |
-| Feature / step grid | `.projects-grid` of `.project-card` |
+| Lead paragraph under a section title | `p.section-intro` |
+| Narrow section (long code sample) | `.container.container-narrow` (800px) |
+| Feature / step grid | `.projects-grid` of `.project-card`. The grid already has top margin; do not add `.mt-*` |
 | Price tiers | `.pricing-grid` of `.pricing-card`, one card `.featured` |
+| Cost per operation | `.code-block.mt-4` > `h4.cost-table-title` + `table.cost-table`. See [blocks.md](blocks.md) |
 | curl / JSON sample | `.code-block` > `code`, with `.code-comment`, `.code-string`, `.code-function`, `.code-output` |
 | Language switcher | `.code-tabs` plus `code-tabs.js`. See [blocks.md](blocks.md) |
 | Coming soon | `.badge` inside the `h1` |
@@ -192,15 +197,33 @@ Update the shared shell on all of these when it changes:
 - `index.html`
 - `privacy.html`
 - `toc.html`
+- `404.html` (navbar links are Home / DB API / Webhook API / Dashboard; no contact block)
 - `db-api/index.html`
-- `db-api/agent-state/index.html`
 - `webhook-api/index.html`
-- `mail2webhook/index.html`
-- `monitor-api/index.html`
+- `monitor-api/index.html` (coming soon, `noindex`)
 
-Known drift. When you already have a page open, bring its footer and contact block in line with [blocks.md](blocks.md). Do not open the other pages only to fix drift unless the task is a shell change.
+Redirected, kept only for the stylesheet version bump: `db-api/agent-state/index.html` and `mail2webhook/index.html`. Do not add features to them. `mail2webhook/index.html` stays `noindex` with its canonical on `https://www.echovalue.dev/webhook-api/`.
 
-The footer, Dashboard CTA, and contact headings currently match [blocks.md](blocks.md) on every page in the sync list. `mail2webhook/index.html` stays `noindex` and its canonical remains `https://www.echovalue.dev/webhook-api/`.
+Check the shell with one command before you finish a shell change:
+
+```sh
+grep -c 'navbar-cta\|skip-link\|class="theme-toggle"\|class="navbar-toggle"' *.html */index.html
+grep -oh 'dev-theme.css?v=[0-9]*' *.html */index.html */*/index.html | sort | uniq -c
+```
+
+Every page shows `4` on the first line, and the second line shows a single `?v=` value.
+
+## Files around a page
+
+A product page is more than its HTML. When you add, rename, or remove one, update these in the same commit:
+
+- `product-name/index.md` — the Markdown copy for agents. Same facts as the HTML, no chrome. Follow `webhook-api/index.md`
+- `_headers` — a block for `/product-name/` (`Link` to the api-catalog, OpenAPI, docs, and `index.md`) and one for `/product-name/index.md` (`Content-Type` and `canonical`; `X-Robots-Tag: noindex` while coming soon)
+- `_redirects` — `/product-name` and `/product-name/index.html` → `/product-name/` 301
+- `sitemap.xml` — add the canonical URL once the page is indexable (not while `noindex`)
+- `.well-known/api-catalog` — add the product's API anchor once it has public docs
+- `index.html` and `index.md` — the homepage card and the product list
+- Footer — only if the product joins the footer list, and then on every page
 
 ## Do not
 
@@ -214,7 +237,8 @@ The footer, Dashboard CTA, and contact headings currently match [blocks.md](bloc
 ## Before finishing
 
 - New product URL is `product-name/index.html` with a canonical of `https://www.echovalue.dev/product-name/`
-- Stylesheet query (`?v=`) matches every other page
+- `index.md`, `_headers`, `_redirects`, and `sitemap.xml` updated as in "Files around a page"
+- Stylesheet query (`?v=`) matches every other page, and no `style="` attribute was added
 - Footer links match [blocks.md](blocks.md), including Dashboard
 - Navbar still has theme toggle, hamburger, and `navbar-cta` on Dashboard
 - Internal links resolve from that file's depth; external links have `target` and `rel`

@@ -112,4 +112,4 @@ PRs should include:
 ## Key External Dependencies (CDN-loaded)
 
 - **Font Awesome 6.4.0** — loaded from cdnjs CDN in `<head>` on every page
-- **Inter + JetBrains Mono fonts** — loaded from Google Fonts in `dev-theme.css` `@import`
+- **Inter + JetBrains Mono fonts** — loaded from Google Fonts with a `<link>` in each page `<head>`
