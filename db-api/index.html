@@ -37,7 +37,7 @@
 	<meta property="twitter:description"
 		content="echoValue DB API is a 'pay as you go' Key-Value Store API, ideal for small projects and serverless applications.">
 	<meta property="twitter:image" content="https://www.echovalue.dev/images/echovalue-og.png">
-	<link rel="stylesheet" href="../assets/css/dev-theme.css?v=12" />
+	<link rel="stylesheet" href="../assets/css/dev-theme.css?v=13" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
 	<!-- Structured Data -->
@@ -266,8 +266,7 @@ curl 'https://api.echovalue.dev/kv/default/hello' \<br />
 				<p>Give your AI agents shared state. No setup, one <span class="text-mono">curl</span> away.</p>
 			</div>
 
-			<p
-				style="text-align:center; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--spacing-lg); font-size: 0.9375rem; line-height: 1.7;">
+			<p class="section-intro">
 				Use DB API as a coordination layer between LLM agents.
 				Share flags, status, locks, and signals without provisioning a database.
 			</p>
@@ -297,7 +296,7 @@ curl 'https://api.echovalue.dev/kv/default/hello' \<br />
 }</code>
 			</div>
 
-			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
+			<div class="projects-grid">
 				<div class="project-card">
 					<div class="project-card-header">
 						<span class="project-card-icon"><i class="fa-solid fa-flag"></i></span>
@@ -385,26 +384,26 @@ curl 'https://api.echovalue.dev/kv/default/hello' \<br />
 			</div>
 
 			<div class="code-block mt-4">
-				<h4 style="margin-bottom: 1rem; color: var(--color-text-muted);">Cost per operation</h4>
-				<table style="width: 100%; border-collapse: collapse;">
+				<h4 class="cost-table-title">Cost per operation</h4>
+				<table class="cost-table">
 					<thead>
-						<tr style="border-bottom: 1px solid var(--color-border);">
-							<th style="text-align: left; padding: 0.5rem;">Operation</th>
-							<th style="text-align: right; padding: 0.5rem;">Cost</th>
+						<tr>
+							<th>Operation</th>
+							<th>Cost</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr style="border-bottom: 1px solid var(--color-border);">
-							<td style="padding: 0.5rem;">Set key/value</td>
-							<td style="text-align: right; padding: 0.5rem;">1 credit</td>
-						</tr>
-						<tr style="border-bottom: 1px solid var(--color-border);">
-							<td style="padding: 0.5rem;">Get key/value</td>
-							<td style="text-align: right; padding: 0.5rem;">1 credit</td>
+						<tr>
+							<td>Set key/value</td>
+							<td>1 credit</td>
 						</tr>
 						<tr>
-							<td style="padding: 0.5rem;">Delete key/value</td>
-							<td style="text-align: right; padding: 0.5rem;">1 credit</td>
+							<td>Get key/value</td>
+							<td>1 credit</td>
+						</tr>
+						<tr>
+							<td>Delete key/value</td>
+							<td>1 credit</td>
 						</tr>
 					</tbody>
 				</table>

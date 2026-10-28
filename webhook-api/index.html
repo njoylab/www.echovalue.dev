@@ -37,7 +37,7 @@
 	<meta property="twitter:description"
 		content="Trigger HTTP webhooks from inbound email or cron schedules. Configure an endpoint once, then receive structured JSON payloads.">
 	<meta property="twitter:image" content="https://www.echovalue.dev/images/echovalue-og.png">
-	<link rel="stylesheet" href="../assets/css/dev-theme.css?v=12" />
+	<link rel="stylesheet" href="../assets/css/dev-theme.css?v=13" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
 	<!-- Structured Data -->
@@ -159,7 +159,7 @@
 				Email or cron → webhook. Configure an endpoint once.<br />
 				Receive structured <span class="text-mono">HTTP POST</span> events from echoValue.
 			</p>
-			<div class="code-block" style="margin-top: var(--spacing-md); text-align: left;">
+			<div class="code-block">
 				<code><span class="code-comment"># Trigger types: email, cron</span><br />
 <span class="code-comment"># Native formats: Slack, Discord, Teams, Telegram, PagerDuty</span></code>
 			</div>
@@ -193,7 +193,7 @@
 				&nbsp;&nbsp;-d '{"url":"https://myapp.example.com/hooks/events","schedule":{"cron":"*/15 * * * *","timezone":"Europe/Rome"}}'<br />
 			</div>
 
-			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
+			<div class="projects-grid">
 				<div class="project-card">
 					<div class="project-card-header">
 						<span class="project-card-icon"><i class="fa-solid fa-gear"></i></span>
@@ -298,7 +298,7 @@
 }</code>
 			</div>
 
-			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
+			<div class="projects-grid">
 				<div class="project-card">
 					<div class="project-card-header">
 						<span class="project-card-icon"><i class="fa-solid fa-user"></i></span>
@@ -361,7 +361,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 <span class="code-output">% {"mailboxId":"r_abcd1234","email":"r_abcd1234@hook.echovalue.dev",...}</span></code>
 			</div>
 
-			<div class="projects-grid" style="margin-top: var(--spacing-lg);">
+			<div class="projects-grid">
 				<div class="project-card">
 					<div class="project-card-header">
 						<span class="project-card-icon"><i class="fa-brands fa-slack"></i></span>
@@ -559,38 +559,38 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 			</div>
 
 			<div class="code-block mt-4">
-				<h4 style="margin-bottom: 1rem; color: var(--color-text-muted);">Cost per operation</h4>
-				<table style="width: 100%; border-collapse: collapse;">
+				<h4 class="cost-table-title">Cost per operation</h4>
+				<table class="cost-table">
 					<thead>
-						<tr style="border-bottom: 1px solid var(--color-border);">
-							<th style="text-align: left; padding: 0.5rem;">Operation</th>
-							<th style="text-align: right; padding: 0.5rem;">Cost</th>
+						<tr>
+							<th>Operation</th>
+							<th>Cost</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr style="border-bottom: 1px solid var(--color-border);">
-							<td style="padding: 0.5rem;">Configure webhook</td>
-							<td style="text-align: right; padding: 0.5rem;">1 credit</td>
-						</tr>
-						<tr style="border-bottom: 1px solid var(--color-border);">
-							<td style="padding: 0.5rem;">Get webhook config</td>
-							<td style="text-align: right; padding: 0.5rem;">1 credit</td>
-						</tr>
-						<tr style="border-bottom: 1px solid var(--color-border);">
-							<td style="padding: 0.5rem;">Delete webhook</td>
-							<td style="text-align: right; padding: 0.5rem;">1 credit</td>
-						</tr>
-						<tr style="border-bottom: 1px solid var(--color-border);">
-							<td style="padding: 0.5rem;">Email processed (no attachments)</td>
-							<td style="text-align: right; padding: 0.5rem;">2 credits</td>
-						</tr>
-						<tr style="border-bottom: 1px solid var(--color-border);">
-							<td style="padding: 0.5rem;">Email processed (with attachments)</td>
-							<td style="text-align: right; padding: 0.5rem;">5 credits</td>
+						<tr>
+							<td>Configure webhook</td>
+							<td>1 credit</td>
 						</tr>
 						<tr>
-							<td style="padding: 0.5rem;">Scheduled webhook event</td>
-							<td style="text-align: right; padding: 0.5rem;">2 credits</td>
+							<td>Get webhook config</td>
+							<td>1 credit</td>
+						</tr>
+						<tr>
+							<td>Delete webhook</td>
+							<td>1 credit</td>
+						</tr>
+						<tr>
+							<td>Email processed (no attachments)</td>
+							<td>2 credits</td>
+						</tr>
+						<tr>
+							<td>Email processed (with attachments)</td>
+							<td>5 credits</td>
+						</tr>
+						<tr>
+							<td>Scheduled webhook event</td>
+							<td>2 credits</td>
 						</tr>
 					</tbody>
 				</table>
