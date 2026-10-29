@@ -37,7 +37,7 @@
 	<meta property="twitter:description"
 		content="echoValue DB API is a 'pay as you go' Key-Value Store API, ideal for small projects and serverless applications.">
 	<meta property="twitter:image" content="https://www.echovalue.dev/images/echovalue-og.png">
-	<link rel="stylesheet" href="../assets/css/dev-theme.css?v=13" />
+	<link rel="stylesheet" href="../assets/css/dev-theme.css?v=14" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
 	<!-- Structured Data -->
@@ -128,12 +128,12 @@
 				<i class="fa-solid fa-moon"></i>
 				<i class="fa-solid fa-sun"></i>
 			</button>
-			<button class="navbar-toggle" aria-label="Toggle navigation">
+			<button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar-nav">
 				<span></span>
 				<span></span>
 				<span></span>
 			</button>
-			<ul class="navbar-nav">
+			<ul class="navbar-nav" id="navbar-nav">
 				<li><a href="#getstarted">Get Started</a></li>
 				<li><a href="#pricing">Pricing</a></li>
 				<li><a href="#contact">Contact</a></li>
@@ -271,30 +271,43 @@ curl 'https://api.echovalue.dev/kv/default/hello' \<br />
 				Share flags, status, locks, and signals without provisioning a database.
 			</p>
 
-			<div class="code-block">
-				<button class="copy-btn" type="button" data-copy-tool-def aria-label="Copy tool definitions">
+			<p class="section-intro">Function definitions with JSON Schema parameters. Adapt them to your SDK's tool format and connect each function to the corresponding DB API request.</p>
+			<div class="code-block code-block--copy">
+				<button class="copy-btn" type="button" data-copy-tool-def aria-label="Copy tool definitions" aria-describedby="tool-copy-status">
 					<i class="fa-regular fa-copy"></i> <span data-copy-label>copy</span>
 				</button>
-				<code><span class="code-comment">// Tool definition — works with OpenAI, Claude, Gemini</span><br />
-{<br />
-&nbsp;&nbsp;<span class="code-string">"name"</span>: <span class="code-string">"save_state"</span>,<br />
-&nbsp;&nbsp;<span class="code-string">"description"</span>: <span class="code-string">"Save a key-value pair to shared agent state"</span>,<br />
-&nbsp;&nbsp;<span class="code-string">"parameters"</span>: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"group"</span>: { <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Namespace / bucket"</span> },<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"key"</span>: &nbsp;&nbsp;{ <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Identifier"</span> },<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"value"</span>: { <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Data to store"</span> },<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"ttl"</span>: &nbsp;&nbsp;{ <span class="code-string">"type"</span>: <span class="code-string">"integer"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Expiry in seconds"</span> }<br />
-&nbsp;&nbsp;}<br />
-}<br /><br />
-{<br />
-&nbsp;&nbsp;<span class="code-string">"name"</span>: <span class="code-string">"read_state"</span>,<br />
-&nbsp;&nbsp;<span class="code-string">"description"</span>: <span class="code-string">"Read a value from shared agent state"</span>,<br />
-&nbsp;&nbsp;<span class="code-string">"parameters"</span>: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"group"</span>: { <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Namespace / bucket"</span> },<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"key"</span>: &nbsp;&nbsp;{ <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Identifier"</span> }<br />
-&nbsp;&nbsp;}<br />
-}</code>
+				<pre><code>[
+  {
+    <span class="code-string">"name"</span>: <span class="code-string">"save_state"</span>,
+    <span class="code-string">"description"</span>: <span class="code-string">"Save a key-value pair to shared agent state"</span>,
+    <span class="code-string">"parameters"</span>: {
+      <span class="code-string">"type"</span>: <span class="code-string">"object"</span>,
+      <span class="code-string">"properties"</span>: {
+        <span class="code-string">"group"</span>: { <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Namespace / bucket"</span> },
+        <span class="code-string">"key"</span>: { <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Identifier"</span> },
+        <span class="code-string">"value"</span>: { <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Data to store"</span> },
+        <span class="code-string">"ttl"</span>: { <span class="code-string">"type"</span>: <span class="code-string">"integer"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Expiry in seconds"</span> }
+      },
+      <span class="code-string">"required"</span>: [<span class="code-string">"group"</span>, <span class="code-string">"key"</span>, <span class="code-string">"value"</span>],
+      <span class="code-string">"additionalProperties"</span>: false
+    }
+  },
+  {
+    <span class="code-string">"name"</span>: <span class="code-string">"read_state"</span>,
+    <span class="code-string">"description"</span>: <span class="code-string">"Read a value from shared agent state"</span>,
+    <span class="code-string">"parameters"</span>: {
+      <span class="code-string">"type"</span>: <span class="code-string">"object"</span>,
+      <span class="code-string">"properties"</span>: {
+        <span class="code-string">"group"</span>: { <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Namespace / bucket"</span> },
+        <span class="code-string">"key"</span>: { <span class="code-string">"type"</span>: <span class="code-string">"string"</span>, <span class="code-string">"description"</span>: <span class="code-string">"Identifier"</span> }
+      },
+      <span class="code-string">"required"</span>: [<span class="code-string">"group"</span>, <span class="code-string">"key"</span>],
+      <span class="code-string">"additionalProperties"</span>: false
+    }
+  }
+]</code></pre>
 			</div>
+			<p class="copy-status" id="tool-copy-status" role="status" aria-live="polite"></p>
 
 			<div class="projects-grid">
 				<div class="project-card">
@@ -471,9 +484,9 @@ curl 'https://api.echovalue.dev/kv/default/hello' \<br />
 			</div>
 		</div>
 	</footer>
-	<script src="../assets/js/nav-toggle.js?v=1"></script>
+	<script src="../assets/js/nav-toggle.js?v=2"></script>
 	<script src="../assets/js/theme-toggle.js?v=1"></script>
-	<script src="../assets/js/copy-tool-def.js?v=1" defer></script>
+	<script src="../assets/js/copy-tool-def.js?v=2" defer></script>
 </body>
 
 </html>

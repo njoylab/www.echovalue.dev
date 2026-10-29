@@ -68,7 +68,7 @@ No automated tests. Validate manually:
 - CSS custom properties (variables) are defined in `:root` — use them
 - Naming: BEM-ish kebab-case (`.project-card`, `.project-card-header`, `.btn-primary`)
 - Utility classes follow Tailwind-like shorthand: `.mt-1` through `.mt-4`, `.mb-1` through `.mb-4`, `.text-center`, `.text-muted`, `.btn-block`, `.pt-nav`
-- Responsive breakpoint: single `@media (max-width: 768px)` query for mobile
+- Responsive breakpoints: navigation collapses at `1024px`; content grids stack at `768px`
 - Edit `dev-theme.css` directly — there is no Sass or CSS build step
 
 ### JavaScript

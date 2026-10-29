@@ -17,7 +17,7 @@
 	<link rel="manifest" href="/site.webmanifest">
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-	<link rel="stylesheet" href="/assets/css/dev-theme.css?v=13" />
+	<link rel="stylesheet" href="/assets/css/dev-theme.css?v=14" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
 </head>
@@ -35,12 +35,12 @@
 				<i class="fa-solid fa-moon"></i>
 				<i class="fa-solid fa-sun"></i>
 			</button>
-			<button class="navbar-toggle" aria-label="Toggle navigation">
+			<button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar-nav">
 				<span></span>
 				<span></span>
 				<span></span>
 			</button>
-			<ul class="navbar-nav">
+			<ul class="navbar-nav" id="navbar-nav">
 				<li><a href="/">Home</a></li>
 				<li><a href="/db-api/">DB API</a></li>
 				<li><a href="/webhook-api/">Webhook API</a></li>
@@ -85,7 +85,7 @@
 			</div>
 		</div>
 	</footer>
-	<script src="/assets/js/nav-toggle.js?v=1"></script>
+	<script src="/assets/js/nav-toggle.js?v=2"></script>
 	<script src="/assets/js/theme-toggle.js?v=1"></script>
 </body>
 

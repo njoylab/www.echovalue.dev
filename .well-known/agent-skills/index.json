@@ -18,9 +18,9 @@
     {
       "name": "Content Signals",
       "type": "documentation",
-      "description": "Documents the AI content usage preferences declared in robots.txt.",
+      "description": "Documents crawling directives and the absence of explicit AI usage preferences in this repository.",
       "url": "https://www.echovalue.dev/.well-known/agent-skills/content-signals.md",
-      "sha256": "feb24d18b8f9f32e55fd522c411961858c4f204ef6097ab2a22fae091e01c64b"
+      "sha256": "47e087992da0a6ada6b3130e44a36f2d8dbe0c632556fba16a2faa37b53e06e3"
     },
     {
       "name": "API Catalog",
@@ -41,14 +41,14 @@
       "type": "documentation",
       "description": "Compact markdown overview for the DB API product page, usage, auth, pricing, and docs.",
       "url": "https://www.echovalue.dev/db-api/index.md",
-      "sha256": "8c75ad8a2a5d7b6e8f90086020616b7a78409c4478f50840be626af46fd6804e"
+      "sha256": "140043f1270478f8581687d528fd055fc308344aa0e9b829eb97a78284d3735c"
     },
     {
       "name": "Webhook API Product Index",
       "type": "documentation",
       "description": "Compact markdown overview for Webhook API behavior, email and cron triggers, payload shape, pricing, and docs.",
       "url": "https://www.echovalue.dev/webhook-api/index.md",
-      "sha256": "18ae2f63fac3843a50f166370f2b59af5265739445914bb9ad7b52dfc03fe50b"
+      "sha256": "22b8a8714acfeec07fc2a10f4a615a9b67c4b8dc4b14fddd1cbcde79b0fedbfd"
     },
     {
       "name": "Monitor API Product Index",

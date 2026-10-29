@@ -72,7 +72,7 @@ Shared. Change it on every HTML page in the same commit:
 - Skip link, theme toggle, hamburger button
 - Footer link list and the "Built by nJoyLab.com · IT12822520966 · v2.0" line
 - Contact email and the three social links
-- `nav-toggle.js?v=1` and `theme-toggle.js?v=1`
+- `nav-toggle.js?v=2` and `theme-toggle.js?v=1`
 
 Page-specific. Do not copy these across products:
 
@@ -117,7 +117,7 @@ Styles live only in `assets/css/dev-theme.css`. Use the tokens already defined o
 | Spacing | `.mt-1`…`.mt-4`, `.mb-1`…`.mb-4`, `.text-center`, `.text-muted`, `.text-mono`, `.mono` |
 | Narrow legal copy | `.legal-content` inside `.section.pt-nav` |
 
-Product `h1`: put the product token in `<span class="mono">db</span>-api …`. The `.mono` span is the green accent (`--color-accent-green`, `#30d158`). The navbar brand on these pages stays the default text color.
+Product `h1`: put the product token in `<span class="mono">db</span>-api …`. The `.mono` span uses `--color-accent-green`: `#30d158` in dark mode and `#146c2e` in light mode for readable contrast. The navbar brand on these pages stays the default text color.
 
 Button labels are short commands, with an arrow when the link leaves the section: `read docs →`, `open dashboard ↗`, `view db-api →`. The navbar Dashboard item is `<a class="navbar-cta">`, not a `.btn`.
 
@@ -150,7 +150,7 @@ Pricing always states no subscription and that credits do not expire. One tier i
 
 Free tools are separate apps at `https://{name}.echovalue.dev`: `geoip`, `lookup`, `jsonlint`, `markdown-viewer`, `webhook`, `secrets`, `crontab`, `urlsummary`, `jwt`, `qr`, `export`. Local folders sometimes differ (`json.echovalue.dev`, `md.echovalue.dev`, `social.echovalue.dev`). They are not pages in this checkout. The reference shell is [geoip](https://geoip.echovalue.dev) (`/Users/emiliano/dev/geoip.echovalue.dev`).
 
-The navbar brand is `echoValue` and the tool name, in JetBrains Mono, written as two words: `echoValue geoip`. `echoValue` stays the default text color at weight 600. The tool name is the green accent: `var(--positive)`, which aliases `var(--ev-color-success)` (`#30d158`), at weight 500. The same green holds in dark and light. The name is the short lowercase id, the same string as the homepage card `h3`.
+The navbar brand is `echoValue` and the tool name, in JetBrains Mono, written as two words: `echoValue geoip`. `echoValue` stays the default text color at weight 600. The tool name is the green accent: `var(--positive)`, which aliases `var(--ev-color-success)` (`#30d158`), at weight 500. This describes the separate free-tool apps. Marketing pages in this checkout use the theme-specific green token documented above. The name is the short lowercase id, the same string as the homepage card `h3`.
 
 ```html
 <a class="brand" href="/">echoValue <span class="brandProduct">geoip</span></a>
@@ -186,7 +186,7 @@ Match the pages already shipped:
 
 Dark is the default. Light mode is `data-theme="light"` on `<html>`, toggled by `.theme-toggle` and `assets/js/theme-toggle.js`. Do not fork colors per page.
 
-`assets/js/nav-toggle.js` opens `.navbar-nav` from `.navbar-toggle`. Keep both elements and those class names or the menu breaks. The mobile breakpoint is the single `@media (max-width: 768px)` already in the stylesheet. New layout rules go inside that query, not a second breakpoint.
+`assets/js/nav-toggle.js` opens `.navbar-nav` from `.navbar-toggle`. Keep both elements and those class names or the menu breaks. Navigation collapses at `1024px`; content grids stack at `768px`. Keep the navigation breakpoint in `nav-toggle.js` aligned with the CSS. The toggle uses `aria-controls="navbar-nav"` and `aria-expanded`; its target has `id="navbar-nav"`. Escape closes the menu and returns focus to the toggle.
 
 Scripts use an IIFE. Add a script only when a page needs that behavior.
 
@@ -202,7 +202,7 @@ Update the shared shell on all of these when it changes:
 - `webhook-api/index.html`
 - `monitor-api/index.html` (coming soon, `noindex`)
 
-Redirected, kept only for the stylesheet version bump: `db-api/agent-state/index.html` and `mail2webhook/index.html`. Do not add features to them. `mail2webhook/index.html` stays `noindex` with its canonical on `https://www.echovalue.dev/webhook-api/`.
+Redirected, kept only for shared asset versions and shell compatibility: `db-api/agent-state/index.html` and `mail2webhook/index.html`. Do not add features to them. `mail2webhook/index.html` stays `noindex` with its canonical on `https://www.echovalue.dev/webhook-api/`.
 
 Check the shell with one command before you finish a shell change:
 
@@ -222,6 +222,7 @@ A product page is more than its HTML. When you add, rename, or remove one, updat
 - `_redirects` — `/product-name` and `/product-name/index.html` → `/product-name/` 301
 - `sitemap.xml` — add the canonical URL once the page is indexable (not while `noindex`)
 - `.well-known/api-catalog` — add the product's API anchor once it has public docs
+- `.well-known/agent-skills/index.json` — recompute SHA-256 hashes from the exact file bytes whenever a referenced document changes
 - `index.html` and `index.md` — the homepage card and the product list
 - Footer — only if the product joins the footer list, and then on every page
 
@@ -243,4 +244,4 @@ A product page is more than its HTML. When you add, rename, or remove one, updat
 - Navbar still has theme toggle, hamburger, and `navbar-cta` on Dashboard
 - Internal links resolve from that file's depth; external links have `target` and `rel`
 - Both themes still readable: default dark, and light after toggling `.theme-toggle`
-- At 768px the nav collapses and `.projects-grid` / `.pricing-grid` stack to one column
+- At 1024px the nav collapses; at 768px `.projects-grid` / `.pricing-grid` stack to one column. Check both sides of each breakpoint.

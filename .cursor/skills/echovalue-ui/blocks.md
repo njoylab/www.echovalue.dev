@@ -48,12 +48,12 @@ Brand text and the in-page `<li>` links change per page. Everything else stays.
 			<i class="fa-solid fa-moon"></i>
 			<i class="fa-solid fa-sun"></i>
 		</button>
-		<button class="navbar-toggle" aria-label="Toggle navigation">
+		<button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar-nav">
 			<span></span>
 			<span></span>
 			<span></span>
 		</button>
-		<ul class="navbar-nav">
+		<ul class="navbar-nav" id="navbar-nav">
 			<li><a href="#how-it-works">How It Works</a></li>
 			<li><a href="#pricing">Pricing</a></li>
 			<li><a href="#contact">Contact</a></li>
@@ -260,7 +260,7 @@ Same on every page. Root paths, so depth does not matter.
 		</div>
 	</div>
 </footer>
-<script src="../assets/js/nav-toggle.js?v=1"></script>
+<script src="../assets/js/nav-toggle.js?v=2"></script>
 <script src="../assets/js/theme-toggle.js?v=1"></script>
 ```
 

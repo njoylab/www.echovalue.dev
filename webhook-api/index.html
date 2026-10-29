@@ -37,7 +37,7 @@
 	<meta property="twitter:description"
 		content="Trigger HTTP webhooks from inbound email or cron schedules. Configure an endpoint once, then receive structured JSON payloads.">
 	<meta property="twitter:image" content="https://www.echovalue.dev/images/echovalue-og.png">
-	<link rel="stylesheet" href="../assets/css/dev-theme.css?v=13" />
+	<link rel="stylesheet" href="../assets/css/dev-theme.css?v=14" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
 	<!-- Structured Data -->
@@ -131,12 +131,12 @@
 				<i class="fa-solid fa-moon"></i>
 				<i class="fa-solid fa-sun"></i>
 			</button>
-			<button class="navbar-toggle" aria-label="Toggle navigation">
+			<button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar-nav">
 				<span></span>
 				<span></span>
 				<span></span>
 			</button>
-			<ul class="navbar-nav">
+			<ul class="navbar-nav" id="navbar-nav">
 				<li><a href="#how-it-works">How It Works</a></li>
 				<li><a href="#triggers">Triggers</a></li>
 				<li><a href="#use-cases">Use Cases</a></li>
@@ -658,7 +658,7 @@ curl 'https://api.echovalue.dev/webhook' \<br />
 			</div>
 		</div>
 	</footer>
-	<script src="../assets/js/nav-toggle.js?v=1"></script>
+	<script src="../assets/js/nav-toggle.js?v=2"></script>
 	<script src="../assets/js/theme-toggle.js?v=1"></script>
 </body>
 

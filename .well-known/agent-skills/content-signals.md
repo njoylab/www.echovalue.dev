@@ -1,12 +1,10 @@
 # Content Signals
 
-This site declares AI usage preferences in `robots.txt` using `Content-Signal`.
+The repository's `robots.txt` allows crawling and points to the sitemap. It does not declare `Content-Signal` preferences.
 
-## Declared policy
+## AI usage preferences
 
-- `ai-train=yes`
-- `search=yes`
-- `ai-input=yes`
+No explicit `ai-train`, `search`, or `ai-input` preference is configured here. Check the served `robots.txt` for any additional directives applied by the hosting provider.
 
 ## Location
 

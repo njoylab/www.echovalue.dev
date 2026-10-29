@@ -710,6 +710,16 @@ body {
   color: var(--color-text-secondary);
 }
 
+.code-block--copy {
+  padding-top: 3rem;
+}
+
+.copy-status {
+  min-height: 1.7em;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
 .code-comment {
   color: var(--color-text-muted);
 }
@@ -1009,6 +1019,7 @@ body {
 
 /* ===== LIGHT THEME ===== */
 [data-theme="light"] {
+  --ev-color-success: #146c2e;
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f5f5f7;
   --color-bg-tertiary: #e8e8ed;
@@ -1021,12 +1032,12 @@ body {
   --color-text-muted: #5f6368;
 
   --color-accent-blue: #0066cc;
-  --color-accent-green: #30d158;
+  --color-accent-green: var(--ev-color-success);
   --color-accent-orange: #ff9f0a;
   --color-accent-purple: #bf5af2;
   --color-accent-cyan: #007a99;
 
-  --color-success: #30d158;
+  --color-success: var(--ev-color-success);
   --color-warning: #ff9f0a;
   --color-error: #ff453a;
 }
@@ -1088,7 +1099,7 @@ body,
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .navbar-toggle {
     display: block;
   }
@@ -1112,6 +1123,8 @@ body,
     flex-direction: column;
     gap: 0;
     padding: 0.75rem 0;
+    max-height: calc(100dvh - 56px);
+    overflow-y: auto;
   }
 
   .navbar-nav.active {
@@ -1136,7 +1149,9 @@ body,
   .navbar-nav a::after {
     display: none;
   }
+}
 
+@media (max-width: 768px) {
   .hero {
     padding-top: 8rem;
     padding-bottom: var(--spacing-lg);
