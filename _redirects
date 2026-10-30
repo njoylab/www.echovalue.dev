@@ -4,6 +4,8 @@
 /index.html / 301
 /privacy.html /privacy 301
 /privacy/ /privacy 301
+/anteprima-qr/privacy.html /anteprima-qr/privacy 301
+/anteprima-qr/privacy/ /anteprima-qr/privacy 301
 /toc.html /toc 301
 /toc/ /toc 301
 /db-api /db-api/ 301
